@@ -1,0 +1,115 @@
+type: edu
+files:
+- name: src/TanulmanyiRendszer.java
+  visible: true
+  text: |-
+    public class TanulmanyiRendszer {
+
+        public String elindit(int felhasznalok) {
+            return felhasznalok <= 10000 ? "a tanulmanyi rendszer elindult!" : "tul sok felhasznalo!";
+        }
+
+    }
+  learner_created: false
+- name: src/Neptun.java
+  visible: true
+  placeholders:
+  - offset: 50
+    length: 127
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 53
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      @Override
+          public String elindit(int felhasznalok) {
+              return felhasznalok <= 135211 ? "Neptun elinditva!" : "service is unavailable";
+          }
+  text: |
+    public class Neptun extends TanulmanyiRendszer {
+        // megoldas
+    }
+  learner_created: false
+- name: test/TesztNeptun.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class TesztNeptun {
+        @Test
+        public void teszt_01() {
+            Neptun n = new Neptun();
+            assertEquals("neptun hibas", "Neptun elinditva!", n.elindit(1));
+        }
+
+        @Test
+        public void teszt_02() {
+            Neptun n = new Neptun();
+            assertEquals("neptun hibas", "Neptun elinditva!", n.elindit(10000));
+        }
+
+        @Test
+        public void teszt_03() {
+            Neptun n = new Neptun();
+            assertEquals("neptun hibas", "Neptun elinditva!", n.elindit(15000));
+        }
+
+        @Test
+        public void teszt_04() {
+            Neptun n = new Neptun();
+            assertEquals("neptun hibas", "Neptun elinditva!", n.elindit(135211));
+        }
+
+        @Test
+        public void teszt_05() {
+            Neptun n = new Neptun();
+            assertEquals("neptun hibas", "service is unavailable", n.elindit(135212));
+        }
+
+        @Test
+        public void teszt_06() {
+            Neptun n = new Neptun();
+            assertEquals("neptun hibas", "service is unavailable", n.elindit(1000001));
+        }
+    }
+  learner_created: false
+- name: test/TesztTanulmanyiRendszer.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class TesztTanulmanyiRendszer {
+        @Test
+        public void teszt_01() {
+            TanulmanyiRendszer t = new TanulmanyiRendszer();
+            assertEquals("tanulmanyi rendszer hibas", "a tanulmanyi rendszer elindult!", t.elindit(9500));
+
+        }
+
+        @Test
+        public void teszt_02() {
+            TanulmanyiRendszer t = new TanulmanyiRendszer();
+            assertEquals("tanulmanyi rendszer hibas", "a tanulmanyi rendszer elindult!", t.elindit(10000));
+        }
+
+        @Test
+        public void teszt_03() {
+            TanulmanyiRendszer t = new TanulmanyiRendszer();
+            assertEquals("tanulmanyi rendszer hibas", "tul sok felhasznalo!", t.elindit(10001));
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 12 Mar 2024 14:05:09 UTC"
+record: -1
+solution_hidden: true

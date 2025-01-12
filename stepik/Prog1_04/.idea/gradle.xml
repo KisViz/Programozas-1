@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="delegatedBuild" value="false" />
+        <option name="distributionType" value="WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/lesson1/bunuldozes" />
+            <option value="$PROJECT_DIR$/lesson1/butorgyar" />
+            <option value="$PROJECT_DIR$/lesson1/dezso" />
+            <option value="$PROJECT_DIR$/lesson1/eger" />
+            <option value="$PROJECT_DIR$/lesson1/gomba" />
+            <option value="$PROJECT_DIR$/lesson1/halak" />
+            <option value="$PROJECT_DIR$/lesson1/hangverseny" />
+            <option value="$PROJECT_DIR$/lesson1/karakter" />
+            <option value="$PROJECT_DIR$/lesson1/kard" />
+            <option value="$PROJECT_DIR$/lesson1/kecske" />
+            <option value="$PROJECT_DIR$/lesson1/kodolas" />
+            <option value="$PROJECT_DIR$/lesson1/komod" />
+            <option value="$PROJECT_DIR$/lesson1/koordinata" />
+            <option value="$PROJECT_DIR$/lesson1/lovak" />
+            <option value="$PROJECT_DIR$/lesson1/lovasszeker" />
+            <option value="$PROJECT_DIR$/lesson1/macska" />
+            <option value="$PROJECT_DIR$/lesson1/macskabeka" />
+            <option value="$PROJECT_DIR$/lesson1/madar" />
+            <option value="$PROJECT_DIR$/lesson1/neptun" />
+            <option value="$PROJECT_DIR$/lesson1/pokemon" />
+            <option value="$PROJECT_DIR$/lesson1/reakciok" />
+            <option value="$PROJECT_DIR$/lesson1/sarkanyok" />
+            <option value="$PROJECT_DIR$/lesson1/szamitogep" />
+            <option value="$PROJECT_DIR$/lesson1/zombi" />
+            <option value="$PROJECT_DIR$/util" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

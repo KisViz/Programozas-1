@@ -1,0 +1,34 @@
+<html lang="hu">
+    <h1>[⭐⭐⭐] 29. Tic-tac-toe (8 pont)</h1>
+    Írjunk egy programot, amely egy (3x3-as) tic-tac-toe tábláról eldönti, hogy melyik játékos nyert.
+    A játékot az nyeri, akinek van 3 jele egy sorban, oszlopban vagy átlóban. Ilyenkor vége a játéknak. Az is lehet, hogy megtelt a tábla, de nincs nyertes.<br>
+    <br>
+    A táblát parancssori argumentumokként kapja meg a program (tehát a 9 számot szóközökkel elválasztva).
+    Az első jelenti a bal felső sarkot, a második a felső sor középső mezőjét, a harmadik a jobb felső sarkot, a negyedik a középső sor első elemét, és így tovább.<br>
+    A számok három félék lehetnek: -1, 0, 1. A -1 jelenti azt, hogy az a mező üres, a 0-s az első játékosé, az 1-es a második játékosé.
+    Az első játékost Attilának, a második játékost Bellának hívják.<br>
+    <br>
+    Ha az első játékos (Attila) nyert, akkor írjuk ki a standard kimenetre, hogy "Attila nyert" (idézőjelek nélkül).
+    Ha a második játékos (Bella) nyert, akkor írjuk ki, hogy "Bella nyert", ha pedig nincs nyertes (minden mező tele van), akkor azt írjuk ki, hogy "Nincs nyertes".<br>
+    <br>
+    Példák:
+    <ul>
+        <li>1 1 -1 0 0 0 1 -1 -1 --> Attila nyert</li>
+        <li>1 -1 0 0 1 -1 0 0 1 --> Bella nyert</li>
+        <li>1 0 1 1 0 1 0 1 0 --> Nincs nyertes</li>
+    </ul>
+
+    A megoldás során feltehetjük, hogy mindig érvényes adatokat kapunk (tehát lesz argumentum, pontosan 9, mindegyik számot tartalmaz (-1, 0, 1). Vagy van
+    nyertes vagy minden mező tele van).<br>
+    <br>
+    <br>
+    Mivel az egekben vannak az SSD árak, így szeretnénk spórolni a rendelkezésre álló hellyel, mivel jelenleg egy nagyon kis SSD-vel rendelkezünk.
+    Ezért célunk, hogy a forráskódunk mérete minél kisebb legyen.<br>
+    <br>
+    Maximálisan rendelkezésre álló bájtok száma: 240.
+
+    <div class="hint">
+        Szerencsére videókártyát nem kell vásárolnunk a program futtatásához
+    </div>
+
+</html>

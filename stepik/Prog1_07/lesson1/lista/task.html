@@ -1,0 +1,16 @@
+<html lang="hu">
+  <h1>[⭐⭐] 12. Lista (6 pont)</h1>
+  A <i>Lista</i> osztály rendelkezik néhány metódussal. A metódusok Tomb objektumon végeznek műveleteket. Azonban az kivételt dobhat. Ha valamelyik metódusban kivétel keletkezik, akkor adjuk hozzá a kivételeket
+  tároló listához.
+  <ul>
+    <li><i>osszegetSzamol</i>: paraméterben egy Tomb objektumot vár. A metódus visszaadja a tömb összegét. Kivétel esetén 0-t ad vissza.</li>
+    <li><i>szetfoszlat</i>: paraméterben egy Tomb objektumot vár. A tömb objektum foszoljon szét (az alap értéke a kivételeket tároló lista mérete legyen). Kivétel esetén 0-val kell visszatérni</li>
+    <li><i>beilleszt</i>: paraméterben egy szöveget és egy Tomb objektumot vár. A Tomb objektumba illesszük be ezt a szöveget.</li>
+    <li><i>runtimeExceptionDarab</i>: visszaadja, hogy a feldolgozas során hányszor fordult elő RuntimeException.</li>
+  </ul>
+
+  <div class="hint">
+    Az biztos, hogy egyik metódus sem dob kivételt, tehát azokat el kell kapniuk. Mit kell csinálnunk ilyenkor még ahhoz, hogy megtudjuk,
+    hogy összesen hány RuntimeException jött elő a futtatás során?
+  </div>
+</html>

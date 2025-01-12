@@ -1,0 +1,79 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            Kor kor1 = new Kor(5);
+            assertEquals("konstruktorban helyes ertek megadva - hibas eredmeny", 5, kor1.getAtmero());
+            kor1.setAtmero(8);
+            assertEquals("setterben helyes ertek megadva - hibas eredmeny", 8, kor1.getAtmero());
+        }
+
+        @Test
+        public void teszt_02() {
+            Kor kor2 = new Kor(-2);
+            assertEquals("konstruktorban helyes ertek megadva - hibas eredmeny", 1, kor2.getAtmero());
+            kor2.setAtmero(7);
+            kor2.setAtmero(-5);
+            assertEquals("setterben helyes ertek megadva - hibas eredmeny", 1, kor2.getAtmero());
+        }
+
+        @Test
+        public void teszt_03() {
+            Kor kor3 = new Kor(0);
+            assertEquals("konstruktorban helyes ertek megadva - hibas eredmeny", 1, kor3.getAtmero());
+            kor3.setAtmero(8);
+            kor3.setAtmero(0);
+            assertEquals("setterben helyes ertek megadva - hibas eredmeny", 1, kor3.getAtmero());
+        }
+    }
+  learner_created: false
+- name: src/Kor.java
+  visible: true
+  placeholders:
+  - offset: 434
+    length: 11
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 48
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public Kor(int atmero) {
+              setAtmero(atmero);
+          }
+
+          public int getAtmero() {
+              return atmero;
+          }
+
+          public void setAtmero(int atmero) {
+              if (atmero > 0) {
+                  this.atmero = atmero;
+              } else {
+                  this.atmero = 1;
+              }
+          }
+  text: |
+    public class Kor {
+        private int atmero;
+
+        // megoldas
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 01 Mar 2024 18:17:36 UTC"
+record: -1
+solution_hidden: true

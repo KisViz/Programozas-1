@@ -1,0 +1,86 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void zombi() {
+            assertEquals("zombi modosult", 1, fieldCount(Zombi.class));
+            assertEquals("zombi modosult", 2, methodCount(Zombi.class));
+            assertEquals("zombi modosult", 1, constructorCount(Zombi.class));
+        }
+
+        @Test
+        public void sebez() {
+            Zombi z1 = new Zombi();
+            z1.setElet(10);
+
+            Zombi z2 = new Zombi();
+            z2.setElet(40);
+
+            Harcos h = new Harcos();
+            h.sebez(z1, 5);
+            assertEquals("sebez nem jol mukodik", 5, z1.getElet());
+
+            h.sebez(z1, 10);
+            assertEquals("sebez nem jol mukodik", -5, z1.getElet());
+
+            h.sebez(z2, 3);
+            assertEquals("sebez nem jol mukodik", 37, z2.getElet());
+
+            h.sebez(z2, 6);
+            assertEquals("sebez nem jol mukodik", 31, z2.getElet());
+        }
+    }
+  learner_created: false
+- name: src/Zombi.java
+  visible: true
+  text: |-
+    public class Zombi {
+        private int elet;
+
+        public int getElet() {
+            return elet;
+        }
+
+        public void setElet(int elet) {
+            this.elet = elet;
+        }
+
+    }
+  learner_created: false
+- name: src/Harcos.java
+  visible: true
+  placeholders:
+  - offset: 27
+    length: 100
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 27
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public void sebez(Zombi zombi, int ero) {
+              zombi.setElet(zombi.getElet() - ero);
+          }
+  text: |
+    public class Harcos {
+
+        // megoldas
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 12 Mar 2024 14:20:03 UTC"
+record: -1
+solution_hidden: true

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Megtalalhato" tests="6" skipped="0" failures="0" errors="0" timestamp="2024-03-09T18:55:29" hostname="DESKTOP-VL7E782" time="0.002">
+  <properties/>
+  <testcase name="teszt_01" classname="Megtalalhato" time="0.0"/>
+  <testcase name="teszt_02" classname="Megtalalhato" time="0.001"/>
+  <testcase name="teszt_03" classname="Megtalalhato" time="0.0"/>
+  <testcase name="teszt_04" classname="Megtalalhato" time="0.0"/>
+  <testcase name="teszt_05" classname="Megtalalhato" time="0.001"/>
+  <testcase name="teszt_06" classname="Megtalalhato" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

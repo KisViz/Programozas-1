@@ -1,0 +1,158 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.*;
+
+    public class Tests {
+        @Test
+        public void asztal() {
+            Asztal a = new Asztal();
+            assertTrue("oroklodes hibas", a instanceof Butor);
+        }
+
+        @Test
+        public void komod() {
+            Komod k = new Komod();
+            assertTrue("oroklodes hibas", k instanceof Butor);
+        }
+
+        @Test
+        public void szekreny() {
+            Szekreny sz = new Szekreny();
+            assertTrue("oroklodes hibas", sz instanceof Butor);
+        }
+
+        @Test
+        public void szek() {
+            Szek s = new Szek();
+            assertTrue("oroklodes hibas", s instanceof Butor);
+        }
+
+        @Test
+        public void butorgyar() {
+            ButorGyar gyar = new ButorGyar();
+            Butor[] butorok = gyar.butorGyartas();
+
+            assertEquals("a tomb merete nem megfelelo", 8, butorok.length);
+            assertSame(butorok[0].getClass(), Asztal.class);
+            assertSame(butorok[1].getClass(), Asztal.class);
+            assertSame(butorok[2].getClass(), Szek.class);
+            assertSame(butorok[3].getClass(), Szek.class);
+            assertSame(butorok[4].getClass(), Szekreny.class);
+            assertSame(butorok[5].getClass(), Szekreny.class);
+            assertSame(butorok[6].getClass(), Komod.class);
+            assertSame(butorok[7].getClass(), Komod.class);
+        }
+    }
+  learner_created: false
+- name: src/Butor.java
+  visible: true
+  text: "public class Butor {}"
+  learner_created: false
+- name: src/Asztal.java
+  visible: true
+  placeholders:
+  - offset: 19
+    length: 14
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 19
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ' extends Butor'
+  text: |
+    public class Asztal {}
+  learner_created: false
+- name: src/Komod.java
+  visible: true
+  placeholders:
+  - offset: 18
+    length: 14
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 18
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ' extends Butor'
+  text: |
+    public class Komod {}
+  learner_created: false
+- name: src/Szekreny.java
+  visible: true
+  placeholders:
+  - offset: 21
+    length: 14
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 21
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ' extends Butor'
+  text: |
+    public class Szekreny {}
+  learner_created: false
+- name: src/Szek.java
+  visible: true
+  placeholders:
+  - offset: 17
+    length: 14
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 17
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ' extends Butor'
+  text: |
+    public class Szek {}
+  learner_created: false
+- name: src/ButorGyar.java
+  visible: true
+  placeholders:
+  - offset: 70
+    length: 268
+    placeholder_text: return null;
+    initial_state:
+      length: 12
+      offset: 70
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      return new Butor[] {
+                  new Asztal(),
+                  new Asztal(),
+                  new Szek(),
+                  new Szek(),
+                  new Szekreny(),
+                  new Szekreny(),
+                  new Komod(),
+                  new Komod()
+              };
+  text: |
+    public class ButorGyar {
+
+        public Butor[] butorGyartas() {
+            return null;
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 12 Mar 2024 14:37:05 UTC"
+record: -1
+solution_hidden: true

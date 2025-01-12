@@ -1,0 +1,124 @@
+type: edu
+custom_name: paros
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.util.Arrays;
+    import java.util.Collections;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            Paros p1 = new Paros();
+
+            p1.hozzaadas(5);
+            assertEquals("hibas lista", Collections.emptyList(), p1.getSzamok());
+
+            p1.hozzaadas(8);
+            assertEquals("hibas lista", Collections.singletonList(8), p1.getSzamok());
+
+            p1.hozzaadas(5);
+            assertEquals("hibas lista", Collections.singletonList(8), p1.getSzamok());
+
+            p1.hozzaadas(4);
+            assertEquals("hibas lista", Arrays.asList(8,4), p1.getSzamok());
+
+            p1.hozzaadas(1);
+            assertEquals("hibas lista", Arrays.asList(8,4), p1.getSzamok());
+
+            p1.primszamokatTorol();
+            assertEquals("hibas lista", Arrays.asList(8,4), p1.getSzamok());
+        }
+
+        @Test
+        public void teszt_02() {
+            Paros p2 = new Paros();
+
+            p2.hozzaadas(0);
+            assertEquals("hibas lista", Collections.singletonList(0), p2.getSzamok());
+
+            p2.hozzaadas(1);
+            assertEquals("hibas lista", Collections.singletonList(0), p2.getSzamok());
+
+            p2.hozzaadas(2);
+            assertEquals("hibas lista", Arrays.asList(0,2), p2.getSzamok());
+
+            p2.hozzaadas(2);
+            assertEquals("hibas lista", Arrays.asList(0,2,2), p2.getSzamok());
+
+            p2.hozzaadas(16);
+            assertEquals("hibas lista", Arrays.asList(0,2,2,16), p2.getSzamok());
+
+            p2.primszamokatTorol();
+            assertEquals("hibas lista", Arrays.asList(0,16), p2.getSzamok());
+
+            for (int i = 0; i < 13440; i++) {
+                p2.hozzaadas(2);
+            }
+            p2.primszamokatTorol();
+            assertEquals("hibas lista", Arrays.asList(0,16), p2.getSzamok());
+        }
+
+    }
+  learner_created: false
+- name: src/Paros.java
+  visible: true
+  placeholders:
+  - offset: 174
+    length: 60
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 174
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      if (szam % 2 == 0) {
+                  szamok.add(szam);
+              }
+  - offset: 377
+    length: 0
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 239
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      while (szamok.contains(2)) {
+                  szamok.remove((Integer) 2);
+              }
+  text: |-
+    import java.util.ArrayList;
+    import java.util.List;
+
+    public class Paros {
+        private List<Integer> szamok = new ArrayList<>();
+
+        public void hozzaadas(int szam) {
+            // megoldas
+        }
+
+        public void primszamokatTorol() {
+            // megoldas
+        }
+
+        public List<Integer> getSzamok() {
+            return new ArrayList<>(szamok);
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 22 Apr 2024 11:32:24 UTC"
+record: -1
+solution_hidden: true

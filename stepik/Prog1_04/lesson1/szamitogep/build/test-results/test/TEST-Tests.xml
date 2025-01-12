@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Tests" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-03-17T20:19:23" hostname="DESKTOP-VL7E782" time="0.003">
+  <properties/>
+  <testcase name="testParameteresKonstruktor" classname="Tests" time="0.001"/>
+  <testcase name="testToString" classname="Tests" time="0.0"/>
+  <testcase name="testTarhelyMennyiseg" classname="Tests" time="0.0"/>
+  <testcase name="testBovites" classname="Tests" time="0.0"/>
+  <testcase name="testDefaultKonstruktor" classname="Tests" time="0.0"/>
+  <testcase name="testSetter" classname="Tests" time="0.0"/>
+  <testcase name="testBeKiKapcsol" classname="Tests" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

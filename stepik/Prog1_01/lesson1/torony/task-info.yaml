@@ -1,0 +1,45 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    public class Tests extends BaseTest {
+        {
+            keepSoutSerr = false;
+        }
+
+        @Test
+        public void teszt() {
+
+        }
+    }
+  learner_created: false
+- name: src/Torony.java
+  visible: true
+  placeholders:
+  - offset: 75
+    length: 29
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 75
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: System.out.println("TORONY");
+  text: |-
+    public class Torony {
+        public static void main(String[] args) {
+            // megoldas
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 15:59:21 UTC"
+record: -1
+solution_hidden: true

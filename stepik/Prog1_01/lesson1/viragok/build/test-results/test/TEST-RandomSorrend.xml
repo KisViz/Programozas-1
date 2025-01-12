@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RandomSorrend" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-02-23T19:35:33" hostname="DESKTOP-VL7E782" time="0.004">
+  <properties/>
+  <testcase name="teszt_01" classname="RandomSorrend" time="0.004"/>
+  <testcase name="teszt_02" classname="RandomSorrend" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

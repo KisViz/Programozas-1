@@ -1,0 +1,226 @@
+type: edu
+files:
+- name: src/Madar.java
+  visible: true
+  placeholders:
+  - offset: 274
+    length: 866
+    placeholder_text: // megoldasok
+    initial_state:
+      length: 13
+      offset: 274
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: |-
+      public static boolean megtalalhato(Madar[] madarak, String nev) {
+              for (int i = 0; i < madarak.length; i++) {
+                  if (madarak[i].nev.equals(nev)) {
+                      return true;
+                  }
+              }
+
+              return false;
+          }
+
+          public static Madar leggyorsabb(Madar[] madarak) {
+              if (madarak.length == 0) {
+                  return null;
+              }
+
+              Madar leggyorsabb = madarak[0];
+              for (Madar madar: madarak) {
+                  if (madar.repulesiSebesseg > leggyorsabb.repulesiSebesseg) {
+                      leggyorsabb = madar;
+                  }
+              }
+
+              return leggyorsabb;
+          }
+
+          public static int kicsik(Madar[] madarak, int kuszobertek) {
+              int darab = 0;
+              for (Madar madar: madarak) {
+                  if (madar.meret < kuszobertek) {
+                      darab++;
+                  }
+              }
+
+              return darab;
+          }
+  text: |-
+    public class Madar {
+      private String nev;
+      private int repulesiSebesseg;
+      private int meret;
+
+        public Madar(String nev, int repulesiSebesseg, int meret) {
+            this.nev = nev;
+            this.repulesiSebesseg = repulesiSebesseg;
+            this.meret = meret;
+        }
+
+        // megoldasok
+
+        public String getNev() {
+            return nev;
+        }
+
+        public void setNev(String nev) {
+            this.nev = nev;
+        }
+
+        public int getRepulesiSebesseg() {
+            return repulesiSebesseg;
+        }
+
+        public void setRepulesiSebesseg(int repulesiSebesseg) {
+            this.repulesiSebesseg = repulesiSebesseg;
+        }
+
+        public int getMeret() {
+            return meret;
+        }
+
+        public void setMeret(int meret) {
+            this.meret = meret;
+        }
+
+        @Override
+        public String toString() {
+            return "Madar{" +
+                    "nev='" + nev + '\'' +
+                    ", repulesiSebesseg=" + repulesiSebesseg +
+                    ", meret=" + meret +
+                    '}';
+        }
+
+    }
+  learner_created: false
+- name: test/TestHelper.java
+  visible: false
+  text: |
+    public class TestHelper {
+        Madar m1 = new Madar("Hollo", 3, 5);
+        Madar m2 = new Madar("Vereb", 3, 6);
+        Madar m3 = new Madar("kecske", 7, 3);
+        Madar m4 = new Madar("rigo", 1, 130);
+        Madar m5 = new Madar("rigo", 4, 2);
+        Madar m6 = new Madar("nyuszi", 12, 7);
+        Madar m7 = new Madar("repulo", 12, 1);
+
+        Madar[] madarak1 = { m1, m2, m3, m4 };
+        Madar[] madarak2 = { m4, m5, m6, m7, m2 };
+        Madar[] madarak3 = {};
+    }
+  learner_created: false
+- name: test/Megtalalhato.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.*;
+
+    public class Megtalalhato extends TestHelper {
+
+        @Test
+        public void teszt_01() {
+            assertTrue("megtalalhato metodus hibas", Madar.megtalalhato(madarak1, "Hollo"));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertTrue("megtalalhato metodus hibas", Madar.megtalalhato(madarak1, "rigo"));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertFalse("megtalalhato metodus hibas", Madar.megtalalhato(madarak1, "rigorigo"));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertFalse("megtalalhato metodus hibas", Madar.megtalalhato(madarak2, "Hollo"));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertTrue("megtalalhato metodus hibas", Madar.megtalalhato(madarak2, "rigo"));
+        }
+
+        @Test
+        public void teszt_06() {
+            assertFalse("megtalalhato metodus hibas", Madar.megtalalhato(madarak3, "rigo"));
+        }
+    }
+  learner_created: false
+- name: test/Leggyorsabb.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertSame;
+
+    public class Leggyorsabb extends TestHelper {
+        @Test
+        public void teszt_01() {
+            assertSame("leggyorsabb metodus hibas", m3, Madar.leggyorsabb(madarak1));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertSame("leggyorsabb metodus hibas", m6, Madar.leggyorsabb(madarak2));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertSame("leggyorsabb metodus hibas", null, Madar.leggyorsabb(madarak3));
+        }
+    }
+  learner_created: false
+- name: test/Kicsik.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Kicsik extends TestHelper {
+        @Test
+        public void teszt_01() {
+            assertEquals("kicsik metodus hibas", 3, Madar.kicsik(madarak1, 10));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("kicsik metodus hibas", 0, Madar.kicsik(madarak1, 3));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("kicsik metodus hibas", 2, Madar.kicsik(madarak2, 5));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("kicsik metodus hibas", 1, Madar.kicsik(madarak2, 2));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertEquals("kicsik metodus hibas", 0, Madar.kicsik(madarak2, -500));
+        }
+
+        @Test
+        public void teszt_06() {
+            assertEquals("kicsik metodus hibas (ures tomb)", 0, Madar.kicsik(madarak3, 5));
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Sat, 09 Mar 2024 18:55:29 UTC"
+record: -1
+solution_hidden: true

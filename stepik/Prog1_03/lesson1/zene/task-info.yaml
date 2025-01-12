@@ -1,0 +1,73 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void eloado() {
+            Zene zene = new Zene();
+            setFieldValue(Zene.class, "eloado", zene, "en");
+            assertEquals("eloado gettere nem jo", "en", zene.getEloado());
+        }
+
+        @Test
+        public void cim() {
+            Zene zene = new Zene();
+            setFieldValue(Zene.class, "cim", zene, "EN");
+            assertEquals("cim gettere nem jo", "EN", zene.getCim());
+        }
+
+        @Test
+        public void hossz() {
+            Zene zene = new Zene();
+            setFieldValue(Zene.class, "hossz", zene, 40);
+            assertEquals("hossz gettere nem jo", 40, zene.getHossz());
+        }
+    }
+  learner_created: false
+- name: src/Zene.java
+  visible: true
+  placeholders:
+  - offset: 274
+    length: 16
+    placeholder_text: // hossz gettere
+    initial_state:
+      length: 16
+      offset: 217
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public int getHossz() {
+              return hossz;
+          }
+  text: |-
+    public class Zene {
+        private String eloado;
+        private String cim;
+        private int hossz;
+
+        public String getEloado() {
+            return eloado;
+        }
+
+        public String getCim() {
+            return cim;
+        }
+
+        // hossz gettere
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 01 Mar 2024 18:00:56 UTC"
+record: -1
+solution_hidden: true

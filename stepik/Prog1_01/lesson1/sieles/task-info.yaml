@@ -1,0 +1,78 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            assertEquals("Hibas eredmeny", 1, Sieles.sieles(5, 10, 11));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("Hibas eredmeny", 1, Sieles.sieles(7, 10, 2));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("Hibas eredmeny", 1, Sieles.sieles(3, 5, 2));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("Hibas eredmeny", 1, Sieles.sieles(5, 50, 10));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertEquals("Hibas eredmeny", 0, Sieles.sieles(3, 10, 3));
+        }
+
+        @Test
+        public void teszt_06() {
+            assertEquals("Hibas eredmeny", 0, Sieles.sieles(5, 50, 9));
+        }
+
+        @Test
+        public void teszt_07() {
+            assertEquals("Hibas eredmeny", 0, Sieles.sieles(50, 51, 1));
+        }
+    }
+  learner_created: false
+- name: src/Sieles.java
+  visible: true
+  placeholders:
+  - offset: 91
+    length: 112
+    placeholder_text: return 0;
+    initial_state:
+      length: 9
+      offset: 99
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      if (silecAr > berlesAr * hossz) {
+                  return 0;
+              } else {
+                  return 1;
+              }
+  text: |-
+    public class Sieles {
+        public static int sieles(int hossz, int silecAr, int berlesAr) {
+            return 0;
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 16:16:12 UTC"
+record: -1
+solution_hidden: true

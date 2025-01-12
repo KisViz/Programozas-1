@@ -1,0 +1,90 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Field;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void allat_nev() {
+            assertTrue("allat: nev hibas", testField(Allat.class, "nev", String.class, 0));
+        }
+
+        @Test
+        public void allat_eletkor() {
+            assertTrue("allat: eletkor hibas", testField(Allat.class, "eletkor", int.class, 0));
+        }
+
+        @Test
+        public void allat_meret() {
+            assertTrue("allat: meret hibas", testField(Allat.class, "meret", double.class, 0));
+        }
+
+        @Test
+        public void allatkert_nev() {
+            assertTrue("allatkert: nev hibas", testField(Allatkert.class, "nev", String.class, 0));
+        }
+
+        @Test
+        public void allatkert_varos() {
+            assertTrue("allatkert: varos hibas", testField(Allatkert.class, "varos", String.class, 0));
+        }
+
+        @Test
+        public void allatkert_allatok() {
+            assertTrue("allatkert: allatok hibas", testField(Allatkert.class, "allatok", Allat[].class, 0));
+        }
+    }
+  learner_created: false
+- name: src/Allat.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 73
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public class Allat {
+          String nev;
+          int eletkor;
+          double meret;
+      }
+  text: // megoldas
+  learner_created: false
+- name: src/Allatkert.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 81
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public class Allatkert {
+          String nev;
+          String varos;
+          Allat[] allatok;
+      }
+  text: // megoldas
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Thu, 29 Feb 2024 19:23:22 UTC"
+record: -1
+solution_hidden: true

@@ -1,0 +1,93 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.assertEquals;
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void ososztaly() {
+            assertEquals("az ososztaly modositva lett!", 2, fieldCount(Allat.class));
+            assertEquals("az ososztaly modositva lett!", 1, methodCount(Allat.class));
+            assertEquals("az ososztaly modositva lett!", 1, constructorCount(Allat.class));
+
+            assertTrue("az ososztaly modositva lett!", testField(Allat.class, "alfaj", String.class, Modifier.PRIVATE));
+            assertTrue("az ososztaly modositva lett!", testField(Allat.class, "meret", int.class, Modifier.PRIVATE));
+        }
+
+        @Test
+        public void ososztalyTostring() {
+            assertEquals("az ososztaly toString-je nem jo", "macska 3", new Allat("macska", 3).toString());
+            assertEquals("az ososztaly toString-je nem jo", "elefant 30000", new Allat("elefant", 30000).toString());
+            assertEquals("az ososztaly toString-je nem jo", "cinege 1", new Allat("cinege", 1).toString());
+        }
+
+        @Test
+        public void tostring() {
+            assertEquals("az eger toString-je nem jo", "eger 3 7", new Eger(3, 7).toString());
+            assertEquals("az eger toString-je nem jo", "eger 7 1", new Eger(7, 1).toString());
+            assertEquals("az eger toString-je nem jo", "eger 10 30", new Eger(10, 30).toString());
+        }
+    }
+  learner_created: false
+- name: src/Allat.java
+  visible: true
+  text: |-
+    public class Allat {
+        private String alfaj;
+        private int meret;
+
+        public Allat(String alfaj, int meret) {
+            this.alfaj = alfaj;
+            this.meret = meret;
+        }
+
+        @Override
+        public String toString() {
+            return alfaj + " " + meret;
+        }
+    }
+  learner_created: false
+- name: src/Eger.java
+  visible: true
+  placeholders:
+  - offset: 208
+    length: 109
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 208
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      @Override
+          public String toString() {
+              return super.toString() + " " + cincogasiMertek;
+          }
+  text: |
+    public class Eger extends Allat {
+
+        private int cincogasiMertek;
+
+        public Eger(int meret, int cincogasiMertek) {
+            super("eger", meret);
+            this.cincogasiMertek = cincogasiMertek;
+        }
+
+        // megoldas
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 12 Mar 2024 14:10:29 UTC"
+record: -1
+solution_hidden: true

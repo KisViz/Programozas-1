@@ -1,0 +1,110 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            Ember e = new Ember(new int[] {3, 5, 7, 8});
+            String s = e.kalapal(5);
+            assertEquals("hibas eredmeny", "majdnem sikerult", s);
+        }
+
+        @Test
+        public void teszt_02() {
+            Ember e = new Ember(new int[] {3, 5, 7, 8});
+            String s2 = e.kalapal(0);
+            assertEquals("hibas eredmeny", "hibas parameterek: nincs fal", s2);
+        }
+
+        @Test
+        public void teszt_03() {
+            Ember e2 = new Ember(null);
+            String s3 = e2.kalapal(5);
+            assertEquals("hibas eredmeny", "valami nem talalhato: nincsenek szogek", s3);
+        }
+
+        @Test
+        public void teszt_04() {
+            Ember e3 = new Ember(new int[] {});
+            String s4 = e3.kalapal(5);
+            assertEquals("hibas eredmeny", "majdnem sikerult", s4);
+        }
+    }
+  learner_created: false
+- name: src/Kalapacs.java
+  visible: true
+  text: |-
+    public class Kalapacs {
+
+        public void kalapalas(int[] szogMeret, int falmeret) {
+            if (szogMeret == null) {
+                throw new NullPointerException("nincsenek szogek");
+            }
+
+            if (falmeret == 0) {
+                throw new IllegalArgumentException("nincs fal");
+            }
+
+            int res = 0;
+            for (int i = 0; i <= szogMeret.length; i++) {
+                res += falmeret / szogMeret[i];
+            }
+
+            System.out.println(res);
+        }
+
+    }
+  learner_created: false
+- name: src/Ember.java
+  visible: true
+  placeholders:
+  - offset: 214
+    length: 10
+    placeholder_text: return "";
+    initial_state:
+      length: 10
+      offset: 214
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      try {
+                  kalapacs.kalapalas(szogek, fal);
+              } catch (NullPointerException e) {
+                  return "valami nem talalhato: " + e.getMessage();
+              } catch (IllegalArgumentException e) {
+                  return "hibas parameterek: " + e.getMessage();
+              } catch (ArithmeticException e) {
+                  return "a szamolas soran problema adodott";
+              } catch (Exception e) {
+                  return "majdnem sikerult";
+              }
+
+              return "minden rendben";
+  text: |
+    public class Ember {
+
+        Kalapacs kalapacs;
+        int[] szogek;
+
+        public Ember(int[] szogek) {
+            kalapacs = new Kalapacs();
+            this.szogek = szogek;
+        }
+
+        public String kalapal(int fal) {
+            return "";
+        }
+
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+solution_hidden: true

@@ -1,0 +1,171 @@
+type: edu
+files:
+- name: src/Bolt.java
+  visible: true
+  text: |
+    public class Bolt {
+        String nev;
+        int almaAr;
+        float almaTomeg;
+    }
+  learner_created: false
+- name: src/Lista.java
+  visible: true
+  placeholders:
+  - offset: 481
+    length: 30
+    placeholder_text: return "";
+    initial_state:
+      length: 10
+      offset: 80
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      float minAr = Integer.MAX_VALUE;
+
+              String boltNev = null;
+              for (int i = 0; i < boltok.length; i++) {
+                  if (boltok[i].almaAr / boltok[i].almaTomeg < minAr) {
+                      minAr = boltok[i].almaAr / boltok[i].almaTomeg;
+                      boltNev = boltok[i].nev;
+                  }
+              }
+
+              return boltNev;
+  text: |-
+    public class Lista {
+        public static String vasarlas(Bolt[] boltok) {
+            return "";
+        }
+    }
+  learner_created: false
+- name: test/EgyszeruEset.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class EgyszeruEset {
+        public Bolt createBolt(String a, int b, float c) {
+            Bolt bb = new Bolt();
+            bb.nev = a;
+            bb.almaAr = b;
+            bb.almaTomeg = c;
+            return bb;
+        }
+
+        @Test
+        public void teszt_01() {
+            Bolt[] boltok1 = {
+                    createBolt("Tesco", 500, 1)
+            };
+
+            assertEquals("Hibas ertek", "Tesco", Lista.vasarlas(boltok1));
+        }
+
+        @Test
+        public void teszt_02() {
+            Bolt[] boltok2 = {
+                    createBolt("Tesco", 400, 1),
+                    createBolt("Spar", 300, 1),
+            };
+
+            assertEquals("Hibas ertek", "Spar", Lista.vasarlas(boltok2));
+        }
+
+        @Test
+        public void teszt_03() {
+            Bolt[] boltok3 = {
+                    createBolt("Tesco", 400, 1),
+                    createBolt("Spar", 300, 1),
+                    createBolt("Lidl", 550, 1),
+                    createBolt("Aldi", 280, 1)
+            };
+
+            assertEquals("Hibas ertek", "Aldi", Lista.vasarlas(boltok3));
+        }
+    }
+  learner_created: false
+- name: test/ValtozoTomeg.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class ValtozoTomeg {
+        public Bolt createBolt(String a, int b, float c) {
+            Bolt bb = new Bolt();
+            bb.nev = a;
+            bb.almaAr = b;
+            bb.almaTomeg = c;
+            return bb;
+        }
+
+        @Test
+        public void teszt_01() {
+            Bolt[] boltok1 = {
+                    createBolt("Tesco", 500, 1),
+                    createBolt("Auchan", 990, 2)
+            };
+
+            assertEquals("Hibas ertek", "Auchan", Lista.vasarlas(boltok1));
+        }
+
+        @Test
+        public void teszt_02() {
+            Bolt[] boltok2 = {
+                    createBolt("Tesco", 400, 1),
+                    createBolt("Spar", 1250, 3),
+            };
+
+            assertEquals("Hibas ertek", "Tesco", Lista.vasarlas(boltok2));
+        }
+
+        @Test
+        public void teszt_03() {
+            Bolt[] boltok3 = {
+                    createBolt("Tesco", 155, 0.5f),
+                    createBolt("Spar", 195, 1),
+                    createBolt("Lidl", 450, 2),
+                    createBolt("Aldi", 1000, 5)
+            };
+
+            assertEquals("Hibas ertek", "Spar", Lista.vasarlas(boltok3));
+        }
+
+        @Test
+        public void teszt_04() {
+            Bolt[] boltok4 = {
+                    createBolt("Tesco", 200, 0.5f),
+                    createBolt("Spar", 220, 0.7f),
+                    createBolt("Lidl", 250, 0.9f),
+                    createBolt("Aldi", 150, 0.1f)
+            };
+
+            assertEquals("Hibas ertek", "Lidl", Lista.vasarlas(boltok4));
+        }
+
+        @Test
+        public void teszt_05() {
+            Bolt[] boltok5 = {
+                    createBolt("Tesco", 150, 0.1f),
+                    createBolt("Spar", 1000, 1.1f),
+                    createBolt("Lidl", 880, 2.4f),
+                    createBolt("Aldi", 36000, 100),
+                    createBolt("Auchan", 100, 0.1f)
+            };
+
+            assertEquals("Hibas ertek", "Aldi", Lista.vasarlas(boltok5));
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 19:09:15 UTC"
+record: -1
+solution_hidden: true

@@ -1,0 +1,36 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    public class Tests {
+        @Test
+        public void teszt() {
+            Kecske k = null;
+        }
+    }
+  learner_created: false
+- name: src/Kecske.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 11
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: "public class Kecske {}"
+  text: // megoldas
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 12 Mar 2024 13:53:55 UTC"
+record: -1
+solution_hidden: true

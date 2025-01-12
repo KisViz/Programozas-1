@@ -1,0 +1,51 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.io.ByteArrayOutputStream;
+    import java.io.PrintStream;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        {
+            keepSoutSerr = false;
+        }
+
+        @Test
+        public void teszt_01() {
+            Futas.main(new String[] {});
+            assertEquals("Hibas kiiratas", "JAVA", sout.toString());
+        }
+    }
+  learner_created: false
+- name: src/Futas.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 107
+    placeholder_text: // keszitsd el a megoldast
+    initial_state:
+      length: 26
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public class Futas {
+          public static void main(String[] args) {
+              System.out.print("JAVA");
+          }
+      }
+  text: // keszitsd el a megoldast
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 16:06:24 UTC"
+record: -1
+solution_hidden: true

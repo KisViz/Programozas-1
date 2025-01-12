@@ -1,0 +1,163 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Test;
+
+    import static org.junit.Assert.*;
+
+    public class Tests {
+        public Bolygo createBolygo(boolean kozet) {
+            Bolygo b = new Bolygo();
+            b.nev = "Mars";
+            b.tomeg = 2;
+            b.kozetbolygo = kozet;
+            return b;
+        }
+
+        @Test
+        public void teszt_01() {
+            Bolygo[]bolygok1 = {
+                    createBolygo(true),
+                    createBolygo(true),
+                    createBolygo(true),
+                    createBolygo(false),
+                    createBolygo(false)
+            };
+
+            assertTrue("Hibas eredmeny", new Naprendszer().valosagos(bolygok1));
+        }
+
+        @Test
+        public void teszt_02() {
+            Bolygo[]bolygok2 = {
+                    createBolygo(true),
+                    createBolygo(false),
+                    createBolygo(false),
+                    createBolygo(false),
+                    createBolygo(false),
+                    createBolygo(false)
+            };
+
+            assertTrue("Hibas eredmeny", new Naprendszer().valosagos(bolygok2));
+        }
+
+        @Test
+        public void teszt_03() {
+            Bolygo[]bolygok3 = {
+                    createBolygo(true),
+                    createBolygo(true),
+                    createBolygo(true)
+            };
+
+            assertTrue("Hibas eredmeny", new Naprendszer().valosagos(bolygok3));
+        }
+
+        @Test
+        public void teszt_04() {
+            Bolygo[]bolygok4 = {
+                    createBolygo(true),
+                    createBolygo(true),
+                    createBolygo(false),
+                    createBolygo(false),
+                    createBolygo(true)
+            };
+
+            assertFalse("Hibas eredmeny", new Naprendszer().valosagos(bolygok4));
+        }
+
+        @Test
+        public void teszt_05() {
+            Bolygo[]bolygok5 = {
+                    createBolygo(true),
+                    createBolygo(true),
+                    createBolygo(false),
+                    createBolygo(false),
+                    createBolygo(true)
+            };
+
+            assertFalse("Hibas eredmeny", new Naprendszer().valosagos(bolygok5));
+        }
+
+        @Test
+        public void teszt_06() {
+            Bolygo[]bolygok6 = {
+                    createBolygo(true),
+                    createBolygo(false),
+                    createBolygo(false),
+                    createBolygo(true),
+                    createBolygo(true)
+            };
+
+            assertFalse("Hibas eredmeny", new Naprendszer().valosagos(bolygok6));
+        }
+
+        @Test
+        public void teszt_07() {
+            Bolygo[]bolygok7 = {
+                    createBolygo(false),
+                    createBolygo(false),
+                    createBolygo(false),
+                    createBolygo(false)
+            };
+
+            assertTrue("Hibas eredmeny", new Naprendszer().valosagos(bolygok7));
+        }
+
+        @Test
+        public void teszt_08() {
+            Bolygo[]bolygok8 = {
+                    createBolygo(true),
+                    createBolygo(false),
+                    createBolygo(true),
+                    createBolygo(false),
+                    createBolygo(true)
+            };
+
+            assertFalse("Hibas eredmeny", new Naprendszer().valosagos(bolygok8));
+        }
+    }
+  learner_created: false
+- name: src/Bolygo.java
+  visible: true
+  text: |
+    public class Bolygo {
+        String nev;
+        int tomeg;
+        boolean kozetbolygo; // ez mondja meg, hogy a bolygó kőzetbolygó-e.
+    }
+  learner_created: false
+- name: src/Naprendszer.java
+  visible: true
+  placeholders:
+  - offset: 291
+    length: 11
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 31
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public boolean valosagos(Bolygo[] bolygok) {
+              for (int i = 1; i < bolygok.length; i++) {
+                  if (bolygok[i].kozetbolygo && !bolygok[i-1].kozetbolygo) {
+                      return false;
+                  }
+              }
+
+              return true;
+          }
+  text: |-
+    public class Naprendszer {
+        // megoldas
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Thu, 29 Feb 2024 18:35:47 UTC"
+record: -1
+solution_hidden: true

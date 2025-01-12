@@ -1,0 +1,100 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void hatalmiJelkep() {
+            assertTrue("HatalmiJelkep hibas", testClass(HatalmiJelkep.class, Modifier.PUBLIC | Modifier.ABSTRACT, Object.class));
+        }
+
+        @Test
+        public void jogar() {
+            assertTrue("Jogar hibas", testClass(Jogar.class, Modifier.PUBLIC, HatalmiJelkep.class));
+        }
+
+        @Test
+        public void korona() {
+            assertTrue("Korona hibas", testClass(Korona.class, Modifier.PUBLIC, HatalmiJelkep.class));
+        }
+
+        @Test
+        public void orszagalma() {
+            assertTrue("Orszagalma hibas", testClass(Orszagalma.class, Modifier.PUBLIC, HatalmiJelkep.class));
+        }
+    }
+  learner_created: false
+- name: src/HatalmiJelkep.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 38
+    placeholder_text: "public class HatalmiJelkep {}"
+    initial_state:
+      length: 29
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: "public abstract class HatalmiJelkep {}"
+  text: "public class HatalmiJelkep {}"
+  learner_created: false
+- name: src/Jogar.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 42
+    placeholder_text: "public class Jogar {}"
+    initial_state:
+      length: 21
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: "public class Jogar extends HatalmiJelkep {}"
+  text: "public class Jogar {}"
+  learner_created: false
+- name: src/Orszagalma.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 47
+    placeholder_text: "public class Orszagalma {}"
+    initial_state:
+      length: 26
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: "public class Orszagalma extends HatalmiJelkep {}"
+  text: "public class Orszagalma {}"
+  learner_created: false
+- name: src/Korona.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 43
+    placeholder_text: "public class Korona {}"
+    initial_state:
+      length: 22
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: "public class Korona extends HatalmiJelkep {}"
+  text: "public class Korona {}"
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 02 Apr 2024 18:00:36 UTC"
+record: -1
+solution_hidden: true

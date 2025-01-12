@@ -1,0 +1,62 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    class Pikachu {
+        public void tamad() {
+            throw new Aramutes("pika pika");
+        }
+    }
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            Aramutes a = new Aramutes("pika");
+            assertEquals("hibas eredmeny", "pika", a.getMessage());
+        }
+
+        @Test
+        public void teszt_02() {
+            RuntimeException re = new Aramutes("raaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaz");
+            assertEquals("hibas eredmeny", "raaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaz", re.getMessage());
+        }
+    }
+  learner_created: false
+- name: src/Aramutes.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 93
+    placeholder_text: |-
+      public class Aramutes {
+          public Aramutes(String message) {
+              super(message);
+          }
+      }
+    initial_state:
+      length: 93
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public class Aramutes extends RuntimeException {
+          public Aramutes(String message) {
+              super(message);
+          }
+      }
+  text: |-
+    public class Aramutes {
+        public Aramutes(String message) {
+            super(message);
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+solution_hidden: true

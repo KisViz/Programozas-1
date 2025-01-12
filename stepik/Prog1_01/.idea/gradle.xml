@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="delegatedBuild" value="false" />
+        <option name="distributionType" value="WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/lesson1/PPAP" />
+            <option value="$PROJECT_DIR$/lesson1/bevasarlas" />
+            <option value="$PROJECT_DIR$/lesson1/eger" />
+            <option value="$PROJECT_DIR$/lesson1/eletkor" />
+            <option value="$PROJECT_DIR$/lesson1/erdemjegy" />
+            <option value="$PROJECT_DIR$/lesson1/fozes" />
+            <option value="$PROJECT_DIR$/lesson1/futas" />
+            <option value="$PROJECT_DIR$/lesson1/gyoztes" />
+            <option value="$PROJECT_DIR$/lesson1/hatvanyozas" />
+            <option value="$PROJECT_DIR$/lesson1/hegymaszas" />
+            <option value="$PROJECT_DIR$/lesson1/hiba" />
+            <option value="$PROJECT_DIR$/lesson1/homerseklet" />
+            <option value="$PROJECT_DIR$/lesson1/kovek" />
+            <option value="$PROJECT_DIR$/lesson1/lancok" />
+            <option value="$PROJECT_DIR$/lesson1/lepcsozes" />
+            <option value="$PROJECT_DIR$/lesson1/lottozas" />
+            <option value="$PROJECT_DIR$/lesson1/macska" />
+            <option value="$PROJECT_DIR$/lesson1/main" />
+            <option value="$PROJECT_DIR$/lesson1/mentes" />
+            <option value="$PROJECT_DIR$/lesson1/nagyobb" />
+            <option value="$PROJECT_DIR$/lesson1/nyavogas" />
+            <option value="$PROJECT_DIR$/lesson1/osszeg" />
+            <option value="$PROJECT_DIR$/lesson1/pizza" />
+            <option value="$PROJECT_DIR$/lesson1/sieles" />
+            <option value="$PROJECT_DIR$/lesson1/signum" />
+            <option value="$PROJECT_DIR$/lesson1/telefon" />
+            <option value="$PROJECT_DIR$/lesson1/torony" />
+            <option value="$PROJECT_DIR$/lesson1/vasarlas" />
+            <option value="$PROJECT_DIR$/lesson1/villamos" />
+            <option value="$PROJECT_DIR$/lesson1/viragok" />
+            <option value="$PROJECT_DIR$/util" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

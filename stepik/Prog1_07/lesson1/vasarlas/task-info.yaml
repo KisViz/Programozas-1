@@ -1,0 +1,136 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.util.Arrays;
+    import java.util.Collections;
+    import java.util.List;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+        Aru a1 = new Aru("Kenyer", 8000);
+        Aru a2 = new Aru("Villamosjegy", 1500);
+        Aru a3 = new Aru("Euro", 750);
+        Aru a4 = new Aru("Benzin", 1460);
+        Aru a5 = new Aru("Tank", 10000);
+        Aru a6 = new Aru("Voros szinu zaszlo", 10);
+
+        @Test
+        public void teszt_01() {
+            int penz = 1000;
+            List<Aru> aruk = Arrays.asList(a6, a6, a6);
+            int hiany = -970;
+
+            ElfogyottAPenzException e = new ElfogyottAPenzException(penz, aruk);
+            assertEquals("Hibas hibauzenet", "A megvasarolt termekek ara " + (hiany) + " Ft-tal magasabb, mint a rendelkezesre allo penzunk", e.getMessage());
+        }
+
+        @Test
+        public void teszt_02() {
+            int penz = 20;
+            List<Aru> aruk = Arrays.asList(a6, a6, a6);
+            int hiany = 10;
+
+            ElfogyottAPenzException e = new ElfogyottAPenzException(penz, aruk);
+            assertEquals("Hibas hibauzenet", "A megvasarolt termekek ara " + (hiany) + " Ft-tal magasabb, mint a rendelkezesre allo penzunk", e.getMessage());
+        }
+
+        @Test
+        public void teszt_03() {
+            int penz = 10250;
+            List<Aru> aruk = Arrays.asList(a1, a2, a3);
+            int hiany = 0;
+
+            ElfogyottAPenzException e = new ElfogyottAPenzException(penz, aruk);
+            assertEquals("Hibas hibauzenet", "A megvasarolt termekek ara " + (hiany) + " Ft-tal magasabb, mint a rendelkezesre allo penzunk", e.getMessage());
+        }
+
+        @Test
+        public void teszt_04() {
+            int penz = 1;
+            List<Aru> aruk = Arrays.asList(a1, a2, a3);
+            int hiany = 10249;
+
+            ElfogyottAPenzException e = new ElfogyottAPenzException(penz, aruk);
+            assertEquals("Hibas hibauzenet", "A megvasarolt termekek ara " + (hiany) + " Ft-tal magasabb, mint a rendelkezesre allo penzunk", e.getMessage());
+        }
+
+        @Test
+        public void teszt_05() {
+            int penz = 10000;
+            List<Aru> aruk = Arrays.asList(a1, a2, a3, a4, a4, a4, a5, a5, a6);
+            int hiany = 24640;
+
+            ElfogyottAPenzException e = new ElfogyottAPenzException(penz, aruk);
+            assertEquals("Hibas hibauzenet", "A megvasarolt termekek ara " + (hiany) + " Ft-tal magasabb, mint a rendelkezesre allo penzunk", e.getMessage());
+        }
+
+        @Test
+        public void teszt_06() {
+            int penz = 10;
+            List<Aru> aruk = Collections.emptyList();
+            int hiany = -10;
+
+            ElfogyottAPenzException e = new ElfogyottAPenzException(penz, aruk);
+            assertEquals("Hibas hibauzenet", "A megvasarolt termekek ara " + (hiany) + " Ft-tal magasabb, mint a rendelkezesre allo penzunk", e.getMessage());
+        }
+    }
+  learner_created: false
+- name: src/ElfogyottAPenzException.java
+  visible: true
+  placeholders:
+  - offset: 85
+    length: 11
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 85
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      private int penz;
+          private List<Aru> aruk;
+
+          public ElfogyottAPenzException(int penz, List<Aru> aruk) {
+              this.penz = penz;
+              this.aruk = aruk;
+          }
+
+          @Override
+          public String getMessage() {
+              int sum = 0;
+              for (Aru aru: aruk) {
+                  sum += aru.ar;
+              }
+
+              return "A megvasarolt termekek ara " + (sum - penz) + " Ft-tal magasabb, mint a rendelkezesre allo penzunk";
+          }
+  text: |-
+    import java.util.List;
+
+    public class ElfogyottAPenzException extends Exception {
+        // megoldas
+    }
+  learner_created: false
+- name: src/Aru.java
+  visible: true
+  text: |
+    public class Aru {
+        protected String nev;
+        protected int ar;
+
+        public Aru(String nev, int ar) {
+            this.nev = nev;
+            this.ar = ar;
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+solution_hidden: true

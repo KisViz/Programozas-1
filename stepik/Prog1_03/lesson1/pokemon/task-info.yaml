@@ -1,0 +1,84 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        {
+            keepSoutSerr = false;
+        }
+
+        @Test
+        public void teszt_01() {
+            Pokemon p = new Pokemon("a", "b");
+            assertEquals("EGY POKEMON LETREJOTT" + System.lineSeparator(), sout.toString());
+            assertEquals("a", fieldValue(Pokemon.class, "nev", p));
+            assertEquals("b", fieldValue(Pokemon.class, "allapot", p));
+        }
+
+        @Test
+        public void teszt_02() {
+            Pokemon pp = new Pokemon("bbb", "aaa");
+            assertEquals("EGY POKEMON LETREJOTT" + System.lineSeparator(), sout.toString());
+            assertEquals("bbb", fieldValue(Pokemon.class, "nev", pp));
+            assertEquals("aaa", fieldValue(Pokemon.class, "allapot", pp));
+        }
+
+        @Test
+        public void teszt_03() {
+            Pokemon p = new Pokemon("a");
+            assertEquals("EGY POKEMON LETREJOTT" + System.lineSeparator(), sout.toString());
+            assertEquals("a", fieldValue(Pokemon.class, "nev", p));
+            assertEquals("szabad", fieldValue(Pokemon.class, "allapot", p));
+        }
+
+        @Test
+        public void teszt_04() {
+            Pokemon pp = new Pokemon("qqq");
+            assertEquals("EGY POKEMON LETREJOTT" + System.lineSeparator(), sout.toString());
+            assertEquals("qqq", fieldValue(Pokemon.class, "nev", pp));
+            assertEquals("szabad", fieldValue(Pokemon.class, "allapot", pp));
+        }
+    }
+  learner_created: false
+- name: src/Pokemon.java
+  visible: true
+  placeholders:
+  - offset: 313
+    length: 11
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 245
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public Pokemon(String nev) {
+              this(nev, "szabad");
+          }
+  text: |-
+    public class Pokemon {
+        private String nev;
+        private String allapot;
+
+        public Pokemon(String nev, String allapot) {
+            this.nev = nev;
+            this.allapot = allapot;
+            System.out.println("EGY POKEMON LETREJOTT");
+        }
+
+        // megoldas
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 01 Mar 2024 17:59:17 UTC"
+record: -1
+solution_hidden: true

@@ -1,0 +1,55 @@
+<html lang="hu">
+    <h1>[⭐⭐] 19. Pokemon (6 pont)</h1>
+    Az öreg Pikachu úgy döntött, hogy mostantól kezdve mogyoróbokrokat fog ültetni.<br>
+    <br>
+    Készítsd el a <i>Bokor</i> osztályt.
+    <ul>
+        <li>Egy bokorról tároljuk a méretét (egész), ultetési időpontját (LocalDateTime) és azt, hogy kipusztult-e. Az adattagok protected láthatóságúak</li>
+        <li>Készíts egy 1 paraméteres konstruktort, ami a bokor méretét várja. A bokor kezdetben nincs elültetve és kipusztulva sem</li>
+        <li>Az adattagokat lehessen kívülről elérni, de módosítani ne!</li>
+        <li>Készítsd el a <i>kipusztul</i> metódust, amely meghívására kipusztul az adott bokor</li>
+        <li>Készítsd el az <i>elultet</i> metódust, amely a jelenlegi időpontra állítja be az ületetési időpontot, ha eddig még nem volt elültetve</li>
+    </ul>
+
+    Készítsd el a <i>MogyoroBokor</i> osztályt, amely egy speciális bokor.
+    <ul>
+        <li>Tudjuk róla a rajta termő termések számát (<i>termesSzam</i>)</li>
+        <li>Készíts hozzá egy 2 paraméteres konstruktort, amely a méretet és a termésszámot várja</li>
+        <li>Lehessen a termésszámot lekérdezni kívülről is</li>
+    </ul>
+
+    <br>
+
+    Készítsd el a <i>Pokemon</i> osztályt!
+    <ul>
+        <li>Egy pokemonról tudjuk a nevét és életkorát. Ezen tulajdonságok az osztályból és a gyerekosztályokból elérhetőek</li>
+        <li>Legyen neki egy két paraméteres konstruktora, amely inicializálja az adattagokat</li>
+        <li>Készíts az adattagokhoz getter metódusokat</li>
+        <li>Az osztályban egyéb metódus ne legyen</li>
+    </ul>
+
+    <br>
+
+    Készítsd el a <i>Pikachu</i> osztályt! Az osztályból már nem lehet tovább öröklődni!
+    <ul>
+        <li>Egy pikachu-ról tároljuk el az általa ültetett mogyoróbokrokat egy tömbben (<i>bokrok</i>, csak ő látja)</li>
+        <li>Legyen egy 2 paraméteres konstruktora, amely várja a kort és a maximálisan elférő mogyoróbokrok számát. A név minden esetben legyen "Pikachu"</li>
+        <li>
+            Készítsd el az <i>ultetes</i> metódust, amely paraméterben egy mogyoróbokrot vár. Csak olyan bokrokat tudunk elültetni, amelyek még nem pusztultak ki.
+            Amennyiben elfér a tömbben a mogyoróbokor (van null eleme), akkor ültessük el és tegyük be oda.<br>
+            A metódus adja vissza, hogy sikerült-e elültetni a bokrot.
+        </li>
+        <li>
+            Készítsd el az <i>ossztermes</i> metódust, amely visszaadja, hogy mennyi az elültetett mogyoróbokrok össztermése. A kipusztult bokrok nem teremnek.
+        </li>
+        <li>
+            Készítsd el a <i>kigyomlal</i> metódust, amely kigyomlálja az összes kipusztult mogyoróbokrot (null-ra állítja)
+        </li>
+    </ul>
+
+    <div class="hint">
+      A LocalDateTime.now(); visszaadja az aktuális időpillanatot.
+    </div>
+
+
+</html>

@@ -1,0 +1,22 @@
+<html lang="hu">
+  <h1>[⭐⭐] 15. Víz (5 pont)</h1>
+  Az <i>Országos Vízigazgatási szervezet</i> a segítségünket kéri, hogy a különböző vizek sodrási sebességét tudják modellezni. A modellben szerepelniük kell vizeknek, állóvizeknek, folyóvizeknek, folyóknak, csermelyeknek, tavaknak és pocsolyáknak. Az alábbi tevékenységekre van szükség:
+  <ul>
+    <li>Egy vízről (<i>Viz</i>) tároljuk el a tisztaságát (<i>tiszta</i>, logikai érték), illetve a méretét (<i>meret</i>, egész szám). Az adattagok láthatósága legyen protected</li>
+    <li>Hozz létre egy 2 paraméteres konstruktort a <i>Viz</i> osztályban, amely a paraméterek alapján inicializálja az adattagokat</li>
+    <li>A <i>Viz</i> osztályban hozd létre a <i>sodrasiErosseg</i> metódust, amely nem vár paramétert, és egy egész számot ad vissza. A metódus az osztályban ne legyen megvalósítva</li>
+    <li>Az <i>Alloviz</i> öröklődjön a <i>Viz</i> osztályból. Hozd létre a megfelelő konstruktort, illetve definiáld felül a <i>sodrasiErosseg</i> metódust, hogy az minden esetben 0-t adjon vissza</li>
+    <li>A <i>To</i> egy speciális állóvíz. Hozz létre megfelelő, 2 paraméteres konstruktort!</li>
+    <li>A <i>Pocsolya</i> egy speciális állóvíz. Hozz létre egy egy paraméteres konstruktort, amely csak a méretet várja, a <i>tiszta</i> adattagot false-ra inicializálja</li>
+    <li>A <i>Folyoviz</i> öröklődjön a <i>Viz</i> osztályból. Egy folyóvíznek az örökölt adattagokon felül legyen folyási sebessége (folyasiSebesseg, egész szám, láthatósága protected)</li>
+    <li>Hozz létre a <i>Folyoviz</i> osztályban egy 3 paraméteres konstruktort, amely mind a három adattagot inicializálja. Valósítsd meg a <i>sodrasiErosseg</i> metódust, hogy az a méret és folyási sebesség szorzatát adja vissza</li>
+    <li>A csermely egy speciális folyóvíz. Hozd létre benne a megfelelő konstruktort, illetve definiáld felül a <i>sodrasiErosseg</i> metódust úgy, hogy minden esetben 1-et adjon vissza.</li>
+    <li>A folyó szintén egy speciális folyóvíz. Hozd létre benne a megfelelő konstruktort!</li>
+  </ul>
+
+  <div class="hint">
+    Egy absztrakt osztálynak is lehet konstruktora, annak ellenére, hogy nem hozhatunk belőle létre objektumot.
+    Azonban amikor egy gyerekosztály típusú objektum jön létre, akkor az ős részét is inicializálni, ilyenkor fogjuk meghívni a konstruktort.
+  </div>
+
+</html>

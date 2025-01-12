@@ -1,0 +1,63 @@
+type: edu
+files:
+- name: src/Szorzas.java
+  visible: true
+  placeholders:
+  - offset: 85
+    length: 13
+    placeholder_text: return 0;
+    initial_state:
+      length: 9
+      offset: 85
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: return a * b;
+  text: |-
+    public class Szorzas {
+        public static double szoroz(double a, double b) {
+            return 0;
+        }
+    }
+  learner_created: false
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+        @Test
+        public void teszt1() {
+            assertEquals("Hibas eredmeny!", Szorzas.szoroz(5, 4), 20, 0.0001f);
+        }
+
+        @Test
+        public void teszt2() {
+            assertEquals("Hibas eredmeny!", Szorzas.szoroz(5.5, 4), 22, 0.0001f);
+        }
+
+        @Test
+        public void teszt3() {
+            assertEquals("Hibas eredmeny!", Szorzas.szoroz(7.22, -4.25), -30.685, 0.0001f);
+        }
+
+        @Test
+        public void teszt4() {
+            assertEquals("Hibas eredmeny!", Szorzas.szoroz(-42.62, 3.56), -151.7272, 0.0001f);
+        }
+
+        @Test
+        public void teszt5() {
+            assertEquals("Hibas eredmeny!", Szorzas.szoroz(2.55, 0), 0, 0.0001f);
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 15:54:56 UTC"
+record: -1
+solution_hidden: true

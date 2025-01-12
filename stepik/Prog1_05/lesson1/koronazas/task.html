@@ -1,0 +1,56 @@
+<html lang="hu">
+  <h1>[⭐⭐⭐] 24. Koronázás (8 pont)</h1>
+  Leenhurbertindrundot megkoronázták, ő lett az ország új királynője, így mostantól neki kell ellátnia uralkodói kötelességeit: akár van kötele, akár nincs (nincs neki). <br>
+  Hozd létre az <i>Etel</i> osztályt.
+  <ul>
+    <li>Egy ételről tároljuk el a nevét (<i>nev</i>, szöveg), illetve a minőségét (<i>minoseg</i>, 0 és 1 közötti valós szám). Az adattagokat csak az osztályból lehessen elérni</li>
+    <li>Hozz létre egy 2 paraméteres konstruktort, amely az adattagokat beállítja a paraméterek alapján</li>
+    <li>Hozz létre gettereket az adattagoknak</li>
+  </ul>
+
+  Hozd létre az <i>Ember</i> osztályt.
+  <ul>
+    <li>Egy emberről tároljuk el a nevét (<i>nev</i>, szöveg), életkorát (<i>kor</i>, egész szám), vagyonát (<i>vagyon</i>, egész szám), azt, hogy beteg-e (<i>beteg</i>, logikai) illetve azt, hogy férfi-e (<i>ferfi</i>, logikai).
+      Az adattagok láthatósága legyen protected</li>
+    <li>Hozz létre paraméteres konstruktort, ami a <i>beteg</i> értékén kívül a többit várja paraméterben. A <i>beteg</i> értéke legyen minden esetben false</li>
+    <li>Hozz létre gettereket az összes adattag számára</li>
+    <li>Hozd létre az <i>eszik</i> metódust, ami paraméterben egy ételt vár, és logikai értékkel tér vissza. A metódus ne legyen megvalósítva az osztályban.</li>
+    <li>
+      Hozd létre a <i>koltekezik</i> metódust, ami paraméterben egy egész számot vár, és egy logikai értékkel tér vissza. Ha az embernek nincs ennyi pénze, akkor ne változzon semmi, térjünk vissza hamissal.
+      Ha van ennyi pénze, akkor költse el, és térjünk vissza igazzal.
+    </li>
+  </ul>
+
+  Hozd létre a <i>Allatkereskedo</i> interface-t, amelyben egy metódus van:
+  <ul>
+    <li><i>kereskedik</i>, amely nem vár paramétert és nem ad vissza semmit.</li>
+  </ul>
+
+  Hozd létre a <i>Foldmuves</i> osztályt, amely egy speciális ember. Az osztály implementálja az <i>Allatkereskedo</i> interface-t.
+  <ul>
+    <li>Egy földművesről tároljuk el, hogy mekkora földterületet kell művelnie (muvelendoFoldterulet, egész szám). A láthatósága legyen privát</li>
+    <li>Hozz létre paraméteres konstruktort, ami a nevet, életkort, vagyon, férfit és a földterületet várja, és ezek alapján inicializálja az objektumot</li>
+    <li>Definiáld felül az <i>eszik</i> metódust. A földműves megeszi az ételt. Ha annak a minősége kisebb, mint a földműves életkorának század része, akkor betegedjen meg. A metódus térjen vissza azzal az értékkel, hogy jó ötlet volt-e elfogyasztani az ételt</li>
+    <li>Definiáld felül a <i>kereskedik</i> metódust, amely növelje a földműves pénzét eggyel</li>
+  </ul>
+
+  Hozd létre a <i>Kiralyno</i> osztályt, amely egy speciális ember.
+  <ul>
+    <li>Egy királynőről tároljuk el a koronázási évét (megkoronazva, egész szám), illetve a szolgáit (szolgak, emberekből álló tömb). Az adattagokat csak az osztályon belül lehessen elérni</li>
+    <li>Hozz létre egy paraméteres konstruktort, ami a nevet, életkort, vagyont, koronázási évet és szolgák maximális számát várja, és ezek alapján inicializálja az objektumot</li>
+    <li>Készíts publikus metódusokat, melyek segítségével a koronázási év, illetve a szolgák lekérdezhetők</li>
+    <li>
+      Definiáld felül az <i>eszik</i> metódust. Mielőtt a királynő megenné az ételt, a szolgái tesztelik. Egyen minden szolga az ételből. Ha <i>ennek hatására</i> valamelyik szolga megbetegszik, akkor a királynő ne csináljon semmit.
+      Egyéb esetben a királynő is megeszi az ételt: írd ki a standard outputra, hogy: "az etel finom volt". A metódus adjon vissza igazat, ha a királynő megette az ételt, egyébként hamisat.
+    </li>
+    <li>
+      Hozd létre a <i>szolgatFelvesz</i> metódust, amely paraméterben egy embert vár. Ha a kapott ember nem a királynő, és az életkora alacsonyabb, mint a többi szolga átlag életkora, akkor tedd be a tömb legelső üres pozíciójára. Amennyiben a tömb még üres, akkor életkortól függetlenül szolga lesz belőle.
+      Ha felvettük az embert szolgának, akkor a vagyona a királynőre száll, tehát a királynő vagyonát növeljük meg, a szolgáét pedig csökkentsük le 0-ra.
+    </li>
+  </ul>
+
+  <div class="hint">
+    Ugye nem fogják megtámadni az új királynőnket?
+  </div>
+
+</html>

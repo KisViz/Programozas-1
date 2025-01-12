@@ -1,0 +1,39 @@
+<html lang="hu">
+    <h1>[⭐⭐] 25. Valóság (4 pont)</h1>
+    Egy kis falu lakosai már régen azon töprengenek, hogy mitől valóságos egy naprendszer. <br>
+    A lakos-gyűlésen az egyik tudósban felmerült egy ötlet, persze senki nem hitt neki. Szerinte: <br>
+    <i>"ha a csillagtól számítva a bolygók közül az első valahány kőzetbolygó, és az azután jövők gázbolygók (nem kőzetbolygók),
+    tehát nem keverednek egymással, akkor az a naprendszer valóságos. Egyéb esetben nem valóságos."</i>
+    <br>
+    A <i>valosagos</i> függvény eszerint tesztel egy naprendszert. 1 paramétere van: egy tömb, ami a bolygókat tartalmazza.<br><br>
+
+    A függvény térjen vissza igazzal, ha a naprendszer valóságos, hamissal, ha nem. <br>
+    <br>
+    Néhány példa (az true jelöli a kőzetbolygót, a false a gázbolygót. A nyíl után a visszaadott érték látható):
+    <ul>
+        <li>true, true, true, false, false –&gt; true</li>
+        <li>true, false, false, false, false, false –&gt; true</li>
+        <li>true, true, true –&gt; true</li>
+        <li>false, false, false –&gt; true</li>
+        <li>true, true, false, false, true –&gt; false</li>
+        <li>true, false, false, true, true –&gt; false</li>
+    </ul>
+
+    A Bolygót egy osztály, aminek az alábbi adattagjai vannak:
+    <ul>
+        <li><i>nev</i>: a bolygó neve (szöveg)</li>
+        <li><i>tomeg</i>: a bolygó tömege (egész)</li>
+        <li><i>kozetbolygo</i>: a bolygó kőzetbolygó-e</li>
+    </ul>
+
+    <div class="hint">
+        Az osztályokra egyelőre gondolhatunk úgy, hogy struktúrák, néhány plusz funkcionalitással kiegészítve.
+    </div>
+
+    <div class="hint">
+        Ha egy boolean típusú változó értékét szeretnénk vizsgálni, akkor nem kell az ==-t használni, önmagában is egy teljes értékű kifejezés.
+        Például (bolygok[i].kozetbolygo == true) helyett írjunk (bolygok[i].kozetbolygo)-t.
+    </div>
+
+
+</html>

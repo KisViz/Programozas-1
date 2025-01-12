@@ -1,0 +1,125 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Field;
+    import java.lang.reflect.Method;
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.assertEquals;
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void asit() {
+            assertTrue("asit metodus hibas", testMethod(Ember.class, "asit", void.class, Modifier.PUBLIC));
+        }
+
+        @Test
+        public void alszik() {
+            assertTrue("alszik metodus hibas", testMethod(Ember.class, "alszik", void.class, Modifier.PUBLIC, int.class));
+        }
+
+        @Test
+        public void eszik() {
+            assertTrue("eszik metodus hibas", testMethod(Ember.class, "eszik", void.class, Modifier.PUBLIC, Etel.class));
+        }
+
+        @Test
+        public void iszik() {
+            assertTrue("iszik metodus hibas", testMethod(Ember.class, "iszik", void.class, Modifier.PUBLIC, Ital.class));
+        }
+
+        @Test
+        public void okos() {
+            assertTrue("okos metodus hibas", testMethod(Ember.class, "okos", boolean.class, Modifier.PUBLIC));
+        }
+
+        @Test
+        public void ferfi() {
+            assertTrue("ferfi metodus hibas", testMethod(Ember.class, "ferfi", boolean.class, Modifier.PUBLIC));
+        }
+
+        @Test
+        public void vasarol() {
+            assertTrue("vasarol metodus hibas", testMethod(Ember.class, "vasarol", boolean.class, Modifier.PUBLIC, int[].class));
+        }
+
+        @Test
+        public void szamol() {
+            assertTrue("szamol metodus hibas", testMethod(Ember.class, "szamol", int.class, Modifier.PUBLIC, int.class, int.class, int.class));
+        }
+
+        @Test
+        public void velemeny() {
+            assertTrue("velemeny metodus hibas", testMethod(Ember.class, "velemeny", String.class, Modifier.PUBLIC, int.class, double.class));
+        }
+    }
+  learner_created: false
+- name: src/Etel.java
+  visible: true
+  text: |
+    public class Etel {}
+  learner_created: false
+- name: src/Ital.java
+  visible: true
+  text: |
+    public class Ital {}
+  learner_created: false
+- name: src/Ember.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 506
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public class Ember {
+
+          public void asit() {}
+
+          public void alszik(int mennyit) {}
+
+          public void eszik(Etel mit) {}
+
+          public void iszik(Ital mit) {}
+
+          public boolean okos() {
+              return true;
+          }
+
+          public boolean ferfi() {
+              return false;
+          }
+
+          public boolean vasarol(int[] arak) {
+              return true;
+          }
+
+          public int szamol(int a, int b, int c) {
+              return 0;
+          }
+
+          public String velemeny(int a, double b) {
+              return "";
+          }
+
+
+      }
+  text: // megoldas
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 01 Mar 2024 18:25:41 UTC"
+record: -1
+solution_hidden: true

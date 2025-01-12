@@ -1,0 +1,69 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.assertEquals;
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest{
+        @Test
+        public void fejlecek() {
+            assertTrue("Osztaly fejlece hibas", testClass(TulNagySebesseg.class, Modifier.PUBLIC, RuntimeException.class));
+            assertTrue("Parameteres konstruktor fejlece hibas", testConstructor(TulNagySebesseg.class, Modifier.PUBLIC, int.class));
+        }
+
+        @Test
+        public void teszt_01() {
+            assertEquals("konstruktor hibas", "nem kene 5 km/h-val menni", new TulNagySebesseg(5).getMessage());
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("konstruktor hibas", "nem kene 50 km/h-val menni", new TulNagySebesseg(50).getMessage());
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("konstruktor hibas", "nem kene 5000 km/h-val menni", new TulNagySebesseg(5000).getMessage());
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("konstruktor hibas", "nem kene 0 km/h-val menni", new TulNagySebesseg(0).getMessage());
+        }
+
+        @Test
+        public void teszt_05() {
+            assertEquals("konstruktor hibas", "nem kene -20 km/h-val menni", new TulNagySebesseg(-20).getMessage());
+        }
+    }
+  learner_created: false
+- name: src/TulNagySebesseg.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 11
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public class TulNagySebesseg extends RuntimeException {
+          public TulNagySebesseg(int sebesseg) {
+              super("nem kene " + sebesseg + " km/h-val menni");
+          }
+      }
+  text: // megoldas
+  learner_created: false
+status: Unchecked
+record: -1
+solution_hidden: true

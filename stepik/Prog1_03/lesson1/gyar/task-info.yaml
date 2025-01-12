@@ -1,0 +1,126 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+        @Test
+        public void csokiGyartas() {
+            Gyar gyar = new Gyar();
+            Csoki csoki = gyar.csokiGyartas();
+            assertEquals("csokigyartas hibas", Csoki.class, csoki == null ? null : csoki.getClass());
+        }
+
+        @Test
+        public void szaloncukorGyartas() {
+            Gyar gyar = new Gyar();
+            Szaloncukor szaloncukor = gyar.szaloncukorGyartas();
+            assertEquals("szaloncukorGyartas hibas", Szaloncukor.class, szaloncukor == null ? null : szaloncukor.getClass());
+        }
+
+        @Test
+        public void kekszGyartas() {
+            Gyar gyar = new Gyar();
+            Keksz keksz = gyar.kekszGyartas();
+            assertEquals("kekszGyartas hibas", Keksz.class, keksz == null ? null : keksz.getClass());
+        }
+
+        @Test
+        public void nyalokaGyartas() {
+            Gyar gyar = new Gyar();
+            Nyaloka nyaloka = gyar.nyalokaGyartas();
+            assertEquals("nyalokaGyartas hibas", Nyaloka.class, nyaloka == null ? null : nyaloka.getClass());
+        }
+    }
+  learner_created: false
+- name: src/Gyar.java
+  visible: true
+  placeholders:
+  - offset: 217
+    length: 10
+    placeholder_text: return null;
+    initial_state:
+      length: 12
+      offset: 217
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: return sz;
+  - offset: 277
+    length: 19
+    placeholder_text: return null;
+    initial_state:
+      length: 12
+      offset: 279
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: return new Keksz();
+  - offset: 350
+    length: 21
+    placeholder_text: return null;
+    initial_state:
+      length: 12
+      offset: 345
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: return new Nyaloka();
+  text: |-
+    public class Gyar {
+
+        public Csoki csokiGyartas() {
+            Csoki csoki = new Csoki();
+            return csoki;
+        }
+
+        public Szaloncukor szaloncukorGyartas() {
+            Szaloncukor sz = new Szaloncukor();
+            return null;
+        }
+
+        public Keksz kekszGyartas() {
+            return null;
+        }
+
+        public Nyaloka nyalokaGyartas() {
+            return null;
+        }
+
+    }
+  learner_created: false
+- name: src/Nyaloka.java
+  visible: true
+  text: |
+    public class Nyaloka {
+    }
+  learner_created: false
+- name: src/Keksz.java
+  visible: true
+  text: |
+    public class Keksz {
+    }
+  learner_created: false
+- name: src/Csoki.java
+  visible: true
+  text: |
+    public class Csoki {
+    }
+  learner_created: false
+- name: src/Szaloncukor.java
+  visible: true
+  text: |
+    public class Szaloncukor {
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 01 Mar 2024 18:29:04 UTC"
+record: -1
+solution_hidden: true

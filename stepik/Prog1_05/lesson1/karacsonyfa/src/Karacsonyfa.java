@@ -1,0 +1,1 @@
+public class Karacsonyfa implements Fa, Dekoracio {}

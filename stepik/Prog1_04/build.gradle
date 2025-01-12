@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+def printOutput(def output) {
+    return tasks.create("printOutput") {
+        for (line in output.toString().readLines()) {
+            println "#educational_plugin" + line
+        }
+    }
+}
+
+subprojects {
+    apply plugin: 'application'
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation group: 'junit', name: 'junit', version: '4.12'
+
+        implementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    }
+
+    sourceSets {
+        main {
+            java.srcDir 'src'
+        }
+        test {
+            java.srcDir 'test'
+        }
+    }
+
+    mainClassName = project.hasProperty("mainClass") ? project.getProperty("mainClass") : ""
+
+    def runOutput = new ByteArrayOutputStream()
+    tasks.run.setStandardOutput(runOutput)
+    tasks.run.doLast { printOutput(runOutput) }
+}
+
+project(':util') {
+   // test {
+   //     useJUnitPlatform()
+   // }
+
+    dependencies {
+        implementation group: 'junit', name: 'junit', version: '4.12'
+    }
+}
+
+configure(subprojects.findAll {it.name != 'util'}) {
+  dependencies {
+    implementation project(':util').sourceSets.main.output
+    testImplementation project(':util').sourceSets.test.output
+  }
+}
+
+repositories {
+    mavenCentral()
+}

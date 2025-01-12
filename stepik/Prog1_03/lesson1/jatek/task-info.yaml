@@ -1,0 +1,73 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.*;
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            Jatek j = new Jatek("Ori", 24.2, true);
+            assertEquals("cim gettere nem jo", "Ori", j.getCim());
+            assertEquals("hossz gettere nem jo", 24.2, j.getHossz(), 0.001);
+            assertTrue("idegesito gettere nem jo", j.isIdegesito());
+        }
+
+        @Test
+        public void teszt_02() {
+            Jatek j2 = new Jatek("Forza", 55.3, false);
+            assertEquals("cim gettere nem jo", "Forza", j2.getCim());
+            assertEquals("hossz gettere nem jo", 55.3, j2.getHossz(), 0.001);
+            assertFalse("idegesito gettere nem jo", j2.isIdegesito());
+        }
+    }
+  learner_created: false
+- name: src/Jatek.java
+  visible: true
+  placeholders:
+  - offset: 450
+    length: 26
+    placeholder_text: // hozd letre a gettereket
+    initial_state:
+      length: 26
+      offset: 262
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+          public String getCim() {
+              return cim;
+          }
+
+          public double getHossz() {
+              return hossz;
+          }
+
+          public boolean isIdegesito() {
+              return idegesito;
+          }
+  text: |-
+    public class Jatek {
+        private String cim;
+        private double hossz;
+        private boolean idegesito;
+
+        public Jatek(String cim, double hossz, boolean idegesito) {
+            this.cim = cim;
+            this.hossz = hossz;
+            this.idegesito = idegesito;
+        }
+
+    // hozd letre a gettereket
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 01 Mar 2024 18:02:43 UTC"
+record: -1
+solution_hidden: true

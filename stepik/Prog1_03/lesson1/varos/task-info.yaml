@@ -1,0 +1,92 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            Varos v = new Varos("Szeged", 30, 3.3);
+            v.setNev("Budapest");
+            v.setNepessegSzam(74);
+            v.setTerulet(7.5);
+            assertEquals("a nev erteke hibas", "Budapest", v.getNev());
+            assertEquals("a nepessegszam erteke hibas", 74, v.getNepessegSzam());
+            assertEquals("a terulet erteke hibas", 7.5, v.getTerulet(), 0.0001);
+        }
+
+        @Test
+        public void teszt_02() {
+            Varos v = new Varos("Szeged", 30, 3.3);
+            v.setNev("Parizs");
+            v.setNepessegSzam(704);
+            v.setTerulet(17.75542);
+            assertEquals("a nev erteke hibas", "Parizs", v.getNev());
+            assertEquals("a nepessegszam erteke hibas", 704, v.getNepessegSzam());
+            assertEquals("a terulet erteke hibas", 17.75542, v.getTerulet(), 0.0001);
+        }
+    }
+  learner_created: false
+- name: src/Varos.java
+  visible: true
+  placeholders:
+  - offset: 722
+    length: 19
+    placeholder_text: // hianyzo setterek
+    initial_state:
+      length: 19
+      offset: 537
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public void setNepessegSzam(int nepessegSzam) {
+              this.nepessegSzam = nepessegSzam;
+          }
+
+          public void setTerulet(double terulet) {
+              this.terulet = terulet;
+          }
+  text: |-
+    public class Varos {
+        private String nev;
+        private int nepessegSzam;
+        private double terulet;
+
+        public Varos(String nev, int nepessegSzam, double terulet) {
+            this.nev = nev;
+            this.nepessegSzam = nepessegSzam;
+            this.terulet = terulet;
+        }
+
+        public String getNev() {
+            return nev;
+        }
+
+        public int getNepessegSzam() {
+            return nepessegSzam;
+        }
+
+        public double getTerulet() {
+            return terulet;
+        }
+
+        public void setNev(String nev) {
+            this.nev = nev;
+        }
+
+        // hianyzo setterek
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 01 Mar 2024 18:03:58 UTC"
+record: -1
+solution_hidden: true

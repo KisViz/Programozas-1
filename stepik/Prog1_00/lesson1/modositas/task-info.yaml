@@ -1,0 +1,55 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+      @Test
+      public void test1() {
+        Feladat.main(new String[] {"a", "b", "c"});
+      }
+
+      @Test
+      public void test2() {
+        String s1 = doArgumentTest(Feladat.class, "a", "b", "c");
+        String s2 = doArgumentTest(Feladat.class, "a", "b", "c", "d");
+
+        assertEquals(Integer.parseInt(s1), 3);
+        assertEquals(Integer.parseInt(s2), 4);
+      }
+
+    }
+  learner_created: false
+- name: src/Feladat.java
+  visible: true
+  placeholders:
+  - offset: 77
+    length: 32
+    placeholder_text: System.out.println(args.length - 1);
+    initial_state:
+      length: 36
+      offset: 77
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: System.out.println(args.length);
+  text: |-
+    public class Feladat {
+
+        public static void main(String[] args) {
+            System.out.println(args.length - 1);
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 15:51:23 UTC"
+record: -1
+solution_hidden: true

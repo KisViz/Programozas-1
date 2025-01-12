@@ -1,0 +1,614 @@
+type: edu
+files:
+- name: src/Sakktabla.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 117
+    placeholder_text: |-
+      public class Sakktabla {
+          public static Object[] sakktabla(int dimenzio, int meret) {
+              return null;
+          }
+      }
+    initial_state:
+      length: 117
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      import java.lang.reflect.Array;
+      public class Sakktabla {
+
+          public static Object[] sakktabla(int dimenzio, int meret) {
+              if (dimenzio == 1) {
+                  Object[] res = new Object[meret];
+                  boolean aktualis = false;
+                  for (int i = 0; i < res.length; i++) {
+                      res[i] = (aktualis ? 1 : 0);
+                      aktualis = !aktualis;
+                  }
+
+                  return res;
+              }
+
+              int[] dimarray = new int[dimenzio];
+              for (int i = 0; i < dimenzio; i++) {
+                  dimarray[i] = meret;
+              }
+
+              Object[] tomb = (Object[]) Array.newInstance(int.class, dimarray);
+              feltolt(tomb, dimenzio % 2 == 0);
+              return tomb;
+          }
+
+          public static void feltolt(Object[] tomb, boolean aktualis) {
+              for (Object o: tomb) {
+                  if (o instanceof Object[]) {
+                      feltolt((Object[]) o, !aktualis);
+                  } else if (o instanceof int[]) {
+                      for (int i = 0; i < ((int[]) o).length; i++) {
+                          int[] t = ((int[]) o);
+                          if (aktualis) {
+                              t[i] = i % 2;
+                          } else {
+                              t[i] = (i + 1) % 2;
+                          }
+                      }
+                  }
+
+                  aktualis = !aktualis;
+              }
+          }
+      }
+  text: |-
+    public class Sakktabla {
+        public static Object[] sakktabla(int dimenzio, int meret) {
+            return null;
+        }
+    }
+  learner_created: false
+- name: test/TestHelper.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Array;
+    import java.lang.reflect.Modifier;
+    import java.util.Arrays;
+    import java.util.stream.Stream;
+
+    import static org.junit.Assert.*;
+
+    public class TestHelper {
+
+        private Stream<Object> flatten(Object[] array) {
+            return Arrays.stream(array).flatMap(o -> o instanceof Object[] ? flatten((Object[])o): Stream.of(o));
+        }
+
+        protected boolean doOneDimensionTest(int size) {
+            Object[] res = Sakktabla.sakktabla(1, size);
+
+            for (int i = 0; i < res.length; i++) {
+                if (i % 2 == 0 && (int) res[i] != 0) {
+                    return false;
+                } else if (i % 2 == 1 && (int) res[i] != 1) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        protected boolean doHigherDimensionTest(int dimension, int size) {
+            Object[] arr = Sakktabla.sakktabla(dimension, size);
+            Object[] array = flatten(arr).toArray();
+
+            int resdim = 2;
+            while (arr[0] instanceof Object[]) {
+                arr = (Object[]) arr[0];
+                resdim++;
+            }
+
+            if (resdim != dimension) {
+                fail("a visszaadott tomb dimenzioszama nem megfelelo");
+            }
+
+            if (((int[]) array[0])[0] != 0) {
+                return false;
+            }
+
+            if (((int[]) array[0]).length != size) {
+                return false;
+            }
+
+            int visszanezes = 1;
+            int hatvany = 1;
+            for (int i = 0; i < array.length; i++) {
+                int[] res = (int[]) array[i];
+
+                for (int j = 1; j < res.length; j++) {
+                    if (!(res[j-1] == 0 ? res[j] == 1 : res[j] == 0)) {
+                        return false;
+                    }
+                }
+
+                if (i == 0) {
+                    continue;
+                }
+
+                if (i == Math.pow(size, hatvany)) {
+                    visszanezes *= size;
+                    hatvany++;
+                }
+
+                int[] old = (int[]) array[i - visszanezes];
+
+                for (int j = 0; j < old.length; j++) {
+                    if (old[j] == res[j]) {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+    }
+  learner_created: false
+- name: test/Egydimenzio.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Egydimenzio extends TestHelper {
+        @Test
+        public void teszt_01() {
+            assertTrue("Egy dimenzios tomb hibas", doOneDimensionTest(1));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertTrue("Egy dimenzios tomb hibas", doOneDimensionTest(2));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertTrue("Egy dimenzios tomb hibas", doOneDimensionTest(5));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertTrue("Egy dimenzios tomb hibas", doOneDimensionTest(6));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertTrue("Egy dimenzios tomb hibas", doOneDimensionTest(15040));
+        }
+    }
+  learner_created: false
+- name: test/Fejlec.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Fejlec extends BaseTest {
+        @Test
+        public void metodusFejlec() {
+            assertTrue("A metodus fejlece nem megfelelo", testMethod(Sakktabla.class, "sakktabla", Object[].class, Modifier.PUBLIC | Modifier.STATIC, int.class, int.class));
+        }
+    }
+  learner_created: false
+- name: test/Ketdimenzio.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Ketdimenzio extends TestHelper {
+        @Test
+        public void teszt_01() {
+            assertTrue("Ket dimenzios tomb hibas", doHigherDimensionTest(2, 1));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertTrue("Ket dimenzios tomb hibas", doHigherDimensionTest(2, 2));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertTrue("Ket dimenzios tomb hibas", doHigherDimensionTest(2, 3));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertTrue("Ket dimenzios tomb hibas", doHigherDimensionTest(2, 420));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertTrue("Ket dimenzios tomb hibas", doHigherDimensionTest(2, 1051));
+        }
+    }
+  learner_created: false
+- name: test/Haromdimenzio.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Haromdimenzio extends TestHelper {
+        @Test
+        public void teszt_01() {
+            assertTrue("Harom dimenzios tomb hibas", doHigherDimensionTest(3, 1));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertTrue("Harom dimenzios tomb hibas", doHigherDimensionTest(3, 2));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertTrue("Harom dimenzios tomb hibas", doHigherDimensionTest(3, 3));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertTrue("Harom dimenzios tomb hibas", doHigherDimensionTest(3, 4));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertTrue("Harom dimenzios tomb hibas", doHigherDimensionTest(3, 40));
+        }
+
+        @Test
+        public void teszt_06() {
+            assertTrue("Harom dimenzios tomb hibas", doHigherDimensionTest(3, 61));
+        }
+    }
+  learner_created: false
+- name: test/Magasdimenzio.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Magasdimenzio extends TestHelper {
+        @Test
+        public void teszt_01() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(4, 1));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(4, 2));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(4, 3));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(4, 4));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(4, 5));
+        }
+
+        @Test
+        public void teszt_06() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(4, 11));
+        }
+
+        @Test
+        public void teszt_07() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(4, 16));
+        }
+
+        @Test
+        public void teszt_08() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(4, 30));
+        }
+
+        @Test
+        public void teszt_09() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(4, 35));
+        }
+
+        @Test
+        public void teszt_10() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(5, 1));
+        }
+
+        @Test
+        public void teszt_11() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(5, 3));
+        }
+
+        @Test
+        public void teszt_12() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(5, 8));
+        }
+
+        @Test
+        public void teszt_13() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(5, 11));
+        }
+
+        @Test
+        public void teszt_14() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(5, 14));
+        }
+
+        @Test
+        public void teszt_15() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(6, 1));
+        }
+
+        @Test
+        public void teszt_16() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(6, 2));
+        }
+
+        @Test
+        public void teszt_17() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(6, 3));
+        }
+
+        @Test
+        public void teszt_18() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(6, 7));
+        }
+
+        @Test
+        public void teszt_19() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(6, 8));
+        }
+
+        @Test
+        public void teszt_20() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(7, 1));
+        }
+
+        @Test
+        public void teszt_21() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(7, 2));
+        }
+
+        @Test
+        public void teszt_22() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(7, 3));
+        }
+
+        @Test
+        public void teszt_23() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(7, 8));
+        }
+
+        @Test
+        public void teszt_24() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(7, 9));
+        }
+
+        @Test
+        public void teszt_25() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(8, 1));
+        }
+        @Test
+        public void teszt_26() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(8, 2));
+        }
+
+        @Test
+        public void teszt_27() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(8, 3));
+        }
+
+        @Test
+        public void teszt_28() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(8, 7));
+        }
+
+        @Test
+        public void teszt_29() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(8, 8));
+        }
+
+        @Test
+        public void teszt_30() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(9, 1));
+        }
+
+        @Test
+        public void teszt_31() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(9, 2));
+        }
+
+        @Test
+        public void teszt_32() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(9, 3));
+        }
+
+        @Test
+        public void teszt_33() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(9, 4));
+        }
+
+        @Test
+        public void teszt_34() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(9, 5));
+        }
+
+        @Test
+        public void teszt_35() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(9, 6));
+        }
+
+        @Test
+        public void teszt_36() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(10, 1));
+
+        }
+
+        @Test
+        public void teszt_37() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(10, 2));
+        }
+
+        @Test
+        public void teszt_38() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(10, 3));
+        }
+
+        @Test
+        public void teszt_39() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(10, 4));
+        }
+
+        @Test
+        public void teszt_40() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(11, 1));
+        }
+
+        @Test
+        public void teszt_41() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(11, 2));
+        }
+
+        @Test
+        public void teszt_42() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(11, 3));
+        }
+
+        @Test
+        public void teszt_43() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(12, 1));
+        }
+
+        @Test
+        public void teszt_44() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(12, 2));
+        }
+
+        @Test
+        public void teszt_45() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(12, 3));
+        }
+
+        @Test
+        public void teszt_46() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(13, 1));
+        }
+
+        @Test
+        public void teszt_47() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(13, 2));
+        }
+
+        @Test
+        public void teszt_48() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(13, 3));
+        }
+
+        @Test
+        public void teszt_49() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(14, 1));
+        }
+
+        @Test
+        public void teszt_50() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(14, 2));
+        }
+
+        @Test
+        public void teszt_51() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(14, 3));
+        }
+
+        @Test
+        public void teszt_52() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(15, 1));
+        }
+
+        @Test
+        public void teszt_53() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(15, 2));
+        }
+
+        @Test
+        public void teszt_54() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(18, 2));
+        }
+
+        @Test
+        public void teszt_55() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(19, 2));
+        }
+
+        @Test
+        public void teszt_56() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(21, 2));
+        }
+
+        @Test
+        public void teszt_57() {
+            assertTrue("Magas dimenzios tomb hibas", doHigherDimensionTest(22, 2));
+        }
+
+        @Test
+        public void teszt_58() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(18, 1));
+        }
+
+        @Test
+        public void teszt_59() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(19, 1));
+        }
+
+        @Test
+        public void teszt_60() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(21, 1));
+        }
+
+        @Test
+        public void teszt_61() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(22, 1));
+        }
+
+        @Test
+        public void teszt_62() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(58, 1));
+        }
+
+        @Test
+        public void teszt_63() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(77, 1));
+        }
+
+        @Test
+        public void teszt_64() {
+            assertTrue("Magas dimenzios tomb hibas (1 meretu)", doHigherDimensionTest(158, 1));
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+solution_hidden: true

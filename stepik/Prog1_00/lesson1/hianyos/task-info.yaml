@@ -1,0 +1,56 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void teszt1() {
+            Hianyos.main(new String[] {"a", "b"});
+        }
+
+        @Test
+        public void teszt2() {
+          int a = Integer.parseInt(doArgumentTest(Hianyos.class, "a", "b", "1"));
+          int b = Integer.parseInt(doArgumentTest(Hianyos.class, "bb", "ss"));
+          int c = Integer.parseInt(doArgumentTest(Hianyos.class, "bb", "ss", "55"));
+
+          assertEquals(a, 3);
+          assertEquals(b, 2);
+          assertEquals(c, 3);
+        }
+    }
+  learner_created: false
+- name: src/Hianyos.java
+  visible: true
+  placeholders:
+  - offset: 69
+    length: 0
+    placeholder_text: // ide ird a megoldast!
+    initial_state:
+      length: 23
+      offset: 77
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: System.out.println(args.length);
+  text: |-
+    public class Hianyos {
+
+        public static void main(String[] args) {
+            // ide ird a megoldast!
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 15:52:28 UTC"
+record: -1
+solution_hidden: true

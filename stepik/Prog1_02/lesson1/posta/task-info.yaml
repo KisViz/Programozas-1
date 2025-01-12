@@ -1,0 +1,59 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertFalse;
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            assertFalse("Hibas eredmeny", Posta.atveheto(new String("Emma"), new String("Gyorgy")));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertTrue("Hibas eredmeny", Posta.atveheto("Gabor", "Gabor"));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertFalse("Hibas eredmeny", Posta.atveheto(new String("Agnes"), new String("Vivien")));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertTrue("Hibas eredmeny", Posta.atveheto(new String("Peter"), new String("Peter")));
+        }
+    }
+  learner_created: false
+- name: src/Posta.java
+  visible: true
+  placeholders:
+  - offset: 100
+    length: 33
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 100
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: return cimzett.equals(emberNeve);
+  text: |
+    public class Posta {
+        public static boolean atveheto(String cimzett, String emberNeve) {
+            // megoldas
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 26 Feb 2024 17:48:04 UTC"
+record: -1
+solution_hidden: true

@@ -1,0 +1,101 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.*;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void adattagok() {
+            testField(Cserep.class, "forma", String.class, Modifier.PRIVATE);
+            testField(Cserep.class, "virag", Virag.class, Modifier.PRIVATE);
+        }
+
+        @Test
+        public void konstruktor_2_parameteres() {
+            testConstructor(Cserep.class, Modifier.PUBLIC, String.class, Virag.class);
+
+            Virag v1 = new Virag("kek", 11);
+            Virag v2 = new Virag("piros", 33);
+
+            Cserep cs1 = new Cserep("szogletes", v1);
+            Cserep cs2 = new Cserep("kerek", v2);
+
+            assertSame(v1, fieldValue(Cserep.class, "virag", cs1));
+            assertSame(v2, fieldValue(Cserep.class, "virag", cs2));
+
+            assertEquals("szogletes", fieldValue(Cserep.class, "forma", cs1));
+            assertEquals("kerek", fieldValue(Cserep.class, "forma", cs2));
+        }
+
+        @Test
+        public void konstruktor_1_parameteres() {
+            testConstructor(Cserep.class, Modifier.PUBLIC, String.class);
+
+            Cserep cs1 = new Cserep("szogletes");
+            Cserep cs2 = new Cserep("kerek");
+
+            assertNull(fieldValue(Cserep.class, "virag", cs1));
+            assertNull(fieldValue(Cserep.class, "virag", cs2));
+
+            assertEquals("szogletes", fieldValue(Cserep.class, "forma", cs1));
+            assertEquals("kerek", fieldValue(Cserep.class, "forma", cs2));
+        }
+
+    }
+  learner_created: false
+- name: src/Cserep.java
+  visible: true
+  placeholders:
+  - offset: 285
+    length: 11
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public class Cserep {
+          private String forma;
+          private Virag virag;
+
+          public Cserep(String forma, Virag virag) {
+              this.forma = forma;
+              this.virag = virag;
+          }
+
+          public Cserep(String forma) {
+              this.forma = forma;
+              this.virag = null;
+          }
+
+      }
+  text: // megoldas
+  learner_created: false
+- name: src/Virag.java
+  visible: true
+  text: |
+    public class Virag {
+        private String szin;
+        private int meret;
+
+        public Virag(String szin, int meret) {
+            this.szin = szin;
+            this.meret = meret;
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 01 Mar 2024 18:11:58 UTC"
+record: -1
+solution_hidden: true

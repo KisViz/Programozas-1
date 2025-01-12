@@ -1,0 +1,58 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Test;
+
+    import static org.junit.Assert.*;
+
+    public class Tests {
+        @Test
+        public void oroklodes() {
+            Exception e = new KicsiMergesPokException("pooooook");
+            assertTrue("Hibas oroklodes", e instanceof KicsiMergesPokException);
+            assertFalse("Hibas oroklodes", e instanceof RuntimeException);
+            assertSame("Hibas oroklodes", KicsiMergesPokException.class.getSuperclass(), Exception.class);
+        }
+
+        @Test
+        public void mukodes() {
+            KicsiMergesPokException e = new KicsiMergesPokException("szalad a pok");
+            assertEquals("Hibas hibauzenet", "szalad a pok", e.getMessage());
+        }
+    }
+  learner_created: false
+- name: src/KicsiMergesPokException.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 140
+    placeholder_text: |-
+      public class KicsiMergesPokException extends RuntimeException {
+          public KicsiMergesPokException(String str) {
+              super(str);
+          }
+      }
+    initial_state:
+      length: 140
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public class KicsiMergesPokException extends Exception {
+          public KicsiMergesPokException(String str) {
+              super(str);
+          }
+      }
+  text: |-
+    public class KicsiMergesPokException extends RuntimeException {
+        public KicsiMergesPokException(String str) {
+            super(str);
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+solution_hidden: true

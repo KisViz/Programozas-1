@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Tests" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-02-23T15:54:55" hostname="DESKTOP-VL7E782" time="0.004">
+  <properties/>
+  <testcase name="teszt1" classname="Tests" time="0.003"/>
+  <testcase name="teszt2" classname="Tests" time="0.0"/>
+  <testcase name="teszt3" classname="Tests" time="0.0"/>
+  <testcase name="teszt4" classname="Tests" time="0.0"/>
+  <testcase name="teszt5" classname="Tests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

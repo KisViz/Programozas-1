@@ -1,0 +1,88 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.assertEquals;
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void teszt_konstruktor() {
+            Macska macska = new Macska("Cirmi", "lila", 7);
+            assertEquals("nev hibas", "Cirmi", macska.getNev());
+            assertEquals("szin hibas", "lila", macska.getSzin());
+            assertEquals("meret hibas", 7, macska.getMeret());
+
+            Macska macska2 = new Macska("Cirmi2", "szurke", 70);
+            assertEquals("nev hibas", "Cirmi2", macska2.getNev());
+            assertEquals("szin hibas", "szurke", macska2.getSzin());
+            assertEquals("meret hibas", 70, macska2.getMeret());
+        }
+
+        @Test
+        public void teszt_adattag() {
+            assertTrue(testField(Macska.class, "nev", String.class, Modifier.PRIVATE | Modifier.FINAL));
+        }
+    }
+  learner_created: false
+- name: src/Macska.java
+  visible: true
+  placeholders:
+  - offset: 26
+    length: 25
+    placeholder_text: private String nev;
+    initial_state:
+      length: 19
+      offset: 26
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: private final String nev;
+  - offset: 105
+    length: 141
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 99
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: |-
+      public Macska(String nev, String szin, int meret) {
+              this.nev = nev;
+              this.szin = szin;
+              this.meret = meret;
+          }
+  text: |-
+    public class Macska {
+        private String nev;
+        private String szin;
+        private int meret;
+
+        // megoldas
+
+        public String getNev() {
+            return nev;
+        }
+
+        public String getSzin() {
+            return szin;
+        }
+
+        public int getMeret() {
+            return meret;
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Sat, 09 Mar 2024 18:28:24 UTC"
+record: -1
+solution_hidden: true

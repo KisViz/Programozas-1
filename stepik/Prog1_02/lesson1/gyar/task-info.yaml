@@ -1,0 +1,250 @@
+type: edu
+files:
+- name: src/Gyar.java
+  visible: true
+  placeholders:
+  - offset: 241
+    length: 12
+    placeholder_text: return null;
+    initial_state:
+      length: 12
+      offset: 99
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: "return new int[10];"
+  - offset: 437
+    length: 18
+    placeholder_text: return null;
+    initial_state:
+      length: 12
+      offset: 175
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: "return new int[x];"
+  - offset: 628
+    length: 12
+    placeholder_text: return null;
+    initial_state:
+      length: 12
+      offset: 254
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      int[] tomb = new int[x];
+              for (int i = 0; i < tomb.length; i++) {
+                  tomb[i] = i;
+              }
+
+              return tomb;
+  - offset: 790
+    length: 12
+    placeholder_text: return null;
+    initial_state:
+      length: 12
+      offset: 338
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      String[] tomb = new String[x];
+              Arrays.fill(tomb, "jatekmaci");
+              return tomb;
+  - offset: 1140
+    length: 12
+    placeholder_text: return null;
+    initial_state:
+      length: 12
+      offset: 459
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      String[] tomb = new String[darab];
+              for (int i = 0; i < tomb.length; i++) {
+                  if (i % 2 == 0) {
+                      tomb[i] = paros;
+                  } else {
+                      tomb[i] = paratlan;
+                  }
+              }
+
+              return tomb;
+  text: |
+    import java.util.Arrays;
+
+    public class Gyar {
+
+        public static int[] ures10ElemuTomb() {
+            return null;
+        }
+
+        public static int[] uresXElemuTomb(int x) {
+            return null;
+        }
+
+        public static int[] novekvoXElemuTomb(int x) {
+            return null;
+        }
+
+        public static String[] jatekmaciXElemuTomb(int x) {
+            return null;
+        }
+
+        public static String[] vegyesjatekXElemuTomb(String paros, String paratlan, int darab) {
+            return null;
+        }
+
+    }
+  learner_created: false
+- name: test/UresXElemuTomb.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class UresXElemuTomb {
+        @Test
+        public void teszt_01() {
+            int[] tomb1 = Gyar.uresXElemuTomb(17);
+            assertEquals("a tomb merete nem megfelelo", 17, tomb1.length);
+
+            for (int i = 0; i < 17; i++) {
+                assertEquals("a tomb N. eleme nem 0", 0, tomb1[i]);
+            }
+        }
+
+        @Test
+        public void teszt_02() {
+            int[] tomb2 = Gyar.uresXElemuTomb(4);
+            assertEquals("a tomb merete nem megfelelo", 4, tomb2.length);
+
+            for (int i = 0; i < 4; i++) {
+                assertEquals("a tomb N. eleme nem 0", 0, tomb2[i]);
+            }
+        }
+    }
+  learner_created: false
+- name: test/JatekmaciXElemuTomb.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class JatekmaciXElemuTomb {
+        @Test
+        public void teszt_01() {
+            String[] tomb1 = Gyar.jatekmaciXElemuTomb(6);
+            assertEquals("a tomb merete nem megfelelo", 6, tomb1.length);
+
+            for (int i = 0; i < 6; i++) {
+                assertEquals("a tomb N. eleme nem jatekmaci", "jatekmaci", tomb1[i]);
+            }
+        }
+
+        @Test
+        public void teszt_02() {
+            String[] tomb2 = Gyar.jatekmaciXElemuTomb(46);
+            assertEquals("a tomb merete nem megfelelo", 46, tomb2.length);
+
+            for (int i = 0; i < 46; i++) {
+                assertEquals("a tomb N. eleme nem jatekmaci", "jatekmaci", tomb2[i]);
+            }
+        }
+    }
+  learner_created: false
+- name: test/VegyesjatekXElemuTomb.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class VegyesjatekXElemuTomb {
+        @Test
+        public void teszt_01() {
+            String[] tomb1 = Gyar.vegyesjatekXElemuTomb("jatekvonat", "jatekkatona", 1);
+            assertEquals("a tomb merete nem megfelelo", 1, tomb1.length);
+
+            assertEquals("a tomb N. eleme nem megfelelo", "jatekvonat", tomb1[0]);
+        }
+
+        @Test
+        public void teszt_02() {
+            String[] tomb2 = Gyar.vegyesjatekXElemuTomb("igazivonat", "igazikatona", 24);
+            assertEquals("a tomb merete nem megfelelo", 24, tomb2.length);
+
+            for (int i = 0; i < 24; i++) {
+                assertEquals("a tomb N. eleme nem megfelelo", (i%2==0)?"igazivonat":"igazikatona", tomb2[i]);
+            }
+        }
+    }
+  learner_created: false
+- name: test/NovekvoXElemuTomb.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class NovekvoXElemuTomb {
+        @Test
+        public void teszt_01() {
+            int[] tomb1 = Gyar.novekvoXElemuTomb(17);
+            assertEquals("a tomb merete nem megfelelo", 17, tomb1.length);
+
+            for (int i = 0; i < 17; i++) {
+                assertEquals("a tomb N. eleme nem megfelelo", i, tomb1[i]);
+            }
+        }
+
+        @Test
+        public void teszt_02() {
+            int[] tomb2 = Gyar.novekvoXElemuTomb(40000);
+            assertEquals("a tomb merete nem megfelelo", 40000, tomb2.length);
+
+            for (int i = 0; i < 40000; i++) {
+                assertEquals("a tomb N. eleme nem megfelelo", i, tomb2[i]);
+            }
+        }
+    }
+  learner_created: false
+- name: test/Ures10ElemuTomb.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.*;
+
+    public class Ures10ElemuTomb {
+        @Test
+        public void teszt_01() {
+            int[] tomb = Gyar.ures10ElemuTomb();
+            assertEquals("a tomb merete nem megfelelo", 10, tomb.length);
+
+            for (int i = 0; i < 10; i++) {
+                assertEquals("a tomb N. eleme nem 0", 0, tomb[i]);
+            }
+        }
+
+
+
+
+
+
+
+
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Thu, 29 Feb 2024 17:37:21 UTC"
+record: -1
+solution_hidden: true

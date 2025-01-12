@@ -1,0 +1,154 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+        @Test
+        public void teszt() {
+            Bolt b1 = new Bolt("Spar", 14, 16, 5);
+            Bolt b2 = new Bolt("Tesco", 20, 22, 3);
+            Bolt b3 = new Bolt("Lidl", 2, 22, 10);
+            Bolt b4 = new Bolt("Avkmaqkmva", 1, 23, 1000304);
+
+            assertEquals("alapertelmezett ertek hibas", 0, Bolt.nyitottBoltok());
+
+            b1.kinyit();
+            b3.kinyit();
+
+            assertEquals("nehany bolt kinyitott", 2, Bolt.nyitottBoltok());
+
+            b3.bezar();
+            assertEquals("nehany bolt bezart", 1, Bolt.nyitottBoltok());
+
+            b4.kinyit();
+            b2.kinyit();
+            assertEquals("nehany bolt kinyitott", 3, Bolt.nyitottBoltok());
+
+            for (int i = 0; i < 1000; i++) {
+                b2.kinyit();
+            }
+
+            assertEquals("egy kinyitott bolt megint ki akart nyitni, ujra es ujra", 3, Bolt.nyitottBoltok());
+
+            for (int i = 0; i < 120; i++) {
+                b4.bezar();
+            }
+
+            assertEquals("egy bezart bolt ujra be akart zarni", 2, Bolt.nyitottBoltok());
+
+            b1.bezar();
+            b2.bezar();
+            b3.bezar();
+            b4.bezar();
+
+            assertEquals("minden boltbol elvittek az osszes termeket, igy mind bezart", 0, Bolt.nyitottBoltok());
+        }
+    }
+  learner_created: false
+- name: src/Bolt.java
+  visible: true
+  placeholders:
+  - offset: 163
+    length: 104
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 162
+    initialized_from_dependency: false
+    selected: true
+    status: Failed
+    encrypted_possible_answer: |2-
+
+
+          private static int boltszam;
+
+          public static int nyitottBoltok() {
+              return boltszam;
+          }
+  - offset: 296
+    length: 59
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 190
+    initialized_from_dependency: false
+    selected: true
+    status: Failed
+    encrypted_possible_answer: |2-
+
+              if (!nyitva) {
+                  boltszam++;
+              }
+  - offset: 412
+    length: 60
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 246
+    initialized_from_dependency: false
+    selected: true
+    status: Failed
+    encrypted_possible_answer: |2-
+
+              if (nyitva) {
+                  boltszam--;
+              }
+  text: |-
+    public class Bolt {
+        private String nev;
+        private int nyitasiIdopont;
+        private int zarasiIdopont;
+        private int szemelyzet;
+        private boolean nyitva;
+
+        public void kinyit() {
+            nyitva = true;
+        }
+
+        public void bezar() {
+            nyitva = false;
+        }
+
+        public Bolt(String nev, int nyitasiIdopont, int zarasiIdopont, int szemelyzet) {
+            this.nev = nev;
+            this.nyitasiIdopont = nyitasiIdopont;
+            this.zarasiIdopont = zarasiIdopont;
+            this.szemelyzet = szemelyzet;
+            this.nyitva = false;
+        }
+
+        public String getNev() {
+            return nev;
+        }
+
+        public int getNyitasiIdopont() {
+            return nyitasiIdopont;
+        }
+
+        public int getZarasiIdopont() {
+            return zarasiIdopont;
+        }
+
+        public int getSzemelyzet() {
+            return szemelyzet;
+        }
+
+        public boolean isNyitva() {
+            return nyitva;
+        }
+    }
+  learner_created: false
+status: Failed
+feedback:
+  message: "egy kinyitott bolt megint ki akart nyitni, ujra es ujra"
+  time: "Sat, 09 Mar 2024 18:42:05 UTC"
+  expected: 3
+  actual: 1003
+record: -1
+solution_hidden: true

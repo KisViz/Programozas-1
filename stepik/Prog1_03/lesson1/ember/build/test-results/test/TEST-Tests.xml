@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Tests" tests="9" skipped="0" failures="0" errors="0" timestamp="2024-03-01T18:25:41" hostname="DESKTOP-VL7E782" time="0.004">
+  <properties/>
+  <testcase name="alszik" classname="Tests" time="0.003"/>
+  <testcase name="szamol" classname="Tests" time="0.0"/>
+  <testcase name="asit" classname="Tests" time="0.0"/>
+  <testcase name="okos" classname="Tests" time="0.0"/>
+  <testcase name="eszik" classname="Tests" time="0.001"/>
+  <testcase name="ferfi" classname="Tests" time="0.0"/>
+  <testcase name="iszik" classname="Tests" time="0.0"/>
+  <testcase name="vasarol" classname="Tests" time="0.0"/>
+  <testcase name="velemeny" classname="Tests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,53 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.io.ByteArrayOutputStream;
+    import java.io.PrintStream;
+
+    import static org.junit.Assert.*;
+
+    public class Tests extends BaseTest {
+        {
+            keepSoutSerr = false;
+        }
+
+        @Test
+        public void teszt_01() {
+            Main.main(new String[] {});
+            assertEquals("Hibas kiiratas", "Macska", sout.toString().trim());
+        }
+    }
+  learner_created: false
+- name: src/Main.java
+  visible: true
+  placeholders:
+  - offset: 74
+    length: 29
+    placeholder_text: // keszitsd el a feladatot
+    initial_state:
+      length: 26
+      offset: 74
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: System.out.println("Macska");
+  text: |
+    public class Main {
+
+        public static void main(String[] args) {
+            // keszitsd el a feladatot
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 16:07:22 UTC"
+record: -1
+solution_hidden: true

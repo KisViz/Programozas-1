@@ -1,0 +1,25 @@
+<html lang="hu">
+    <h1>[⭐⭐⭐] 14. Kulcs (8 pont)</h1>
+    Az ajtók szereléséhez a zárak is hozzátartoznak, ezt Alex, a csiga is tudja, így szeretne részletesebben megismerkedni a zárakkal.<br>
+    Amikor egy kulccsal ki szeretnénk nyitni egy zárat, akkor 3 féle probléma léphet fel, ezeket 1-1 kivétel osztály fogja reprezentálni:
+    <ul>
+        <li><i>NemIllikAZarba</i>: egy 2 paraméteres konstruktora van, ami várja a kulcsot és a zárat. Lehessen lekérdezni a <i>getKulcs</i> és <i>getZar</i>
+        metódusokkal az érintett kulcsot, illetve zárat</li>
+        <li><i>MarNyitvaVan</i>: egy 1 paraméteres konstruktora van, ami a zárat várja. Lehessen lekérdezni az érintett zárat a <i>getZar</i> metódussal</li>
+        <li><i>MarZarvaVan</i>: egy 1 paraméteres konstruktora van, ami a zárat várja. Lehessen lekérdezni az érintett zárat a <i>getZar</i> metódussal</li>
+    </ul>
+
+    Készítsd el a <i>Zar</i> osztályt. Egy zárról tároljuk el, hogy milyen kulcs illik bele (ez egy egészeket tároló tömb), illetve tudjuk, hogy egy zár nyitva van-e.<br>
+    A konstruktora vár egy egészekből álló tömböt, amit majd a nyitáshoz tudunk felhasználni. Kezdetben minden ajtó zárva van. Lehessen lekérdezni az <i>isNyitva</i>
+    metódussal, hogy a zár nyitva van-e.<br>
+    <br>
+    Készítsd el a <i>Kulcs</i> osztályt. A kulcsról szintén tárolni kell a mélyedéseit (egészekből álló tömb), és hasonlóan egy egy paraméteres konstruktora van, ami egy egészekből
+    álló tömböt vár.<br>
+    <br>
+    Készítsd el a <i>kinyit</i> és <i>bezar</i> metódusokat a <i>Kulcs</i> osztályban, amelyek a paraméterben kapott zárat próbálják meg kinyitni, illetve bezárni.<br>
+    Először meg kell néznünk, hogy a kulcs beleillik-e a zárba. Akkor illik bele a kulcs a zárba, ha a kulcs és zár mélyedései (az egészeket tároló tömbök) minden pozíción 0-t
+    adnak összegül (pl. kulcs: [1, -4, 2], zár: [-1, 4, -2]).<br>
+    Amennyiben beleillik a zárba a kulcs, nézzük meg, hogy nyitva, illetve zárva van-e. Nyilván ha nyitva van, nem tudjuk még egyszer kinyitni és ha zárva van, nem tudjuk
+    még egyszer bezárni.<br>
+    A hibás eseteket kezeljük le a megfelelő kivételek eldobásával!
+</html>

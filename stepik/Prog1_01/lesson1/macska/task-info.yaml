@@ -1,0 +1,36 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    public class Tests {
+        @Test
+        public void testSolution() {
+            Macska m = null;
+        }
+    }
+  learner_created: false
+- name: src/Macska.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 23
+    placeholder_text: /* */
+    initial_state:
+      length: 5
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: "public class Macska {}"
+  text: /* */
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 15:58:15 UTC"
+record: -1
+solution_hidden: true

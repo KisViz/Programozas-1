@@ -1,0 +1,213 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.*;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void testSolution() {
+            Macska m1 = new Macska();
+            Macska m2 = new Macska();
+            Lo l1 = new Lo();
+            Lo l2 = new Lo();
+            Tehen t1 = new Tehen();
+            Tehen t3 = new Tehen();
+
+
+            Haz h = new Haz(5);
+            assertEquals("a tomb merete nem megfelelo", 5, h.getAllatok().length);
+
+            assertEquals("tevekenyseg hibas", "",getSout(getMethod(Haz.class, "tevekenyseg"), h));
+
+            h.allatJon(m1);
+            assertSame("allatJon hibas", m1, h.getAllatok()[0]);
+            assertNull("allatJon hibas", h.getAllatok()[1]);
+            assertNull("allatJon hibas", h.getAllatok()[2]);
+            assertNull("allatJon hibas", h.getAllatok()[3]);
+            assertNull("allatJon hibas", h.getAllatok()[4]);
+            assertEquals("tevekenyseg hibas", "Miau",getSout(getMethod(Haz.class, "tevekenyseg"), h));
+
+
+            h.allatJon(m2);
+            assertSame("allatJon hibas", m1, h.getAllatok()[0]);
+            assertSame("allatJon hibas", m2, h.getAllatok()[1]);
+            assertNull("allatJon hibas", h.getAllatok()[2]);
+            assertNull("allatJon hibas", h.getAllatok()[3]);
+            assertNull("allatJon hibas", h.getAllatok()[4]);
+            assertEquals("tevekenyseg hibas", "Miau" + System.lineSeparator() + "Miau" ,getSout(getMethod(Haz.class, "tevekenyseg"), h));
+
+            h.allatJon(m2);
+            assertSame("allatJon hibas", m1, h.getAllatok()[0]);
+            assertSame("allatJon hibas", m2, h.getAllatok()[1]);
+            assertNull("allatJon hibas", h.getAllatok()[2]);
+            assertNull("allatJon hibas", h.getAllatok()[3]);
+            assertNull("allatJon hibas", h.getAllatok()[4]);
+            assertEquals("tevekenyseg hibas", "Miau" + System.lineSeparator() + "Miau" ,getSout(getMethod(Haz.class, "tevekenyseg"), h));
+
+            h.allatJon(null);
+            assertSame("allatJon hibas", m1, h.getAllatok()[0]);
+            assertSame("allatJon hibas", m2, h.getAllatok()[1]);
+            assertNull("allatJon hibas", h.getAllatok()[2]);
+            assertNull("allatJon hibas", h.getAllatok()[3]);
+            assertNull("allatJon hibas", h.getAllatok()[4]);
+            assertEquals("tevekenyseg hibas", "Miau" + System.lineSeparator() + "Miau" ,getSout(getMethod(Haz.class, "tevekenyseg"), h));
+
+            h.allatJon(t1);
+            assertSame("allatJon hibas", m1, h.getAllatok()[0]);
+            assertSame("allatJon hibas", m2, h.getAllatok()[1]);
+            assertSame("allatJon hibas", t1, h.getAllatok()[2]);
+            assertNull("allatJon hibas", h.getAllatok()[3]);
+            assertNull("allatJon hibas", h.getAllatok()[4]);
+            assertEquals("tevekenyseg hibas", "Miau" + System.lineSeparator() + "Miau" + System.lineSeparator() + "tessek, tej" ,getSout(getMethod(Haz.class, "tevekenyseg"), h));
+
+            h.allatJon(l1);
+            assertSame("allatJon hibas", m1, h.getAllatok()[0]);
+            assertSame("allatJon hibas", m2, h.getAllatok()[1]);
+            assertSame("allatJon hibas", t1, h.getAllatok()[2]);
+            assertSame("allatJon hibas", l1, h.getAllatok()[3]);
+            assertNull("allatJon hibas", h.getAllatok()[4]);
+            assertEquals("tevekenyseg hibas", "Miau" + System.lineSeparator() + "Miau" + System.lineSeparator() + "tessek, tej" + System.lineSeparator() + "nyihaha" ,getSout(getMethod(Haz.class, "tevekenyseg"), h));
+
+            h.allatJon(m2);
+            assertSame("allatJon hibas", m1, h.getAllatok()[0]);
+            assertSame("allatJon hibas", m2, h.getAllatok()[1]);
+            assertSame("allatJon hibas", t1, h.getAllatok()[2]);
+            assertSame("allatJon hibas", l1, h.getAllatok()[3]);
+            assertNull("allatJon hibas", h.getAllatok()[4]);
+            assertEquals("tevekenyseg hibas", "Miau" + System.lineSeparator() + "Miau" + System.lineSeparator() + "tessek, tej" + System.lineSeparator() + "nyihaha" ,getSout(getMethod(Haz.class, "tevekenyseg"), h));
+
+            h.allatJon(t3);
+            assertSame("allatJon hibas", m1, h.getAllatok()[0]);
+            assertSame("allatJon hibas", m2, h.getAllatok()[1]);
+            assertSame("allatJon hibas", t1, h.getAllatok()[2]);
+            assertSame("allatJon hibas", l1, h.getAllatok()[3]);
+            assertSame("allatJon hibas", t3, h.getAllatok()[4]);
+            assertEquals("tevekenyseg hibas", "Miau" + System.lineSeparator() + "Miau" + System.lineSeparator() + "tessek, tej" + System.lineSeparator() + "nyihaha" + System.lineSeparator() + "tessek, tej" ,getSout(getMethod(Haz.class, "tevekenyseg"), h));
+
+            h.allatJon(l2);
+            assertSame("allatJon hibas", m1, h.getAllatok()[0]);
+            assertSame("allatJon hibas", m2, h.getAllatok()[1]);
+            assertSame("allatJon hibas", t1, h.getAllatok()[2]);
+            assertSame("allatJon hibas", l1, h.getAllatok()[3]);
+            assertSame("allatJon hibas", t3, h.getAllatok()[4]);
+            assertEquals("tevekenyseg hibas", "Miau" + System.lineSeparator() + "Miau" + System.lineSeparator() + "tessek, tej" + System.lineSeparator() + "nyihaha" + System.lineSeparator() + "tessek, tej" ,getSout(getMethod(Haz.class, "tevekenyseg"), h));
+
+            h.allatJon(null);
+            assertSame("allatJon hibas", m1, h.getAllatok()[0]);
+            assertSame("allatJon hibas", m2, h.getAllatok()[1]);
+            assertSame("allatJon hibas", t1, h.getAllatok()[2]);
+            assertSame("allatJon hibas", l1, h.getAllatok()[3]);
+            assertSame("allatJon hibas", t3, h.getAllatok()[4]);
+            assertEquals("tevekenyseg hibas", "Miau" + System.lineSeparator() + "Miau" + System.lineSeparator() + "tessek, tej" + System.lineSeparator() + "nyihaha" + System.lineSeparator() + "tessek, tej" ,getSout(getMethod(Haz.class, "tevekenyseg"), h));
+
+        }
+    }
+  learner_created: false
+- name: src/Allat.java
+  visible: true
+  text: "public class Allat {}"
+  learner_created: false
+- name: src/Macska.java
+  visible: true
+  text: |
+    public class Macska extends Allat {
+
+        public void nyavog() {
+            System.out.println("Miau");
+        }
+
+    }
+  learner_created: false
+- name: src/Lo.java
+  visible: true
+  text: |
+    public class Lo extends Allat {
+
+        public void nyerit() {
+            System.out.println("nyihaha");
+        }
+
+    }
+  learner_created: false
+- name: src/Tehen.java
+  visible: true
+  text: |
+    public class Tehen extends Allat {
+
+        public void tejetAd() {
+            System.out.println("tessek, tej");
+        }
+
+    }
+  learner_created: false
+- name: src/Haz.java
+  visible: true
+  placeholders:
+  - offset: 203
+    length: 768
+    placeholder_text: // megoldasok
+    initial_state:
+      length: 13
+      offset: 203
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public void allatJon(Allat a) {
+              if (a == null) {
+                  return;
+              }
+
+              for (int i = 0; i < allatok.length; i++) {
+                  if (allatok[i] == a) {
+                      return;
+                  }
+
+                  if (allatok[i] == null) {
+                      allatok[i] = a;
+                      return;
+                  }
+              }
+          }
+
+          public void tevekenyseg() {
+              for (Allat a: allatok) {
+                  if (a == null) {
+                      continue;
+                  }
+
+                  if (a instanceof Macska) {
+                      ((Macska) a).nyavog();
+                  } else if (a instanceof Tehen) {
+                      ((Tehen) a).tejetAd();
+                  } else if (a instanceof Lo) {
+                      ((Lo) a).nyerit();
+                  }
+              }
+          }
+  text: |
+    public class Haz {
+        private Allat[] allatok;
+
+        public Haz(int maxAllatszam) {
+            allatok = new Allat[maxAllatszam];
+        }
+
+        public Allat[] getAllatok() {
+            return allatok;
+        }
+
+        // megoldasok
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 16 Apr 2024 15:35:21 UTC"
+record: -1
+solution_hidden: true

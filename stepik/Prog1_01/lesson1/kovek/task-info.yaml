@@ -1,0 +1,76 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            int[] kovek1 = {4, 7, 2, 1, 6, 3};
+            assertEquals("Hibas eredmeny", 0, Ko.kovek(kovek1, 23));
+        }
+
+        @Test
+        public void teszt_02() {
+            int[] kovek2 = {1};
+            assertEquals("Hibas eredmeny", 0, Ko.kovek(kovek2, 1));
+        }
+
+        @Test
+        public void teszt_03() {
+            int[] kovek3 = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
+            assertEquals("Hibas eredmeny", 1, Ko.kovek(kovek3, 29));
+        }
+
+        @Test
+        public void teszt_04() {
+            int[] kovek4 = {101, 4, 2};
+            assertEquals("Hibas eredmeny", 6, Ko.kovek(kovek4, 101));
+        }
+
+        @Test
+        public void teszt_05() {
+            int[] kovek4 = {101, 4, 2};
+            assertEquals("Hibas eredmeny", 107, Ko.kovek(kovek4, 0));
+        }
+
+
+    }
+  learner_created: false
+- name: src/Ko.java
+  visible: true
+  placeholders:
+  - offset: 238
+    length: 29
+    placeholder_text: return 0;
+    initial_state:
+      length: 9
+      offset: 102
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      int osszeg = 0;
+              for (int i = 0; i < osszegyujtottKovek.length; i++) {
+                  osszeg += osszegyujtottKovek[i];
+              }
+
+              return osszeg - jelenlegiKovek;
+  text: |-
+    public class Ko {
+        public static int kovek(int[] osszegyujtottKovek, int jelenlegiKovek) {
+            return 0;
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 16:31:01 UTC"
+record: -1
+solution_hidden: true

@@ -1,0 +1,57 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.*;
+
+    public class Tests {
+        @Test
+        public void testSolution() {
+            Lo[] lovak = Lo.lovakOsszeallnak();
+            assertNotNull("A visszaadott tomb null", lovak);
+            assertEquals("a tomb merete nem megfelelo", 10, lovak.length);
+            for (int i = 0; i < 10; i++) {
+                //noinspection ConstantConditions
+                assertTrue("a tombben az egyik pozicion nem lo van", lovak[i] instanceof Lo);
+            }
+        }
+    }
+  learner_created: false
+- name: src/Lo.java
+  visible: true
+  placeholders:
+  - offset: 23
+    length: 183
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 23
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public static Lo[] lovakOsszeallnak() {
+              Lo[] lovak = new Lo[10];
+              for (int i = 0; i < 10; i++) {
+                  lovak[i] = new Lo();
+              }
+
+              return lovak;
+          }
+  text: |-
+    public class Lo {
+
+        // megoldas
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 12 Mar 2024 14:31:26 UTC"
+record: -1
+solution_hidden: true

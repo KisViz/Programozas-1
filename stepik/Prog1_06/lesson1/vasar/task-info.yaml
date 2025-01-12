@@ -1,0 +1,155 @@
+type: edu
+custom_name: vasar
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.util.Arrays;
+    import java.util.Collections;
+    import java.util.Set;
+
+    import static org.junit.Assert.*;
+
+    public class Tests {
+        @Test
+        public void teszt() {
+            Aru a1 = new Aru("a", 5);
+            Aru a2 = new Aru("b", 50);
+            Aru a3 = new Aru("cc", 4);
+            Aru a4 = new Aru("d", 2);
+            Aru a5 = new Aru("macskaillatu pamut-paralellepipedon", 100000000);
+
+            Vasar v = new Vasar();
+            Set<Aru> aruk = v.getAruk();
+
+            v.hozzaad(a1);
+            assertEquals("hozzaadas utan az aruk halmaza hibas meretu", 1, aruk.size());
+            assertTrue("hozzaadas utan az aruk halmaza hibas", aruk.contains(a1));
+
+            v.hozzaad(a2);
+            assertEquals("hozzaadas utan az aruk halmaza hibas meretu", 2, aruk.size());
+            assertTrue("hozzaadas utan az aruk halmaza hibas", aruk.containsAll(Arrays.asList(a1, a2)));
+
+            v.hozzaad(a3);
+            assertEquals("hozzaadas utan az aruk halmaza hibas meretu", 3, aruk.size());
+            assertTrue("hozzaadas utan az aruk halmaza hibas", aruk.containsAll(Arrays.asList(a1, a2, a3)));
+            assertFalse("vasarolhato hibas", v.vasarolhato(a4));
+            assertFalse("vasarolhato hibas", v.vasarolhato(a5));
+            assertTrue("vasarolhato hibas", v.vasarolhato(a1));
+
+            v.hozzaad(a4);
+            assertEquals("hozzaadas utan az aruk halmaza hibas meretu", 4, aruk.size());
+            assertTrue("hozzaadas utan az aruk halmaza hibas", aruk.containsAll(Arrays.asList(a1, a2, a3, a4)));
+            assertTrue("vasarolhato hibas", v.vasarolhato(a4));
+            assertFalse("vasarolhato hibas", v.vasarolhato(a5));
+            assertTrue("vasarolhato hibas", v.vasarolhato(a1));
+
+            assertTrue("megvasarol: hibas eredmeny", v.megvasarol(a4));
+            assertEquals("hozzaadas utan az aruk halmaza hibas meretu", 3, aruk.size());
+            assertTrue("hozzaadas utan az aruk halmaza hibas", aruk.containsAll(Arrays.asList(a1, a2, a3)));
+
+            assertTrue("megvasarol: hibas eredmeny", v.megvasarol(a2));
+            assertEquals("hozzaadas utan az aruk halmaza hibas meretu", 2, aruk.size());
+            assertTrue("hozzaadas utan az aruk halmaza hibas", aruk.containsAll(Arrays.asList(a1, a3)));
+
+            assertFalse("megvasarol: hibas eredmeny", v.megvasarol(a4));
+            assertEquals("hozzaadas utan az aruk halmaza hibas meretu", 2, aruk.size());
+            assertTrue("hozzaadas utan az aruk halmaza hibas", aruk.containsAll(Arrays.asList(a1, a3)));
+
+            assertTrue("megvasarol: hibas eredmeny", v.megvasarol(a1));
+            assertEquals("hozzaadas utan az aruk halmaza hibas meretu", 1, aruk.size());
+            assertTrue("hozzaadas utan az aruk halmaza hibas", aruk.contains(a3));
+
+            assertTrue("megvasarol: hibas eredmeny", v.megvasarol(a3));
+            assertEquals("hozzaadas utan az aruk halmaza hibas meretu", 0, aruk.size());
+
+            assertFalse("megvasarol: hibas eredmeny", v.megvasarol(a5));
+            assertEquals("hozzaadas utan az aruk halmaza hibas meretu", 0, aruk.size());
+        }
+    }
+  learner_created: false
+- name: src/Aru.java
+  visible: true
+  text: |-
+    public class Aru {
+        private String nev;
+        private int ar;
+
+        public Aru(String nev, int ar) {
+            this.nev = nev;
+            this.ar = ar;
+        }
+    }
+  learner_created: false
+- name: src/Vasar.java
+  visible: true
+  placeholders:
+  - offset: 159
+    length: 14
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 159
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: aruk.add(aru);
+  - offset: 231
+    length: 26
+    placeholder_text: return false;
+    initial_state:
+      length: 13
+      offset: 228
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: return aruk.contains(aru);
+  - offset: 411
+    length: 13
+    placeholder_text: return false;
+    initial_state:
+      length: 13
+      offset: 298
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: |-
+      if (aruk.contains(aru)) {
+                  aruk.remove(aru);
+                  return true;
+              }
+
+              return false;
+  text: |
+    import java.util.HashSet;
+    import java.util.Set;
+
+    public class Vasar {
+        private Set<Aru> aruk = new HashSet<>();
+
+        public void hozzaad(Aru aru) {
+            // megoldas
+        }
+
+        public boolean vasarolhato(Aru aru) {
+            return false;
+        }
+
+        public boolean megvasarol(Aru aru) {
+            return false;
+        }
+
+        public Set<Aru> getAruk() {
+            return aruk;
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 23 Apr 2024 16:06:30 UTC"
+record: -1
+solution_hidden: true

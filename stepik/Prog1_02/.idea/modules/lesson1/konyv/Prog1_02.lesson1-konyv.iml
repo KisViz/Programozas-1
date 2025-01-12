@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":lesson1-konyv" external.linked.project.path="$MODULE_DIR$/../../../../lesson1/konyv" external.root.project.path="$MODULE_DIR$/../../../.." external.system.id="GRADLE" external.system.module.group="Prog1_02" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../../lesson1/konyv">
+      <excludeFolder url="file://$MODULE_DIR$/../../../../lesson1/konyv/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../lesson1/konyv/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../lesson1/konyv/out" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

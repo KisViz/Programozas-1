@@ -1,0 +1,108 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.*;
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            try {
+                Macska m = new Macska("piros", 6);
+                assertEquals("szin beallitasa hibas", "piros", m.szin);
+                assertEquals("kor beallitasa hibas", 6, m.kor);
+            } catch (Exception e) {
+                fail("Nem kellett volna kivetelt dobni");
+            }
+        }
+
+        @Test
+        public void teszt_02() {
+            try {
+                Macska m = new Macska("kek", 0);
+                assertEquals("szin beallitasa hibas", "kek", m.szin);
+                assertEquals("kor beallitasa hibas", 0, m.kor);
+            } catch (Exception e) {
+                fail("Nem kellett volna kivetelt dobni");
+            }
+        }
+
+        @Test
+        public void teszt_03() {
+            try {
+                Macska m = new Macska(null, 0);
+                assertNull("szin beallitasa hibas", m.szin);
+                assertEquals("kor beallitasa hibas", 0, m.kor);
+            } catch (Exception e) {
+                fail("Nem kellett volna kivetelt dobni");
+            }
+        }
+
+        @Test
+        public void teszt_04() {
+            try {
+                new Macska("rozsaszin", 6);
+                fail("Kivetelt kellett volna dobni");
+            } catch (IllegalArgumentException e) {
+                assertEquals("hibas uzenet", "hibas szin", e.getMessage());
+            } catch (Exception e) {
+                fail("Rossz kivetel tipus");
+            }
+        }
+
+        @Test
+        public void teszt_05() {
+            try {
+                new Macska("kek", -1);
+                fail("Kivetelt kellett volna dobni");
+            } catch (IllegalArgumentException e) {
+                assertEquals("hibas uzenet", "hibas kor", e.getMessage());
+            } catch (Exception e) {
+                fail("Rossz kivetel tipus");
+            }
+        }
+    }
+  learner_created: false
+- name: src/Macska.java
+  visible: true
+  placeholders:
+  - offset: 117
+    length: 33
+    placeholder_text: |-
+      this.szin = szin;
+      this.kor = kor;
+    initial_state:
+      length: 33
+      offset: 117
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      if ("rozsaszin".equals(szin)) {
+                  throw new IllegalArgumentException("hibas szin");
+              }
+
+              if (kor < 0) {
+                  throw new IllegalArgumentException("hibas kor");
+              }
+
+              this.szin = szin;
+              this.kor = kor;
+  text: |-
+    public class Macska {
+        public String szin;
+        public int kor;
+
+        public Macska(String szin, int kor) {
+            this.szin = szin;
+    this.kor = kor;
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+solution_hidden: true

@@ -1,0 +1,89 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertFalse;
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            assertFalse(Zaszlo.torpezaszlo("piros;kek;zold"));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertFalse(Zaszlo.torpezaszlo("piros;sarga;lila"));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertFalse(Zaszlo.torpezaszlo("lila;piros;sarga"));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertFalse(Zaszlo.torpezaszlo("kek;piros;lila;zold"));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertFalse(Zaszlo.torpezaszlo("halvanypiros;hupilila"));
+        }
+
+        @Test
+        public void teszt_06() {
+            assertTrue(Zaszlo.torpezaszlo("lila;piros"));
+        }
+
+        @Test
+        public void teszt_07() {
+            assertTrue(Zaszlo.torpezaszlo("piros;lila"));
+        }
+
+        @Test
+        public void teszt_08() {
+            assertFalse(Zaszlo.torpezaszlo("piros;lila;zold"));
+        }
+
+        @Test
+        public void teszt_09() {
+            assertFalse(Zaszlo.torpezaszlo("feher;piros;lila"));
+        }
+
+        @Test
+        public void teszt_10() {
+            assertFalse(Zaszlo.torpezaszlo(null));
+        }
+    }
+  learner_created: false
+- name: src/Zaszlo.java
+  visible: true
+  placeholders:
+  - offset: 151
+    length: 44
+    placeholder_text: return false;
+    initial_state:
+      length: 13
+      offset: 85
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: return "lila;piros".equals(szinek) || "piros;lila".equals(szinek);
+  text: |-
+    public class Zaszlo {
+        public static boolean torpezaszlo(String szinek) {
+            return false;
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 26 Feb 2024 18:25:52 UTC"
+record: -1
+solution_hidden: true

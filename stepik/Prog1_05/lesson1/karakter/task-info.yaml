@@ -1,0 +1,106 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void interfaceFejlec() {
+            assertTrue("interface nem jo", testInterface(Karakter.class, Modifier.PUBLIC | Modifier.INTERFACE | Modifier.ABSTRACT));
+        }
+
+        @Test
+        public void tamad_karakter() {
+            assertTrue("tamad (karakter) hibas", testMethod(Karakter.class, "tamad", boolean.class, Modifier.PUBLIC | Modifier.ABSTRACT, Karakter.class));
+        }
+
+        @Test
+        public void tamad_epulet() {
+            assertTrue("tamad (epulet) hibas", testMethod(Karakter.class, "tamad", boolean.class, Modifier.PUBLIC | Modifier.ABSTRACT, Epulet.class));
+        }
+
+        @Test
+        public void tamad_kornyezetiElem() {
+            assertTrue("tamad (kornyezeti elem) hibas", testMethod(Karakter.class, "tamad", void.class, Modifier.PUBLIC | Modifier.ABSTRACT, KornyezetiElem.class));
+        }
+
+        @Test
+        public void epites() {
+            assertTrue("epites hibas", testMethod(Karakter.class, "epites", boolean.class, Modifier.PUBLIC | Modifier.ABSTRACT, Epulet.class));
+        }
+
+        @Test
+        public void sebzestElszenved() {
+            assertTrue("sebzestElszenved hibas", testMethod(Karakter.class, "sebzestElszenved", void.class, Modifier.PUBLIC | Modifier.ABSTRACT, int.class));
+        }
+
+        @Test
+        public void fejlodik() {
+            assertTrue("fejlodik hibas", testMethod(Karakter.class, "fejlodik", void.class, Modifier.PUBLIC | Modifier.ABSTRACT));
+        }
+
+        @Test
+        public void gyogyit() {
+            assertTrue("gyogyit hibas", testMethod(Karakter.class, "gyogyit", int.class, Modifier.PUBLIC | Modifier.ABSTRACT, Karakter.class, int.class));
+        }
+
+        @Test
+        public void pusztitas() {
+            assertTrue("pusztitas hibas", testMethod(Karakter.class, "pusztitas", int.class, Modifier.PUBLIC | Modifier.ABSTRACT, Karakter[].class));
+        }
+
+        @Test
+        public void ellensegek() {
+            assertTrue("ellensegek hibas", testMethod(Karakter.class, "ellensegek", Karakter[].class, Modifier.PUBLIC | Modifier.ABSTRACT));
+        }
+    }
+  learner_created: false
+- name: src/Karakter.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 311
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public interface Karakter {
+          boolean tamad(Karakter k);
+          boolean tamad(Epulet e);
+          void tamad(KornyezetiElem ke);
+          boolean epites(Epulet e);
+          void sebzestElszenved(int m);
+          void fejlodik();
+          int gyogyit(Karakter k, int m);
+          int pusztitas(Karakter[] k);
+          Karakter[] ellensegek();
+      }
+  text: // megoldas
+  learner_created: false
+- name: src/Epulet.java
+  visible: true
+  text: |
+    public abstract class Epulet {}
+  learner_created: false
+- name: src/KornyezetiElem.java
+  visible: true
+  text: |
+    public abstract class KornyezetiElem {}
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 02 Apr 2024 18:25:10 UTC"
+record: -1
+solution_hidden: true

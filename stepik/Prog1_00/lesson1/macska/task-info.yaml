@@ -1,0 +1,52 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        {
+            keepSoutSerr = false;
+        }
+
+        @Test
+        public void teszt() {
+            doArgumentTest(Macska.class);
+
+            Macska.main(new String[] {});
+            assertEquals(sout.toString(), "MACSKA" + System.lineSeparator());
+        }
+    }
+  learner_created: false
+- name: src/Macska.java
+  visible: true
+  placeholders:
+  - offset: 96
+    length: 6
+    placeholder_text: DINOSZAURUSZ
+    initial_state:
+      length: 12
+      offset: 96
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: MACSKA
+  text: |-
+    public class Macska {
+
+        public static void main(String[] args) {
+            System.out.println("DINOSZAURUSZ");
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 15:52:57 UTC"
+record: -1
+solution_hidden: true

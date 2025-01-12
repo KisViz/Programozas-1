@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="delegatedBuild" value="false" />
+        <option name="distributionType" value="WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/lesson1/aramutes" />
+            <option value="$PROJECT_DIR$/lesson1/baleset" />
+            <option value="$PROJECT_DIR$/lesson1/beolvasas" />
+            <option value="$PROJECT_DIR$/lesson1/bolt" />
+            <option value="$PROJECT_DIR$/lesson1/bolygo" />
+            <option value="$PROJECT_DIR$/lesson1/feldolgozas" />
+            <option value="$PROJECT_DIR$/lesson1/hinta" />
+            <option value="$PROJECT_DIR$/lesson1/kalapacs" />
+            <option value="$PROJECT_DIR$/lesson1/kulcs" />
+            <option value="$PROJECT_DIR$/lesson1/kulonbozo" />
+            <option value="$PROJECT_DIR$/lesson1/lista" />
+            <option value="$PROJECT_DIR$/lesson1/macska" />
+            <option value="$PROJECT_DIR$/lesson1/pok" />
+            <option value="$PROJECT_DIR$/lesson1/sebesseg" />
+            <option value="$PROJECT_DIR$/lesson1/tehenek" />
+            <option value="$PROJECT_DIR$/lesson1/telefon" />
+            <option value="$PROJECT_DIR$/lesson1/vasarlas" />
+            <option value="$PROJECT_DIR$/util" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

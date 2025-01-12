@@ -1,0 +1,40 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void teszt() {
+            assertTrue("GyujthetoTargy interface nem megfelelo", testInterface(GyujthetoTargy.class, Modifier.INTERFACE | Modifier.PUBLIC | Modifier.ABSTRACT));
+        }
+    }
+  learner_created: false
+- name: src/GyujthetoTargy.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 35
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: "public interface GyujthetoTargy {}"
+  text: // megoldas
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 02 Apr 2024 18:06:08 UTC"
+record: -1
+solution_hidden: true

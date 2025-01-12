@@ -1,0 +1,56 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Field;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+
+        @Test
+        public void meret() {
+            assertTrue("a meret adattag nem jo", testField(Mobiltelefon.class, "meret", int.class, 0));
+        }
+
+        @Test
+        public void gyarto() {
+            assertTrue("a gyarto adattag nem jo", testField(Mobiltelefon.class, "gyarto", String.class, 0));
+        }
+
+        @Test
+        public void memoria() {
+            assertTrue("a memoria adattag nem jo", testField(Mobiltelefon.class, "memoria", int.class, 0));
+        }
+    }
+  learner_created: false
+- name: src/Mobiltelefon.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 80
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public class Mobiltelefon {
+          int meret;
+          String gyarto;
+          int memoria;
+      }
+  text: // megoldas
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Thu, 29 Feb 2024 19:12:58 UTC"
+record: -1
+solution_hidden: true

@@ -1,0 +1,30 @@
+type: edu
+files:
+- name: src/Task.java
+  visible: true
+  text: |-
+    public class Task {
+        public static void main(String[] args) {}
+    }
+  learner_created: false
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+      @Test
+      public void teszt() {
+        Task.main(new String[] {"a", "b", "c"});
+      }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 15:49:47 UTC"
+record: -1
+solution_hidden: true

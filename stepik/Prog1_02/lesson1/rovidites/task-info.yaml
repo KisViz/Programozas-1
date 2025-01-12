@@ -1,0 +1,342 @@
+type: edu
+files:
+- name: src/Rovidites.java
+  visible: true
+  placeholders:
+  - offset: 30
+    length: 11
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 30
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public static int szabaly1Db(String s) {
+              int db = 0;
+              for (int i = 0; i < s.length() - 1; i++) {
+                  if (Character.isDigit(s.charAt(i)) && s.charAt(i+1) != '(' && !Character.isDigit(s.charAt(i+1))) {
+                      db++;
+                  }
+              }
+
+              return db;
+          }
+
+          static int szabaly2Db(String s) {
+              int db = 0;
+              for (int i = 0; i < s.length() - 1; i++) {
+                  if (Character.isDigit(s.charAt(i)) && s.charAt(i+1) == '(') {
+                      db++;
+                  }
+              }
+
+              return db;
+          }
+
+          static void szabaly1Elvegez(StringBuilder s) {
+              for (int i = 0; i < s.length() - 1; i++) {
+                  if (Character.isDigit(s.charAt(i)) && s.charAt(i+1) != '(' && !Character.isDigit(s.charAt(i+1))) {
+                      // hanyszor kell ismetelni
+                      StringBuilder szam = new StringBuilder(s.charAt(i) + "");
+                      int pos = i - 1;
+                      while (pos >= 0 && Character.isDigit(s.charAt(pos))) {
+                          szam.insert(0, s.charAt(pos));
+                          pos--;
+                      }
+
+                      int ismetles = Integer.parseInt(szam.toString());
+                      char mit = s.charAt(i+1);
+
+                      // ismetles
+                      StringBuilder str = new StringBuilder("");
+                      for (int k = 0; k < ismetles; k++) {
+                          str.append(mit);
+                      }
+
+                      // eredeti modositasa
+                      s.replace(pos + 1, i + 2, str.toString());
+
+                      return;
+                  }
+              }
+          }
+
+          static void szabaly2Elvegez(StringBuilder s) {
+              for (int i = s.length() - 2; i >= 0; i--) {
+                  if (Character.isDigit(s.charAt(i)) && s.charAt(i+1) == '(') {
+                      // hanyszor kell ismetelni
+                      StringBuilder szam = new StringBuilder(s.charAt(i) + "");
+                      int pos = i - 1;
+                      while (pos >= 0 && s.charAt(pos) >= '0' && s.charAt(pos) <= '9') {
+                          szam.insert(0, s.charAt(pos));
+                          pos--;
+                      }
+
+                      int ismetles = Integer.parseInt(szam.toString());
+
+                      // mit kell ismetelni
+                      StringBuilder mit = new StringBuilder("");
+                      int vege;
+                      for (vege = i+2; vege < s.length() && s.charAt(vege) != ')'; vege++) {
+                          mit.append(s.charAt(vege));
+                      }
+
+                      // ismetles
+                      StringBuilder str = new StringBuilder("");
+                      for (int k = 0; k < ismetles; k++) {
+                          str.append(mit);
+                      }
+
+                      // eredeti modositasa
+                      s.replace(pos + 1, vege + 1, str.toString());
+                  }
+              }
+          }
+
+          static String dekodolas(String uzenet) {
+              StringBuilder s = new StringBuilder(uzenet);
+
+              while(szabaly1Db(s.toString()) != 0) {
+                  szabaly1Elvegez(s);
+              }
+
+              while(szabaly2Db(s.toString()) != 0) {
+                  szabaly2Elvegez(s);
+              }
+
+              return s.toString();
+          }
+  text: |-
+    public class Rovidites {
+
+        // megoldas
+
+    }
+  learner_created: false
+- name: test/NincsIsmetles.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class NincsIsmetles {
+        @Test
+        public void teszt_01() {
+            assertEquals("hibas eredmeny", "uzenet", Rovidites.dekodolas("uzenet"));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("hibas eredmeny", "macska", Rovidites.dekodolas("macska"));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("hibas eredmeny", "itt a hold", Rovidites.dekodolas("itt a hold"));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("hibas eredmeny", "a leanderekkel mi lett?", Rovidites.dekodolas("a leanderekkel mi lett?"));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertEquals("hibas eredmeny", "ez volt az utolso feladat", Rovidites.dekodolas("ez volt az utolso feladat"));
+        }
+    }
+  learner_created: false
+- name: test/EgyszeruIsmetles.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class EgyszeruIsmetles {
+        @Test
+        public void teszt_01() {
+            assertEquals("hibas eredmeny", "A leanderek kipusztultak", Rovidites.dekodolas("1A1 1l1e1a1n1d1e1r1e1k1 1k1i1p1u1s1z1t1u1l1t1a1k"));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("hibas eredmeny", "abbb", Rovidites.dekodolas("1a3b"));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("hibas eredmeny", "bbbbbbbbbbaaaa", Rovidites.dekodolas("5b5b4a"));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("hibas eredmeny", "xxxxxxxxxx", Rovidites.dekodolas("10x"));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertEquals("hibas eredmeny", "???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????", Rovidites.dekodolas("119?"));
+        }
+    }
+  learner_created: false
+- name: test/ZarojelesIsmetles.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class ZarojelesIsmetles {
+        @Test
+        public void teszt_01() {
+            assertEquals("hibas eredmeny", "aaa", Rovidites.dekodolas("3(a)"));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("hibas eredmeny", "abababab", Rovidites.dekodolas("4(ab)"));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("hibas eredmeny", "ssassassassassa", Rovidites.dekodolas("5(ssa)"));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("hibas eredmeny", "qhqhqhqhqhqhqhqhqhqhqhqhqh", Rovidites.dekodolas("13(qh)"));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertEquals("hibas eredmeny", "xyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxy", Rovidites.dekodolas("19(xy)"));
+        }
+
+        @Test
+        public void teszt_06() {
+            assertEquals("hibas eredmeny", "abababababcdcdcd", Rovidites.dekodolas("5(ab)3(cd)"));
+        }
+
+        @Test
+        public void teszt_07() {
+            assertEquals("hibas eredmeny", "qsqsqxlalalalX.", Rovidites.dekodolas("q2(sq)xl3(al)X."));
+        }
+    }
+  learner_created: false
+- name: test/VegyesIsmetles.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class VegyesIsmetles {
+        @Test
+        public void teszt_01() {
+            assertEquals("hibas eredmeny", "mmmmmmmmmmssssss", Rovidites.dekodolas("10m3(ss)"));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("hibas eredmeny", "A mama otthon van...", Rovidites.dekodolas("A 2(ma) otthon van3."));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("hibas eredmeny", "Osszesitve: abababcccaaabcabcabcabcss", Rovidites.dekodolas("O2szesitve: 3(ab)3caa4(abc)2s"));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("hibas eredmeny", "aaabbbcccdddedededed", Rovidites.dekodolas("3a3b3c3(d)4(ed)"));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertEquals("hibas eredmeny", "ababcttt", Rovidites.dekodolas("1a1b1(abc)3t"));
+        }
+
+        @Test
+        public void teszt_06() {
+            assertEquals("hibas eredmeny", "macskamacskamacskamacskamacskamacskamacskamacskamacskamacskamacska", Rovidites.dekodolas("11(macska)"));
+        }
+    }
+  learner_created: false
+- name: test/EgymasbaAgyazottIsmetles.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class EgymasbaAgyazottIsmetles {
+        @Test
+        public void teszt_01() {
+            assertEquals("hibas eredmeny", "AAxlkbasssssbasssss", Rovidites.dekodolas("AAxlk2(ba5s)"));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("hibas eredmeny", "aabbaabbsaabbaabbsaabbaabbsq", Rovidites.dekodolas("3(2(aa2b)s)q"));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("hibas eredmeny", "absssssqqqqqqqqabsssssqqqqqqqqabsssssqqqqqqqq", Rovidites.dekodolas("3(ab5s4(qq))"));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("hibas eredmeny", "lomplplplplamplplplplaqlomplplplplamplplplplaqlomplplplplamplplplplaqy", Rovidites.dekodolas("3(lo2(m4(pl)a)q)y"));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertEquals("hibas eredmeny", "lommmmmmmmmmmmplplplplammmmmmmmmmmmplplplplaqlommmmmmmmmmmmplplplplammmmmmmmmmmmplplplplaqlommmmmmmmmmmmplplplplammmmmmmmmmmmplplplplaqy", Rovidites.dekodolas("3(lo2(12m4(pl)a)q)y"));
+        }
+
+        @Test
+        public void teszt_06() {
+            assertEquals("hibas eredmeny", "ma", Rovidites.dekodolas("ma0(sa0hsa3(bk)5a)"));
+        }
+
+        @Test
+        public void teszt_07() {
+            assertEquals("hibas eredmeny", "ma", Rovidites.dekodolas("ma0(sa10000hsa300(bk)5a)"));
+        }
+
+        @Test
+        public void teszt_08() {
+            assertEquals("hibas eredmeny", "skbaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooobaooo", Rovidites.dekodolas("sk100(ba3(o))"));
+        }
+    }
+  learner_created: false
+- name: test/Fejlec.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Method;
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.assertEquals;
+    import static org.junit.Assert.fail;
+
+    public class Fejlec extends BaseTest {
+
+        @Test
+        public void teszt_01() {
+            if (!testMethod(Rovidites.class, "dekodolas", String.class, Modifier.STATIC, String.class)) {
+                fail("Hibas fuggveny fejlec");
+            }
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+solution_hidden: true

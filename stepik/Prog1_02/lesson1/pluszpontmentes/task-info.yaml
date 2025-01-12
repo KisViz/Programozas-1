@@ -1,0 +1,72 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.io.ByteArrayOutputStream;
+    import java.io.PrintStream;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void teszt_01() {
+            assertEquals("hibas eredmeny", String.join(System.lineSeparator(), "David", "Peter", "Gyorgy", "Anett"),
+                    doArgumentTest(Pluszpontmentes.class, "David", "0", "Peter", "0", "Gyorgy", "0", "Anett", "0"));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("hibas eredmeny", "Akos",
+                    doArgumentTest(Pluszpontmentes.class, "David", "5", "Peter", "2", "Gyorgy", "1", "Akos", "0"));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("hibas eredmeny", "Joco",
+                    doArgumentTest(Pluszpontmentes.class, "Joco", "0", "Peter", "1.1", "Gyorgy", "4.2", "Anett", "0.7"));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("hibas eredmeny", String.join(System.lineSeparator(), "David", "Antal"),
+                    doArgumentTest(Pluszpontmentes.class, "Mark", "1000000", "Tamas", "1", "David", "0", "Juliska", "15", "Antal", "0", "Gabor", "0.1", "Laszlo", "0.9"));
+        }
+    }
+  learner_created: false
+- name: src/Pluszpontmentes.java
+  visible: true
+  placeholders:
+  - offset: 85
+    length: 167
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 85
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      for (int i = 0; i < args.length; i += 2) {
+                  if (Double.parseDouble(args[i+1]) == 0) {
+                      System.out.println(args[i]);
+                  }
+              }
+  text: |-
+    public class Pluszpontmentes {
+
+        public static void main(String[] args) {
+            // megoldas
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Thu, 29 Feb 2024 17:08:42 UTC"
+record: -1
+solution_hidden: true

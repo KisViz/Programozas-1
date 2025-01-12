@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Tests" tests="9" skipped="0" failures="0" errors="0" timestamp="2024-02-29T19:16:28" hostname="DESKTOP-VL7E782" time="0.014">
+  <properties/>
+  <testcase name="ember_nev" classname="Tests" time="0.01"/>
+  <testcase name="cipo_szin" classname="Tests" time="0.001"/>
+  <testcase name="ember_cipo" classname="Tests" time="0.0"/>
+  <testcase name="ember_polo" classname="Tests" time="0.001"/>
+  <testcase name="polo_mintas" classname="Tests" time="0.0"/>
+  <testcase name="Polo_meret" classname="Tests" time="0.0"/>
+  <testcase name="ember_nadrag" classname="Tests" time="0.0"/>
+  <testcase name="nadrag_szin" classname="Tests" time="0.0"/>
+  <testcase name="nadrag_tipus" classname="Tests" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

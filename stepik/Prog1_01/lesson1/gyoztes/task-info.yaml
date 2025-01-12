@@ -1,0 +1,85 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        {
+            keepSoutSerr = false;
+        }
+
+        @Test
+        public void teszt_01() {
+            setInput("Kiss Bela");
+            Gyoztes.main(null);
+            assertEquals("Hibas eredmeny", "A verseny gyoztese: Kiss Bela" + System.lineSeparator(), sout.toString());
+        }
+
+        @Test
+        public void teszt_02() {
+            setInput("Kovacs Agnes");
+            Gyoztes.main(null);
+            assertEquals("Hibas eredmeny", "A verseny gyoztese: Kovacs Agnes" + System.lineSeparator(), sout.toString());
+        }
+
+        @Test
+        public void teszt_03() {
+            setInput("Tablevenak Kince");
+            Gyoztes.main(null);
+            assertEquals("Hibas eredmeny", "A verseny gyoztese: Tablevenak Kince" + System.lineSeparator(), sout.toString());
+        }
+
+        @Test
+        public void teszt_04() {
+            setInput("Antal Antal");
+            Gyoztes.main(null);
+            assertEquals("Hibas eredmeny", "A verseny gyoztese: Antal Antal" + System.lineSeparator(), sout.toString());
+        }
+    }
+  learner_created: false
+- name: src/Gyoztes.java
+  visible: true
+  placeholders:
+  - offset: 133
+    length: 9
+    placeholder_text: /* ??? */
+    initial_state:
+      length: 9
+      offset: 133
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: System.in
+  - offset: 166
+    length: 18
+    placeholder_text: /* ??? */
+    initial_state:
+      length: 9
+      offset: 166
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: scanner.nextLine()
+  text: |-
+    import java.util.Scanner;
+
+    public class Gyoztes {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(/* ??? */);
+            String nev = /* ??? */;
+
+            System.out.println("A verseny gyoztese: " + nev);
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 16:11:46 UTC"
+record: -1
+solution_hidden: true

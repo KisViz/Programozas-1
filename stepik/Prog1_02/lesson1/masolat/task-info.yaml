@@ -1,0 +1,64 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.util.Arrays;
+
+    import static org.junit.Assert.*;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void teszt_01() {
+            int[] tomb = {2, 4, 5};
+            int[] eredmeny = Masolat.masol(tomb);
+
+            assertArrayEquals(tomb, eredmeny);
+            tomb[0] = 6;
+            assertFalse(Arrays.equals(tomb, eredmeny));
+        }
+
+        @Test
+        public void teszt_02() {
+            int[] tomb = new int[] {6, 6, 4, 3, 1, 0, 6, -64, 4353};
+            int[] eredmeny = Masolat.masol(tomb);
+
+            assertArrayEquals(tomb, eredmeny);
+            eredmeny[3] = 55;
+            assertFalse(Arrays.equals(tomb, eredmeny));
+        }
+    }
+  learner_created: false
+- name: src/Masolat.java
+  visible: true
+  placeholders:
+  - offset: 202
+    length: 10
+    placeholder_text: return null;
+    initial_state:
+      length: 12
+      offset: 105
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: "return Arrays.copyOf(eredeti, eredeti.length);"
+  text: |-
+    import java.util.Arrays;
+
+    public class Masolat {
+
+        public static int[] masol(int[] eredeti) {
+            return null;
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 26 Feb 2024 18:35:37 UTC"
+record: -1
+solution_hidden: true

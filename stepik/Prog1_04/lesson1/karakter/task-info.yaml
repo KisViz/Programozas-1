@@ -1,0 +1,443 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+    import static org.junit.Assert.assertSame;
+
+    public class Tests {
+
+        @Test
+        public void teszt() {
+            Karakter k = new Karakter();
+            k.setSebzes(7);
+            assertEquals("sebzes hibas", 7, k.getSebzes());
+
+            k.setEletero(5);
+            assertEquals("eletero hibas", 5, k.getEletero());
+
+            k.setRegeneracio(342);
+            assertEquals("regeneracio hibas", 342, k.getRegeneracio());
+
+            k.setKiteres(5);
+            assertEquals("kiteres hibas", 5, k.getKiteres());
+
+            k.setLogisztika(8);
+            assertEquals("logisztika hibas", 8, k.getLogisztika());
+
+            k.setSpecTamadas(2);
+            assertEquals("specTamadas hibas", 2, k.getSpecTamadas());
+
+            k.setSpecGyogyitas(7);
+            assertEquals("specGyogyitas hibas", 7, k.getSpecGyogyitas());
+
+            k.setSpecEpites(200);
+            assertEquals("specEpites hibas", 200, k.getSpecEpites());
+
+            k.setKritikusTalalat(7.5);
+            assertEquals("kritikus talalat hibas", 7.5, k.getKritikusTalalat(), 0.0001);
+
+            k.setRegeneracioEselye(7.7);
+            assertEquals("regeneracio eselye hibas", 7.7, k.getRegeneracioEselye(), 0.0001);
+
+            k.setKiteresEselye(1.1);
+            assertEquals("kiteres eselye hibas", 1.1, k.getKiteresEselye(), 0.0001);
+
+            k.setKivedes(7);
+            assertEquals("kivedes hibas", 7, k.getKivedes());
+
+            k.setBossXp(100);
+            assertEquals("bossXp hibas", 100, k.getBossXp());
+
+            k.setKlanXp(75);
+            assertEquals("klanXp hibas", 75, k.getKlanXp());
+
+            k.setTargyTalalasiEsely(33);
+            assertEquals("targytalalasiEsely hibas", 33, k.getTargyTalalasiEsely());
+
+            k.setTamadasKozottiIdo(220.2);
+            assertEquals("tamadasokKozottiIdo hibas", 220.2, k.getTamadasKozottiIdo(), 0.0001);
+
+            k.setTamadoZseton(7);
+            assertEquals("tamadoZseton hibas", 7, k.getTamadoZseton());
+
+            k.setGyogyitoZseton(44);
+            assertEquals("gyogyitoZseton hibas", 44, k.getGyogyitoZseton());
+
+            k.setEpitoZseton(633);
+            assertEquals("epitoZseton hibas", 633, k.getEpitoZseton());
+
+            Achievement[] achs = { new Achievement(), new Achievement() };
+            k.setAchievements(achs);
+            assertSame("achievements hibas", achs, k.getAchievements());
+
+            Item[] items1 = { new Item(), new Item() };
+            k.setAktivTargyak(items1);
+            assertSame("aktivTargyak hibas", items1, k.getAktivTargyak());
+
+            Item[] items2 = {};
+            k.setInaktivTargyak(items2);
+            assertSame("inaktivTargyak hibas", items2, k.getInaktivTargyak());
+
+            k.setLeiras("asdasd");
+            assertEquals("leiras hibas", "asdasd", k.getLeiras());
+
+            k.setNev("aaa");
+            assertEquals("nev hibas", "aaa", k.getNev());
+
+            k.setJelszo("kiscica123");
+            assertEquals("jelszo hibas", "kiscica123", k.getJelszo());
+
+            Clan klan = new Clan();
+            k.setKlan(klan);
+            assertEquals("klan hibas", klan, k.getKlan());
+
+            k.setHelyezes(66662);
+            assertEquals("helyezes hibas", 66662, k.getHelyezes());
+
+            k.setSzint(3);
+            assertEquals("szint hibas", 3, k.getSzint());
+
+            k.setArany(5322);
+            assertEquals("arany hibas", 5322, k.getArany());
+
+            k.setTulajdonsagpontok(5034);
+            assertEquals("tulajdonsagpontok hibas", 5034, k.getTulajdonsagpontok());
+
+            k.setTudaspontok(8);
+            assertEquals("tudaspontok hibas", 8, k.getTudaspontok());
+        }
+    }
+  learner_created: false
+- name: src/Karakter.java
+  visible: true
+  placeholders:
+  - offset: 945
+    length: 21
+    placeholder_text: "// getterek, setterek"
+    initial_state:
+      length: 21
+      offset: 945
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public int getSebzes() {
+              return sebzes;
+          }
+
+          public void setSebzes(int sebzes) {
+              this.sebzes = sebzes;
+          }
+
+          public int getEletero() {
+              return eletero;
+          }
+
+          public void setEletero(int eletero) {
+              this.eletero = eletero;
+          }
+
+          public int getRegeneracio() {
+              return regeneracio;
+          }
+
+          public void setRegeneracio(int regeneracio) {
+              this.regeneracio = regeneracio;
+          }
+
+          public int getKiteres() {
+              return kiteres;
+          }
+
+          public void setKiteres(int kiteres) {
+              this.kiteres = kiteres;
+          }
+
+          public int getLogisztika() {
+              return logisztika;
+          }
+
+          public void setLogisztika(int logisztika) {
+              this.logisztika = logisztika;
+          }
+
+          public int getSpecTamadas() {
+              return specTamadas;
+          }
+
+          public void setSpecTamadas(int specTamadas) {
+              this.specTamadas = specTamadas;
+          }
+
+          public int getSpecGyogyitas() {
+              return specGyogyitas;
+          }
+
+          public void setSpecGyogyitas(int specGyogyitas) {
+              this.specGyogyitas = specGyogyitas;
+          }
+
+          public int getSpecEpites() {
+              return specEpites;
+          }
+
+          public void setSpecEpites(int specEpites) {
+              this.specEpites = specEpites;
+          }
+
+          public double getKritikusTalalat() {
+              return kritikusTalalat;
+          }
+
+          public void setKritikusTalalat(double kritikusTalalat) {
+              this.kritikusTalalat = kritikusTalalat;
+          }
+
+          public double getRegeneracioEselye() {
+              return regeneracioEselye;
+          }
+
+          public void setRegeneracioEselye(double regeneracioEselye) {
+              this.regeneracioEselye = regeneracioEselye;
+          }
+
+          public double getKiteresEselye() {
+              return kiteresEselye;
+          }
+
+          public void setKiteresEselye(double kiteresEselye) {
+              this.kiteresEselye = kiteresEselye;
+          }
+
+          public int getKivedes() {
+              return kivedes;
+          }
+
+          public void setKivedes(int kivedes) {
+              this.kivedes = kivedes;
+          }
+
+          public int getBossXp() {
+              return bossXp;
+          }
+
+          public void setBossXp(int bossXp) {
+              this.bossXp = bossXp;
+          }
+
+          public int getKlanXp() {
+              return klanXp;
+          }
+
+          public void setKlanXp(int klanXp) {
+              this.klanXp = klanXp;
+          }
+
+          public int getTargyTalalasiEsely() {
+              return targyTalalasiEsely;
+          }
+
+          public void setTargyTalalasiEsely(int targyTalalasiEsely) {
+              this.targyTalalasiEsely = targyTalalasiEsely;
+          }
+
+          public double getTamadasKozottiIdo() {
+              return tamadasKozottiIdo;
+          }
+
+          public void setTamadasKozottiIdo(double tamadasKozottiIdo) {
+              this.tamadasKozottiIdo = tamadasKozottiIdo;
+          }
+
+          public int getTamadoZseton() {
+              return tamadoZseton;
+          }
+
+          public void setTamadoZseton(int tamadoZseton) {
+              this.tamadoZseton = tamadoZseton;
+          }
+
+          public int getGyogyitoZseton() {
+              return gyogyitoZseton;
+          }
+
+          public void setGyogyitoZseton(int gyogyitoZseton) {
+              this.gyogyitoZseton = gyogyitoZseton;
+          }
+
+          public int getEpitoZseton() {
+              return epitoZseton;
+          }
+
+          public void setEpitoZseton(int epitoZseton) {
+              this.epitoZseton = epitoZseton;
+          }
+
+          public Achievement[] getAchievements() {
+              return achievements;
+          }
+
+          public void setAchievements(Achievement[] achievements) {
+              this.achievements = achievements;
+          }
+
+          public Item[] getAktivTargyak() {
+              return aktivTargyak;
+          }
+
+          public void setAktivTargyak(Item[] aktivTargyak) {
+              this.aktivTargyak = aktivTargyak;
+          }
+
+          public Item[] getInaktivTargyak() {
+              return inaktivTargyak;
+          }
+
+          public void setInaktivTargyak(Item[] inaktivTargyak) {
+              this.inaktivTargyak = inaktivTargyak;
+          }
+
+          public String getLeiras() {
+              return leiras;
+          }
+
+          public void setLeiras(String leiras) {
+              this.leiras = leiras;
+          }
+
+          public String getNev() {
+              return nev;
+          }
+
+          public void setNev(String nev) {
+              this.nev = nev;
+          }
+
+          public String getJelszo() {
+              return jelszo;
+          }
+
+          public void setJelszo(String jelszo) {
+              this.jelszo = jelszo;
+          }
+
+          public Clan getKlan() {
+              return klan;
+          }
+
+          public void setKlan(Clan klan) {
+              this.klan = klan;
+          }
+
+          public int getHelyezes() {
+              return helyezes;
+          }
+
+          public void setHelyezes(int helyezes) {
+              this.helyezes = helyezes;
+          }
+
+          public int getSzint() {
+              return szint;
+          }
+
+          public void setSzint(int szint) {
+              this.szint = szint;
+          }
+
+          public int getArany() {
+              return arany;
+          }
+
+          public void setArany(int arany) {
+              this.arany = arany;
+          }
+
+          public int getTulajdonsagpontok() {
+              return tulajdonsagpontok;
+          }
+
+          public void setTulajdonsagpontok(int tulajdonsagpontok) {
+              this.tulajdonsagpontok = tulajdonsagpontok;
+          }
+
+          public int getTudaspontok() {
+              return tudaspontok;
+          }
+
+          public void setTudaspontok(int tudaspontok) {
+              this.tudaspontok = tudaspontok;
+          }
+  text: |-
+    public class Karakter {
+        private int sebzes;
+        private int eletero;
+        private int regeneracio;
+        private int kiteres;
+        private int logisztika;
+
+        private int specTamadas;
+        private int specGyogyitas;
+        private int specEpites;
+
+        private double kritikusTalalat;
+        private double regeneracioEselye;
+        private double kiteresEselye;
+        private int kivedes;
+        private int bossXp;
+        private int klanXp;
+        private int targyTalalasiEsely;
+        private double tamadasKozottiIdo;
+
+        private int tamadoZseton;
+        private int gyogyitoZseton;
+        private int epitoZseton;
+
+        private Achievement[] achievements;
+        private Item[] aktivTargyak;
+        private Item[] inaktivTargyak;
+
+        private String leiras;
+
+        private String nev;
+        private String jelszo;
+        private Clan klan;
+        private int helyezes;
+        private int szint;
+        private int arany;
+        private int tulajdonsagpontok;
+        private int tudaspontok;
+
+        // getterek, setterek
+
+    }
+  learner_created: false
+- name: src/Achievement.java
+  visible: true
+  text: |
+    public class Achievement {
+    }
+  learner_created: false
+- name: src/Item.java
+  visible: true
+  text: |
+    public class Item {
+    }
+  learner_created: false
+- name: src/Clan.java
+  visible: true
+  text: |
+    public class Clan {
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 12 Mar 2024 13:54:10 UTC"
+record: -1
+solution_hidden: true

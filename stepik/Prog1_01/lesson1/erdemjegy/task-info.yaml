@@ -1,0 +1,99 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            assertEquals("hibas eredmeny", "Jutka neni, figyeljen oda milyen jegyet ad!", Erdemjegy.ertekeles(6));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("hibas eredmeny", "elegtelen", Erdemjegy.ertekeles(1));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("hibas eredmeny", "kozepes", Erdemjegy.ertekeles(3));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("hibas eredmeny", "Jutka neni, figyeljen oda milyen jegyet ad!", Erdemjegy.ertekeles(381770));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertEquals("hibas eredmeny", "jo", Erdemjegy.ertekeles(4));
+        }
+
+        @Test
+        public void teszt_06() {
+            assertEquals("hibas eredmeny", "elegseges", Erdemjegy.ertekeles(2));
+        }
+
+        @Test
+        public void teszt_07() {
+            assertEquals("hibas eredmeny", "jeles", Erdemjegy.ertekeles(5));
+        }
+
+        @Test
+        public void teszt_08() {
+            assertEquals("hibas eredmeny", "Jutka neni, figyeljen oda milyen jegyet ad!", Erdemjegy.ertekeles(0));
+        }
+
+        @Test
+        public void teszt_09() {
+            assertEquals("hibas eredmeny", "Jutka neni, figyeljen oda milyen jegyet ad!", Erdemjegy.ertekeles(-23411));
+        }
+    }
+  learner_created: false
+- name: src/Erdemjegy.java
+  visible: true
+  placeholders:
+  - offset: 132
+    length: 57
+    placeholder_text: return "";
+    initial_state:
+      length: 10
+      offset: 86
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      switch (erdemjegy) {
+                  case 1:
+                      return "elegtelen";
+                  case 2:
+                      return "elegseges";
+                  case 3:
+                      return "kozepes";
+                  case 4:
+                      return "jo";
+                  case 5:
+                      return "jeles";
+                  default:
+                      return "Jutka neni, figyeljen oda milyen jegyet ad!";
+              }
+  text: |-
+    public class Erdemjegy {
+
+        public static String ertekeles(int erdemjegy) {
+            return "";
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 16:20:15 UTC"
+record: -1
+solution_hidden: true

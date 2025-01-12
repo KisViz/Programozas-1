@@ -1,0 +1,19 @@
+<html lang="hu">
+  <h1>[⭐] 11. Kalapács (6 pont)</h1>
+  Az emberek kalapálásra kalapácsot használnak: azzal kalapálnak. Kalapács nélkül nem kalapálhatnak kalapáccsal. De mi a <a href="https://hu.wikipedia.org/wiki/Kalap%C3%A1cs_(szersz%C3%A1m)">kalapács</a>?<br>
+  Írd meg az <i>Ember</i> osztályban a <i>kalapal</i> metódust. A metódus hívja meg az ember kalapácsának a <i>kalapalas</i> metódusát az ember szögeivel, illetve a paraméterben kapott fal méretével.
+  Ügyelj rá, hogy a kalapalas metódus kivételt dobhat. Az alábbi módokon járj el különböző kivételek esetén:
+  <ul>
+    <li>Ha <i>NullPointerException</i>-t kapunk, akkor a visszaadott érték legyen "valami nem talalhato: {uzenet}". Az {uzenet} helyére a kivétel üzenete kerüljön.</li>
+    <li>Ha <i>IllegalArgumentExpcetion</i>-t kapunk, akkor a visszaadott érték legyen "hibas parameterek: {uzenet}". Az {uzenet} helyére a kivétel üzenete kerüljön.</li>
+    <li>Ha valamilyen matematikai művelettel kapcsolatos kivétel érkezik, akkor a visszaadott érték legyen "a szamolas soran problema adodott"</li>
+    <li>Bármilyen egyéb kivétel esetén a visszaadott érték legyen "majdnem sikerult"</li>
+    <li>Ha minden rendben történik, akkor a "minden rendben" szöveget add vissza</li>
+  </ul>
+
+  <div class="hint">
+    A try blokkba írjuk azokat a kódrészleteket, ahol a kivételek előjöhetnek, és az utána következő catch ágakkal lekezelhetjük a különböző típusú kivételeket,
+    a speciálistól az általánosig haladva.
+  </div>
+
+</html>

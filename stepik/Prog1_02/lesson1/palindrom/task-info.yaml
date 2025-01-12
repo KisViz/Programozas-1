@@ -1,0 +1,113 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.io.ByteArrayInputStream;
+    import java.io.ByteArrayOutputStream;
+    import java.io.InputStream;
+    import java.io.PrintStream;
+    import java.util.Random;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        {
+            keepSoutSerr = false;
+        }
+
+        @Test
+        public void teszt_01() {
+            setInput("macska", "");
+            Palindrom.main(new String[] {});
+            assertEquals("Hibas eredmeny", "nem", sout.toString().trim());
+        }
+
+        @Test
+        public void teszt_02() {
+            setInput("macska", "kutya", "lo", "");
+            Palindrom.main(new String[] {});
+            assertEquals("Hibas eredmeny", String.join(System.lineSeparator(), "nem", "nem", "nem"), sout.toString().trim());
+        }
+
+        @Test
+        public void teszt_03() {
+            setInput("ollo", "");
+            Palindrom.main(new String[] {});
+            assertEquals("Hibas eredmeny", "igen", sout.toString().trim());
+        }
+
+        @Test
+        public void teszt_04() {
+            setInput("lovacska", "ollo", "med dem", "");
+            Palindrom.main(new String[] {});
+            assertEquals("Hibas eredmeny", String.join(System.lineSeparator(), "nem", "igen", "igen"), sout.toString().trim());
+        }
+
+        @Test
+        public void teszt_05() {
+            setInput("asd   dsa", "asdsa", "");
+            Palindrom.main(new String[] {});
+            assertEquals("Hibas eredmeny", String.join(System.lineSeparator(), "igen", "igen"), sout.toString().trim());
+        }
+
+        @Test
+        public void teszt_06() {
+            setInput("asddsa", "asfdsa", "asdfdsa", "asdqqsa", "aa", "v", "qaq", "aqq", "");
+            Palindrom.main(new String[] {});
+            assertEquals("Hibas eredmeny", String.join(System.lineSeparator(), "igen", "nem", "igen", "nem", "igen", "igen", "igen", "nem"), sout.toString().trim());
+        }
+    }
+  learner_created: false
+- name: src/Palindrom.java
+  visible: true
+  placeholders:
+  - offset: 617
+    length: 11
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 57
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public static void main(String[] args) {
+              Scanner sc = new Scanner(System.in);
+
+              String line;
+              kulso: while (true) {
+                  line = sc.nextLine();
+                  if (line.length() == 0) {
+                      break;
+                  }
+
+                  for (int i = 0; i < line.length() / 2; i++) {
+                      if (line.charAt(i) != line.charAt(line.length() - i - 1)) {
+                          System.out.println("nem");
+                          continue kulso;
+                      }
+                  }
+
+                  System.out.println("igen");
+              }
+
+          }
+  text: |-
+    import java.util.Scanner;
+
+    public class Palindrom {
+
+        // megoldas
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Thu, 29 Feb 2024 19:00:42 UTC"
+record: -1
+solution_hidden: true

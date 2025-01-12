@@ -1,0 +1,108 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.io.ByteArrayOutputStream;
+    import java.io.PrintStream;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        {
+            keepSoutSerr = false;
+        }
+
+        @Test
+        public void teszt_01() {
+            Szamok.main(new String[] {"412", "111", "0"});
+            assertEquals("Rossz csatorna!", "", sout.toString());
+            assertEquals("Hibas eredmeny", "3", serr.toString().trim());
+        }
+
+        @Test
+        public void teszt_02() {
+            Szamok.main(new String[] {"macska", "lo", "tehen"});
+            assertEquals("Rossz csatorna!", "", sout.toString());
+            assertEquals("Hibas eredmeny", "0", serr.toString().trim());
+        }
+
+        @Test
+        public void teszt_03() {
+            Szamok.main(new String[] {" "});
+            assertEquals("Rossz csatorna!", "", sout.toString());
+            assertEquals("Hibas eredmeny", "0", serr.toString().trim());
+        }
+
+        @Test
+        public void teszt_04() {
+            Szamok.main(new String[] {"8907592478125504891244516428937526417854237830562222469154123891938172540179624141524812"});
+            assertEquals("Rossz csatorna!", "", sout.toString());
+            assertEquals("Hibas eredmeny", "1", serr.toString().trim());
+        }
+
+        @Test
+        public void teszt_05() {
+            Szamok.main(new String[] {"3124124", "macska", "77434n", "neptun5", "abalawiqopin4w5634angoa46eagn4oa4a44", "n55"});
+            assertEquals("Rossz csatorna!", "", sout.toString());
+            assertEquals("Hibas eredmeny", "1", serr.toString().trim());
+        }
+
+        @Test
+        public void teszt_06() {
+            Szamok.main(new String[] {"100", "442", "0", "12412415", "-200"});
+            assertEquals("Rossz csatorna!", "", sout.toString());
+            assertEquals("Hibas eredmeny", "4", serr.toString().trim());
+        }
+
+        @Test
+        public void teszt_07() {
+            Szamok.main(new String[] {"mouse", "höher", "10", "550", "Österreich", "weiß", "40.5", "45,5", "?!!", "info@info.info"});
+            assertEquals("Rossz csatorna!", "", sout.toString());
+            assertEquals("Hibas eredmeny", "2", serr.toString().trim());
+        }
+    }
+  learner_created: false
+- name: src/Szamok.java
+  visible: true
+  placeholders:
+  - offset: 418
+    length: 11
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public class Szamok {
+
+          public static void main(String[] args) {
+              int db = 0;
+
+              kulso: for (int i = 0; i < args.length; i++) {
+                  for (int j = 0; j < args[i].length(); j++) {
+                          if (args[i].charAt(j) < '0' || args[i].charAt(j) > '9') {
+                          continue kulso;
+                      }
+                  }
+
+                  db++;
+              }
+
+              System.err.println(db);
+          }
+
+      }
+  text: // megoldas
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Thu, 29 Feb 2024 18:53:03 UTC"
+record: -1
+solution_hidden: true

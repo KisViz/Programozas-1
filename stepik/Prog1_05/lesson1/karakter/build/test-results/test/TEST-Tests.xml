@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Tests" tests="10" skipped="0" failures="0" errors="0" timestamp="2024-04-02T18:25:10" hostname="DESKTOP-VL7E782" time="0.009">
+  <properties/>
+  <testcase name="epites" classname="Tests" time="0.005"/>
+  <testcase name="sebzestElszenved" classname="Tests" time="0.0"/>
+  <testcase name="pusztitas" classname="Tests" time="0.001"/>
+  <testcase name="tamad_kornyezetiElem" classname="Tests" time="0.0"/>
+  <testcase name="fejlodik" classname="Tests" time="0.001"/>
+  <testcase name="tamad_epulet" classname="Tests" time="0.0"/>
+  <testcase name="tamad_karakter" classname="Tests" time="0.0"/>
+  <testcase name="gyogyit" classname="Tests" time="0.0"/>
+  <testcase name="interfaceFejlec" classname="Tests" time="0.0"/>
+  <testcase name="ellensegek" classname="Tests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

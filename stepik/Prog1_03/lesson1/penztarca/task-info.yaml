@@ -1,0 +1,64 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void teszt_01() {
+            Penztarca p = new Penztarca("piros", "bor", 8.4, 100);
+            assertEquals("hibas mukodes", "A penztarca piros szinu, bor anyagu. A merete: " + fieldValue(Penztarca.class, "meret", p) + ", a benne levo penzmennyiseg: 100.", p.toString());
+        }
+
+        @Test
+        public void teszt_02() {
+            Penztarca p2 = new Penztarca("rozsaszin", "uveg", 0.01, 1000000);
+            assertEquals("hibas mukodes", "A penztarca rozsaszin szinu, uveg anyagu. A merete: " + fieldValue(Penztarca.class, "meret", p2) + ", a benne levo penzmennyiseg: 1000000.", p2.toString());
+        }
+    }
+  learner_created: false
+- name: src/Penztarca.java
+  visible: true
+  placeholders:
+  - offset: 554
+    length: 24
+    placeholder_text: // toString megvalositas
+    initial_state:
+      length: 24
+      offset: 354
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      @Override
+          public String toString() {
+              return "A penztarca " + szin + " szinu, " + anyag + " anyagu. A merete: " + meret + ", a benne levo penzmennyiseg: " + penzmennyiseg + ".";
+          }
+  text: |
+    public class Penztarca {
+        private String szin;
+        private String anyag;
+        private double meret;
+        private int penzmennyiseg;
+
+        public Penztarca(String szin, String anyag, double meret, int penzmennyiseg) {
+            this.szin = szin;
+            this.anyag = anyag;
+            this.meret = meret;
+            this.penzmennyiseg = penzmennyiseg;
+        }
+
+        // toString megvalositas
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 01 Mar 2024 18:09:26 UTC"
+record: -1
+solution_hidden: true

@@ -1,0 +1,102 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.io.File;
+    import java.io.IOException;
+    import java.nio.file.Files;
+
+    import static org.junit.Assert.*;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void teszt_01() {
+            assertEquals("Hibas eredmeny", 2, Hosszu.hossz("110010"));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("Hibas eredmeny", 0, Hosszu.hossz("00000000000"));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("Hibas eredmeny", 3, Hosszu.hossz("01011000001110"));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("Hibas eredmeny", 3, Hosszu.hossz("0111011101110111"));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertEquals("Hibas eredmeny", 10, Hosszu.hossz("1111111111"));
+        }
+
+        @Test
+        public void teszt_06() {
+            assertEquals("Hibas eredmeny", 10, Hosszu.hossz("11111111110111111111"));
+        }
+
+        @Test
+        public void teszt_07() {
+            assertEquals("Hibas eredmeny", 3, Hosszu.hossz("10110110110101110"));
+        }
+
+        @Test
+        public void teszt_08() {
+            assertEquals("Hibas eredmeny", 1, Hosszu.hossz("1"));
+        }
+
+        @Test
+        public void teszt_09() {
+            assertEquals("Hibas eredmeny", 1, Hosszu.hossz("101"));
+        }
+
+        @Test
+        public void teszt_10() {
+            assertEquals("Hibas eredmeny", 3, Hosszu.hossz("111011"));
+        }
+
+        @Test
+        public void teszt_11() {
+            assertEquals("Hibas eredmeny", 3, Hosszu.hossz("110111"));
+        }
+
+        @Test
+        public void teszt_12() {
+            assertEquals("Hibas eredmeny", 1, Hosszu.hossz("100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100"));
+        }
+
+        @Test
+        public void fajlmeret() {
+            checkFileSize("./src/Hosszu.java", 140, 1, 1, 5);
+        }
+    }
+  learner_created: false
+- name: src/Hosszu.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 11
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      //class Hosszu{static int hossz(String s){int a=0,m=0;for(char c:s.toCharArray()){a=c=='1'?a+1:0;m=a>m?a:m;}return m;}}
+      //class Hosszu{static int hossz(String b){int m=0;for(String a:b.split("0"))m=Math.max(a.length(),m);return m;}}
+      class Hosszu{static int hossz(String s){int n=0;while(s.matches(".*1{"+n+"}.*"))n++;return--n;}}
+  text: // megoldas
+  learner_created: false
+status: Unchecked
+record: -1
+solution_hidden: true

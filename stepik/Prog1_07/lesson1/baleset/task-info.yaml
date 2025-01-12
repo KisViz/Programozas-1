@@ -1,0 +1,169 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.util.Arrays;
+    import java.util.Collections;
+    import java.util.HashSet;
+
+    import static org.junit.Assert.*;
+
+    public class Tests {
+        class Troli implements Jarmu {
+            @Override
+            public void halad() {
+                System.out.println("CSING-CSING");
+            }
+
+            @Override
+            public void megall() {
+                System.out.println("NYIKK");
+            }
+        }
+
+        class Auto implements Jarmu {
+            @Override
+            public void halad() {}
+
+            @Override
+            public void megall() {}
+        }
+
+        class Bicikli implements Jarmu {
+            @Override
+            public void halad() {}
+
+            @Override
+            public void megall() {}
+        }
+
+        @Test
+        public void teszt_01() {
+            Baleset b = new Baleset(new HashSet<>(Arrays.asList(
+                    new Troli(),
+                    new Troli(),
+                    new Bicikli(),
+                    new Auto()
+            )));
+
+            assertEquals("Os inicializalasa hibas", "Baleset tortent!", b.getMessage());
+        }
+
+        @Test
+        public void teszt_02() {
+            Baleset b = new Baleset(new HashSet<>(Arrays.asList(
+                    new Troli(),
+                    new Troli(),
+                    new Bicikli(),
+                    new Auto()
+            )));
+
+            assertFalse("villamosBaleset hibas", b.villamosBaleset());
+        }
+
+        @Test
+        public void teszt_03() {
+            Baleset b = new Baleset(new HashSet<>(Arrays.asList(
+                    new Villamos(),
+                    new Villamos(),
+                    new Villamos(),
+                    new Villamos()
+            )));
+
+            assertTrue("villamosBaleset hibas", b.villamosBaleset());
+        }
+
+        @Test
+        public void teszt_04() {
+            Baleset b = new Baleset(new HashSet<>(Arrays.asList(
+                    new Villamos(),
+                    new Bicikli(),
+                    new Troli(),
+                    new Auto()
+            )));
+
+            assertTrue("villamosBaleset hibas", b.villamosBaleset());
+        }
+
+        @Test
+        public void teszt_05() {
+            Baleset b = new Baleset(new HashSet<>(Collections.singletonList(
+                    new Villamos()
+            )));
+
+            assertTrue("villamosBaleset hibas", b.villamosBaleset());
+        }
+
+        @Test
+        public void teszt_06() {
+            Baleset b = new Baleset(new HashSet<>(Collections.emptyList()));
+            assertFalse("villamosBaleset hibas", b.villamosBaleset());
+        }
+    }
+  learner_created: false
+- name: src/Baleset.java
+  visible: true
+  placeholders:
+  - offset: 68
+    length: 11
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 68
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public Set<Jarmu> jarmuvek;
+
+          public Baleset(Set<Jarmu> jarmuvek) {
+              super("Baleset tortent!");
+              this.jarmuvek = jarmuvek;
+          }
+
+          public boolean villamosBaleset() {
+              for (Jarmu jarmu: jarmuvek) {
+                  if (jarmu instanceof Villamos) {
+                      return true;
+                  }
+              }
+
+              return false;
+          }
+  text: |-
+    import java.util.Set;
+
+    public class Baleset extends Exception {
+        // megoldas
+    }
+  learner_created: false
+- name: src/Jarmu.java
+  visible: true
+  text: |
+    public interface Jarmu {
+        void halad();
+        void megall();
+    }
+  learner_created: false
+- name: src/Villamos.java
+  visible: true
+  text: |
+    public class Villamos implements Jarmu {
+        @Override
+        public void halad() {
+            System.out.println("CSING-CSING");
+        }
+
+        @Override
+        public void megall() {
+            System.out.println("NYIKK");
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+solution_hidden: true

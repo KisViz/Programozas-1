@@ -1,0 +1,141 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void teszt_01() {
+            assertEquals("Hibas eredmeny", "Attila nyert",  doArgumentTest(A.class, "0", "1", "0", "1", "0", "1", "1", "0", "0"));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("Hibas eredmeny", "Attila nyert",  doArgumentTest(A.class, "0", "-1", "-1", "0", "-1", "-1", "0", "1", "1"));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("Hibas eredmeny", "Attila nyert",  doArgumentTest(A.class, "0", "0", "0", "1", "0", "-1", "-1", "1", "1"));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("Hibas eredmeny", "Bella nyert",  doArgumentTest(A.class, "0", "1", "0", "0", "1", "-1", "1", "1", "0"));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertEquals("Hibas eredmeny", "Nincs nyertes",  doArgumentTest(A.class, "0", "1", "0", "1", "1", "0", "0", "0", "1"));
+        }
+
+        @Test
+        public void teszt_06() {
+            assertEquals("Hibas eredmeny", "Attila nyert",  doArgumentTest(A.class, "-1", "-1", "0", "-1", "0", "1", "0", "1", "-1"));
+        }
+
+        @Test
+        public void teszt_07() {
+            assertEquals("Hibas eredmeny", "Attila nyert",  doArgumentTest(A.class, "0", "1", "1", "0", "1", "1", "0", "0", "0"));
+        }
+
+        @Test
+        public void teszt_08() {
+            assertEquals("Hibas eredmeny", "Attila nyert",  doArgumentTest(A.class, "0", "1", "1", "0", "-1", "1", "0", "-1", "0"));
+        }
+
+        @Test
+        public void teszt_09() {
+            assertEquals("Hibas eredmeny", "Bella nyert",  doArgumentTest(A.class, "0", "0", "1", "0", "0", "1", "-1", "1", "1"));
+        }
+
+        @Test
+        public void teszt_10() {
+            assertEquals("Hibas eredmeny", "Bella nyert",  doArgumentTest(A.class, "-1", "-1", "0", "1", "1", "1", "-1", "0", "0"));
+        }
+
+        @Test
+        public void teszt_11() {
+            assertEquals("Hibas eredmeny", "Bella nyert",  doArgumentTest(A.class, "0", "-1", "0", "0", "0", "1", "1", "1", "1"));
+        }
+
+        @Test
+        public void teszt_12() {
+            assertEquals("Hibas eredmeny", "Bella nyert",  doArgumentTest(A.class, "1", "0", "0", "0", "1", "0", "0", "1", "1"));
+        }
+
+        @Test
+        public void teszt_13() {
+            assertEquals("Hibas eredmeny", "Bella nyert",  doArgumentTest(A.class, "-1", "0", "1", "0", "1", "1", "0", "0", "1"));
+        }
+
+        @Test
+        public void teszt_14() {
+            assertEquals("Hibas eredmeny", "Nincs nyertes",  doArgumentTest(A.class, "0", "1", "0", "0", "1", "0", "1", "0", "1"));
+        }
+
+        @Test
+        public void teszt_15() {
+            assertEquals("Hibas eredmeny", "Nincs nyertes",  doArgumentTest(A.class, "1", "1", "0", "0", "0", "1", "1", "1", "0"));
+        }
+
+        @Test
+        public void teszt_16() {
+            assertEquals("Hibas eredmeny", "Nincs nyertes",  doArgumentTest(A.class, "0", "0", "1", "1", "0", "0", "0", "1", "1"));
+        }
+
+        @Test
+        public void teszt_17() {
+            assertEquals("Hibas eredmeny", "Nincs nyertes",  doArgumentTest(A.class, "0", "1", "0", "0", "1", "1", "1", "0", "0"));
+        }
+
+        @Test
+        public void teszt_18() {
+            assertEquals("Hibas eredmeny", "Bella nyert",  doArgumentTest(A.class, "1", "1", "0", "1", "0", "0", "1", "0", "1"));
+        }
+
+        @Test
+        public void teszt_19() {
+            assertEquals("Hibas eredmeny", "Bella nyert",  doArgumentTest(A.class, "0", "1", "-1", "0", "1", "0", "-1", "1", "-1"));
+        }
+
+        @Test
+        public void teszt_20() {
+            assertEquals("Hibas eredmeny", "Attila nyert",  doArgumentTest(A.class, "0", "0", "0", "-1", "1", "1", "1", "0", "1"));
+        }
+
+        @Test
+        public void teszt_21() {
+            assertEquals("Hibas eredmeny", "Bella nyert",  doArgumentTest(A.class, "-1", "0", "0", "1", "1", "0", "1", "1", "1"));
+        }
+
+        @Test
+        public void fajlMeret() {
+            checkFileSize("src/A.java", 240, 1, 1, 7);
+        }
+    }
+  learner_created: false
+- name: src/A.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 11
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: "class A{static void main(String[]a){int s=0,i=0,w=2;while(i<24){s+=a[i<9?i:\"\
+      246036147258048\".charAt(i-9)-48].charAt(0)-48;if(++i%3<1){w=s==0?0:s==3?1:w;s=0;}}System.out.printf(w<1?\"\
+      Attila%s\":w>1?\"Nincs%ses\":\"Bella%s\",\" nyert\");"
+  text: "// megoldas}}"
+  learner_created: false
+status: Unchecked
+record: -1
+solution_hidden: true

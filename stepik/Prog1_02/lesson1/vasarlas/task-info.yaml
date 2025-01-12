@@ -1,0 +1,75 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.*;
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            assertTrue("Hibas eredmeny", Vasarlas.vasarlas(100, 40));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertTrue("Hibas eredmeny", Vasarlas.vasarlas(10, 7));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertTrue("Hibas eredmeny", Vasarlas.vasarlas(23, 23));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertFalse("Hibas eredmeny", Vasarlas.vasarlas(100, 111));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertFalse("Hibas eredmeny", Vasarlas.vasarlas(10, 23));
+        }
+
+        @Test
+        public void teszt_06() {
+            assertFalse("Hibas eredmeny", Vasarlas.vasarlas(23, 24));
+        }
+
+        @Test
+        public void teszt_07() {
+            assertFalse("Hibas eredmeny", Vasarlas.vasarlas(10, 40));
+        }
+    }
+  learner_created: false
+- name: src/Vasarlas.java
+  visible: true
+  placeholders:
+  - offset: 97
+    length: 42
+    placeholder_text: return 0;
+    initial_state:
+      length: 9
+      offset: 97
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: return penzmennyiseg >= ar;
+  text: |-
+    public class Vasarlas {
+
+        public static boolean vasarlas(int penzmennyiseg, int ar) {
+            return 0;
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 26 Feb 2024 17:42:16 UTC"
+record: -1
+solution_hidden: true

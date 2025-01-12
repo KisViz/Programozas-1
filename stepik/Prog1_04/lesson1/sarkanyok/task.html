@@ -1,0 +1,45 @@
+<html lang="hu">
+  <h1>[⭐⭐⭐] 21. Sárkányok (8 pont)</h1>
+  A virágárusoknak nehéz az életük. Sajnos nagyon kevesen szeretnének virágot venni, így más munkára is szükségük van ahhoz, hogy legyen mit enni, és ne széklábbal kelljen fűteni.<br>
+  Noémi néninek is ez a problémája. A probléma orvoslására kitalálta, hogy sárkányokat fog tenyészteni.<br>
+  <br>
+  Hozd létre a <i>Sarkany</i> osztályt! Egy sárkányról tudjuk a nevét (<i>nev</i>, szöveg, a színét (<i>szin</i>, szöveg), erejét (<i>ero</i>, pozitív valós szám), illetve azt, hogy tud-e tüzet okádani (<i>tuzokado</i>, logikai).
+  <ul>
+    <li>Az adattagokat csak az adott osztályból és a gyerekosztályokból lehessen elérni, de készíts hozzájuk publikus metódusokat, melyeken keresztül az értékük lekérdezhető és módosítható. Ügyelj rá, hogy az erő minden esetben legalább 0.1 legyen. Ha nem ilyet kapunk, akkor ne csináljunk semmit.</li>
+    <li>Készíts egy egy paraméteres konstruktort, ami a sárkány nevét várja. A színe legyen "zold", az ereje 1 és ne legyen tűzokádó</li>
+    <li>Készíts egy paraméteres konstruktort, ami az összes paramétert várja. Ügyelj rá, hogy az erő minden esetben pozitív legyen. Ha 0-nál kisebbet kapunk, akkor állítsuk a paraméter abszolút értékére. Ha 0-t kapunk, akkor 0.1-re</li>
+    <li>Készíts egy toString metódust, ami az alábbi formában adja vissza a sárkány tulajdonságát: "[nev] egy [szin] szinu [tuzokado/nem tuzokado] sarkany, akinek ereje [ero]."</li>
+    <li>Készítsd el az <i>erosodik</i> metódust, ami a sárkány erejét a kétszeresére emeli</li>
+  </ul>
+
+  Hozd létre a <i>Vizisarkany</i> osztályt, ami egy speciális sárkány. Egy vízi sárkányról tudjuk a vízköpő képességét (<i>vizkopoKepesseg</i>, egész szám), illetve azt, hogy maximum hány órát képes a víz alatt tölteni
+  (<i>vizbenLet</i>, nemnegatív valós szám).
+  <ul>
+    <li>Az adattagokat csak az adott osztályból lehessen elérni, készíts hozzájuk getter metódusokat, de settereket ne!</li>
+    <li>Készíts egy paraméteres konstruktort, ami várja a vízi sárkány nevét, színét, erejét, vízköpő képességét és hogy mennyit képes víz alatt tölteni és ezek alapján inicializálja az objektumot. A vízi sárkány nem tud tüzet okádani.</li>
+    <li>Készíts egy paraméteres konstruktort, ami várja a vízi sárkány nevét, erejét és vízköpő képességét. A vízi sárkány nem tud tüzet okádani és 1 órát képes víz alatt tölteni.
+      Ha a paraméterben érkező név tartalmazza a "zold" szót, akkor a sárkány színe legyen "zold". Ha tartalmazza a "kek" szót, akkor legyen "kek". Egyéb esetben legyen "voros"</li>
+    <li>Készíts egy <i>uszik</i> metódust, ami egy egész számot vár paraméterben (hány percig szeretne a víz alatt lenni) és egy logikai típussal tér vissza. Ha a vízi sárkány tud ennyi időt víz alatt tölteni,
+      akkor térjünk vissza igazzal, egyébként hamissal.</li>
+    <li>Készítsd el a <i>vizetKop</i> metódust, ami nem vár paramétert, és visszaadja a vízi sárkány vízköpő képességének és erejének szorzatát</li>
+    <li>Definiáld felül a toString metódust, hogy az ősosztály által visszaadott szöveghez hozzáfűzi, hogy: " A vizisarkany vizkopo kepessege [alacsony/magas], [vizbenLet] orat kepes vizben tolteni." Az [alacsony/magas]
+      esetében az alacsony kerüljön behelyettesítésre, ha a vízköpő képessége 10-nél kisebb. Egyébként a "magas" kerüljön behelyettesítésre.</li>
+  </ul>
+
+  Hozd létre az <i>Ember</i> osztályt. Egy embernek legyen neve (<i>nev</i>, szöveg), illetve tároljuk el egy tömbben az általa tenyésztett sárkányokat (<i>sarkanyok</i>). A név értéke inicializálás után ne változhasson!
+  <ul>
+    <li>Az adattagokat csak az adott osztályból lehessen elérni.</li>
+    <li>Készíts egy két paraméteres konstruktort, ami a várja a nevet, és a maximális sárkányok számát, és ez alapján inicializálja az objektumot</li>
+    <li>Készíts egy egy paraméteres konstruktort, ami csak a maximális sárkányok számát várja, a nevet minden esetben "Noemi neni"-re állítja</li>
+    <li>Készíts egy <i>sarkanySzuletik</i> metódust, amely egy sárkányt vár paraméterben. Ha a tömb nincs tele, akkor tedd be a legelső üres pozícióra, egyébként öld meg a legkisebb erejű sárkányt: tedd be az újat a helyére</li>
+    <li>Készíts egy <i>osszErosseg</i> metódust, amely nem vár paramétert, és visszaadja, hogy mennyi a sárkányok összesített ereje</li>
+    <li>Készíts egy <i>leggyakrabbi</i> metódust, amely nem vár paramétert, és visszaadja, hogy melyik az a szín, amelyik leggyakrabban előfordul a sárkányok között</li>
+    <li>Készíts egy <i>toString</i> metódust, amely több sort ad vissza. Az elsőben csak az ember neve szerepel. A többi sorban minden sárkány adata külön-külön, egy-egy sortöréssel elválasztva (üres sorok nélkül).
+    Az utolsó után is legyen még egy sortörés</li>
+  </ul>
+
+  <div class="hint">
+    A gyakoriságokat (leggyakrabbi) többféleképpen meghatározhatjuk, például használhatjuk a Map interface-t és a HashMap osztályt.
+  </div>
+
+</html>

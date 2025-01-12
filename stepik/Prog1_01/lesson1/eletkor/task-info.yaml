@@ -1,0 +1,70 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        {
+            keepSoutSerr = false;
+        }
+
+        @Test
+        public void teszt_01() {
+            setInput("5");
+            Eletkor.main(null);
+            assertEquals("Hibas eredmeny", "Add meg az eletkorodat!" + System.lineSeparator() + "5 eves vagy." + System.lineSeparator(), sout.toString());
+        }
+
+        @Test
+        public void teszt_02() {
+            setInput("103");
+            Eletkor.main(null);
+            assertEquals("Hibas eredmeny", "Add meg az eletkorodat!" + System.lineSeparator() + "103 eves vagy." + System.lineSeparator(), sout.toString());
+        }
+
+        @Test
+        public void teszt_03() {
+            setInput("20");
+            Eletkor.main(null);
+            assertEquals("Hibas eredmeny", "Add meg az eletkorodat!" + System.lineSeparator() + "20 eves vagy." + System.lineSeparator(), sout.toString());
+        }
+    }
+  learner_created: false
+- name: src/Eletkor.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 11
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: import java.util.Scanner;
+  text: |-
+    // megoldas
+
+    public class Eletkor {
+        public static void main(String[] args) {
+            System.out.println("Add meg az eletkorodat!");
+
+            Scanner scanner = new Scanner(System.in);
+            int kor = scanner.nextInt();
+
+            System.out.println(kor + " eves vagy.");
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 16:08:51 UTC"
+record: -1
+solution_hidden: true

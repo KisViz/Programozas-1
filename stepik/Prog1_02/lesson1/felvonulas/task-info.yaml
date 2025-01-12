@@ -1,0 +1,73 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            assertEquals("hibas eredmeny", 0, Felvonulas.szavazas(new String[] {"sarkanyszeker", "sarkanyszeker", "gyalogosok", "gyalogosok"}));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("hibas eredmeny", 1, Felvonulas.szavazas(new String[] {"sarkanyszeker", "lovasszeker", "gyalogosok", "gyalogosok"}));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("hibas eredmeny", 4, Felvonulas.szavazas(new String[] {"lovasszeker", "lovasszeker", "lovasszeker", "lovasszeker"}));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("hibas eredmeny", 2, Felvonulas.szavazas(new String[] {"lovasszeker", "sarkanyszeker", "gyalogosok", "lovasszeker", "auto", "motor", "bicikli"}));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertEquals("hibas eredmeny", 1, Felvonulas.szavazas(new String[] {"lovaskocsi", "lovaskocsi", "lovasszeker", "szeker", "szekereslo"}));
+        }
+    }
+  learner_created: false
+- name: src/Felvonulas.java
+  visible: true
+  placeholders:
+  - offset: 89
+    length: 191
+    placeholder_text: return 0;
+    initial_state:
+      length: 9
+      offset: 89
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      int darabszam = 0;
+              for (int i = 0; i < szavazatok.length; i++) {
+                  if (szavazatok[i].equals("lovasszeker")) {
+                      darabszam++;
+                  }
+              }
+
+              return darabszam;
+  text: |
+    public class Felvonulas {
+
+        public static int szavazas(String[] szavazatok) {
+            return 0;
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 26 Feb 2024 18:06:13 UTC"
+record: -1
+solution_hidden: true

@@ -1,0 +1,139 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+
+        @Test
+        public void default_konstruktor() {
+            Csavar csavar = new Csavar();
+            assertEquals("anyag hibas", "fa", csavar.getAnyag());
+            assertEquals("hossz hibas", 50, csavar.getHossz(), 0.001);
+            assertEquals("vastagsag hibas", 3.5, csavar.getVastagsag(), 0.001);
+            assertEquals("erosseg hibas", 7, csavar.getErosseg());
+            assertEquals("ar hibas", 100000, csavar.getAr());
+        }
+
+        @Test
+        public void ot_parameteres_konstruktor() {
+            Csavar csavar2 = new Csavar("vas", 60, 4, -4, 4000);
+            assertEquals("anyag hibas", "vas", csavar2.getAnyag());
+            assertEquals("hossz hibas", 60, csavar2.getHossz(), 0.001);
+            assertEquals("vastagsag hibas", 4, csavar2.getVastagsag(), 0.001);
+            assertEquals("erosseg hibas", 1, csavar2.getErosseg());
+            assertEquals("ar hibas", 4000, csavar2.getAr());
+
+            Csavar csavar3 = new Csavar("uveg", 1, 2, 3, 4);
+            assertEquals("anyag hibas", "uveg", csavar3.getAnyag());
+            assertEquals("hossz hibas", 1, csavar3.getHossz(), 0.001);
+            assertEquals("vastagsag hibas", 2, csavar3.getVastagsag(), 0.001);
+            assertEquals("erosseg hibas", 3, csavar3.getErosseg());
+            assertEquals("ar hibas", 1000, csavar3.getAr());
+        }
+
+        @Test
+        public void negy_parameteres_konstruktor() {
+            Csavar csavar4 = new Csavar("homok", 3.22, 1.2, 4);
+            assertEquals("anyag hibas", "homok", csavar4.getAnyag());
+            assertEquals("hossz hibas", 3.22, csavar4.getHossz(), 0.001);
+            assertEquals("vastagsag hibas", 1.2, csavar4.getVastagsag(), 0.001);
+            assertEquals("erosseg hibas", 5, csavar4.getErosseg());
+            assertEquals("ar hibas", 5313, csavar4.getAr());
+
+            Csavar csavar5 = new Csavar("pamut", 15, 10, 6);
+            assertEquals("anyag hibas", "pamut", csavar5.getAnyag());
+            assertEquals("hossz hibas", 15, csavar5.getHossz(), 0.001);
+            assertEquals("vastagsag hibas", 10, csavar5.getVastagsag(), 0.001);
+            assertEquals("erosseg hibas", 6, csavar5.getErosseg());
+            assertEquals("ar hibas", 5313, csavar5.getAr());
+        }
+    }
+  learner_created: false
+- name: src/Csavar.java
+  visible: true
+  placeholders:
+  - offset: 154
+    length: 16
+    placeholder_text: // konstruktorok
+    initial_state:
+      length: 16
+      offset: 154
+    initialized_from_dependency: false
+    selected: false
+    status: Solved
+    encrypted_possible_answer: |-
+      public Csavar() {
+              anyag = "fa";
+              hossz = 50;
+              vastagsag = 3.5;
+              erosseg = 7;
+              ar = 100000;
+          }
+
+          public Csavar(String anyag, double hossz, double vastagsag, int erosseg, int ar) {
+              this.anyag = anyag;
+              this.hossz = hossz;
+              this.vastagsag = vastagsag;
+
+              if (erosseg > 0) {
+                  this.erosseg = erosseg;
+              } else {
+                  this.erosseg = 1;
+              }
+
+              if (ar > 1000) {
+                  this.ar = ar;
+              } else {
+                  this.ar = 1000;
+              }
+          }
+
+          public Csavar(String anyag, double hossz, double vastagsag, int erosseg) {
+              this.anyag = anyag;
+              this.hossz = hossz;
+              this.vastagsag = vastagsag;
+              this.erosseg = Math.max(erosseg, 5);
+              this.ar = 5313;
+          }
+  text: |-
+    public class Csavar {
+        private String anyag;
+        private double hossz;
+        private double vastagsag;
+        private int erosseg;
+        private int ar;
+
+        // konstruktorok
+
+        public String getAnyag() {
+            return anyag;
+        }
+
+        public double getHossz() {
+            return hossz;
+        }
+
+        public double getVastagsag() {
+            return vastagsag;
+        }
+
+        public int getErosseg() {
+            return erosseg;
+        }
+
+        public int getAr() {
+            return ar;
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Sat, 09 Mar 2024 19:16:53 UTC"
+record: -1
+solution_hidden: true

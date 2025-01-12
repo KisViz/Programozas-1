@@ -1,0 +1,36 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Test;
+
+    public class Tests {
+        @Test
+        public void teszt() {
+            //noinspection unused
+            Bongeszo bongeszo;
+        }
+    }
+  learner_created: false
+- name: src/Bongeszo.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 25
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: "public class Bongeszo {}"
+  text: // megoldas
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Thu, 29 Feb 2024 19:09:45 UTC"
+record: -1
+solution_hidden: true

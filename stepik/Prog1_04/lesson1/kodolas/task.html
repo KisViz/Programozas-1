@@ -1,0 +1,22 @@
+<html lang="hu">
+    <h1>[⭐⭐⭐] 23. Kódolás (6 pont)</h1>
+    Egy híres matematikus szeretne üzenetet küldeni Danténak, a költőnek. Mivel nagyon vicces kedvében van, így az üzenetet csupa 0-s és 1-es felhasználásával küldte el, remélve, hogy Dante nem fog megérteni belőle semmit. <br>
+    Azonban azt is tudja, hogy a futár gyakran megtréfálja, így az üzenetet hibajavító kódolással szeretné dekódolni. Ez azt jelenti, hogy ha a futár átír a karaktersorozatban legfeljebb 1 számot (0-ról 1-re vagy 1-ről 0-ra),
+    akkor az még dekódolható lesz az eredeti üzenetre. <br>
+    Segíts a matematikusnak elkészítetni a dekódolt üzenetet. Emellett jó lenne megviccelni, így segíts Danténak is dekódolni az üzenetet, aki így tud válaszolni, és ezzel meglepetést okozni.
+    <ul>
+        <li>
+            A <i>kodolas</i> függvény egy paramétert vár: <i>eredeti</i>. A feladat, hogy valamilyen módon kódold az <i>eredeti</i> szöveget, és az eredményt add vissza
+        </li>
+        <li>
+            A <i>dekodolas</i> függvény egy paramétert vár: <i>kodolt</i>. A feladat, hogy a fenti, <i>kodolas</i> függvény által kódolt üzenetet visszaalakítsa az eredeti formájára.
+            Azonban előfordulhat, hogy a futár egy karaktert átállított (de az is lehet, hogy nem), erre mindenképpen figyelj. Egynél több karaktert biztos nem módosított.
+        </li>
+    </ul>
+
+    <div class="hint">
+        A stringeket egyszerűen összefűzhetjük a + operátorral (pl. str += '0'), viszont ez memóriapazarló, ha sokszor csináljuk.
+        Ehelyett használhatjuk a StringBuilder osztályt. Ha megírjuk először a plusz egyenlő segítségével, akkor az IDEA felajánlja,
+        hogy átírja helyettünk, így tanulmányozhatjuk a működését.
+    </div>
+</html>

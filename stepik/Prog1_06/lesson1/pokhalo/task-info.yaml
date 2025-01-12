@@ -1,0 +1,129 @@
+type: edu
+custom_name: pokhalo
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+    import java.util.Arrays;
+    import java.util.Set;
+
+    import static org.junit.Assert.*;
+
+    public class Tests extends BaseTest {
+
+        @Test
+        public void pokok() {
+            assertTrue("halmaz hibas", testField(Pokhalo.class, "pokok", Set.class, Modifier.PUBLIC));
+        }
+
+        @Test
+        public void minimalisTavolsag() {
+            Pok p1 = new Pok(10, 5);
+            Pok p2 = new Pok(4, -2);
+            Pok p3 = new Pok(6, 6);
+            Pok p4 = new Pok(-8.5, -3.3);
+            Pok p5 = new Pok(1.1, -4.8);
+            Pok p6 = new Pok(-4.2, 6.5);
+
+            Pokhalo pokhalo = new Pokhalo();
+            Set<Pok> pokok = pokhalo.pokok;
+
+            assertNotNull("halmaz nincs inicializalva", pokok);
+
+            pokok.add(p1);
+            assertTrue("minimalisTavolsag hibas", Double.isNaN(pokhalo.minimalisTavolsag()));
+
+            pokok.add(p2);
+            assertEquals("minimalisTavolsag hibas", 9.2195, pokhalo.minimalisTavolsag(), 0.001);
+
+            pokok.add(p3);
+            assertEquals("minimalisTavolsag hibas", 4.1231, pokhalo.minimalisTavolsag(), 0.001);
+
+            pokok.clear();
+            pokok.add(p5);
+            pokok.add(p6);
+            pokok.add(p4);
+            assertEquals("minimalisTavolsag hibas", 9.7165, pokhalo.minimalisTavolsag(), 0.001);
+
+            pokok.add(p3);
+            pokok.add(p1);
+            assertEquals("minimalisTavolsag hibas", 4.1231, pokhalo.minimalisTavolsag(), 0.001);
+
+            pokok.add(p2);
+            assertEquals("minimalisTavolsag hibas", 4.0311, pokhalo.minimalisTavolsag(), 0.001);
+
+            pokok.clear();
+            pokok.add(p2);
+            pokok.add(p6);
+            pokok.add(p4);
+            assertEquals("minimalisTavolsag hibas", 10.7019, pokhalo.minimalisTavolsag(), 0.001);
+        }
+    }
+  learner_created: false
+- name: src/Pok.java
+  visible: true
+  text: |-
+    public class Pok {
+        public double posX;
+        public double posY;
+
+        public Pok(double posX, double posY) {
+            this.posX = posX;
+            this.posY = posY;
+        }
+    }
+  learner_created: false
+- name: src/Pokhalo.java
+  visible: true
+  placeholders:
+  - offset: 76
+    length: 599
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 76
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public Set<Pok> pokok = new HashSet<>();
+
+          public double minimalisTavolsag() {
+              if (pokok.size() == 1) {
+                  return Double.NaN;
+              }
+
+              double min = Double.MAX_VALUE;
+              for (Pok p1: pokok) {
+                  for (Pok p2: pokok) {
+                      if (p1 == p2) {
+                          continue;
+                      }
+
+                      double d = Math.sqrt(Math.pow(p1.posX - p2.posX, 2) + Math.pow(p1.posY - p2.posY, 2));
+                      if (d < min) {
+                          min = d;
+                      }
+                  }
+              }
+
+              return min;
+          }
+  text: |
+    import java.util.HashSet;
+    import java.util.Set;
+
+    public class Pokhalo {
+        // megoldas
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 24 Apr 2024 08:54:08 UTC"
+record: -1
+solution_hidden: true

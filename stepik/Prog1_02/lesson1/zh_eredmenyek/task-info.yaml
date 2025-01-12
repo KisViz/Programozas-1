@@ -1,0 +1,76 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.io.ByteArrayInputStream;
+    import java.io.ByteArrayOutputStream;
+    import java.io.InputStream;
+    import java.io.PrintStream;
+    import java.util.Random;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void teszt_01() {
+            assertEquals("hibas eredmeny", 1, Double.parseDouble(doArgumentTest(ZhEredmenyek.class, "1")), 0.01);
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("hibas eredmeny", 5, Double.parseDouble(doArgumentTest(ZhEredmenyek.class, "0", "10")), 0.01);
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("hibas eredmeny", 4, Double.parseDouble(doArgumentTest(ZhEredmenyek.class, "1", "4", "6", "5")), 0.01);
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("hibas eredmeny", 4.5, Double.parseDouble(doArgumentTest(ZhEredmenyek.class, "4", "5")), 0.01);
+        }
+
+        @Test
+        public void teszt_05() {
+            assertEquals("hibas eredmeny", 6.625, Double.parseDouble(doArgumentTest(ZhEredmenyek.class, "4", "3", "8", "10", "10", "10", "2", "6")), 0.01);
+        }
+    }
+  learner_created: false
+- name: src/ZhEredmenyek.java
+  visible: true
+  placeholders:
+  - offset: 82
+    length: 179
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 82
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      int osszeg = 0;
+              for (int i = 0; i < args.length; i++) {
+                  osszeg += Integer.parseInt(args[i]);
+              }
+              System.out.println(osszeg / (double) args.length);
+  text: |-
+    public class ZhEredmenyek {
+
+        public static void main(String[] args) {
+            // megoldas
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 26 Feb 2024 18:02:50 UTC"
+record: -1
+solution_hidden: true

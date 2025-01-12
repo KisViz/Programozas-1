@@ -1,0 +1,94 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.After;
+    import org.junit.AfterClass;
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.io.FileNotFoundException;
+    import java.io.IOException;
+    import java.io.PrintWriter;
+    import java.util.Collections;
+
+    import static org.junit.Assert.*;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void teszt() {
+            try {
+                Beolvasas.beolvas("macska.txt", 10);
+                fail("A metodus mukodesen ne valtoztass!");
+            } catch (FileNotFoundException ignored) {}
+
+            writeFile("eger.txt", Collections.singletonList("5 7 3"));
+
+            try {
+                assertEquals(12, Beolvasas.beolvas("eger.txt", 2));
+                assertEquals(15, Beolvasas.beolvas("eger.txt", 3));
+            } catch (FileNotFoundException e) {
+                fail("A metodus mokudesen ne valtoztass!");
+            }
+        }
+    }
+  learner_created: false
+- name: src/Beolvasas.java
+  visible: true
+  placeholders:
+  - offset: 116
+    length: 251
+    placeholder_text: |-
+      public static int beolvas(String file, int mennyiseg) {
+              int osszeg = 0;
+              Scanner sc = new Scanner(new File(file));
+              for (int i = 0; i < mennyiseg; i++) {
+                  osszeg += sc.nextInt();
+              }
+
+              return osszeg;
+          }
+    initial_state:
+      length: 251
+      offset: 116
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public static int beolvas(String file, int mennyiseg) throws FileNotFoundException {
+              int osszeg = 0;
+              Scanner sc = new Scanner(new File(file));
+              for (int i = 0; i < mennyiseg; i++) {
+                  osszeg += sc.nextInt();
+              }
+
+              return osszeg;
+          }
+  text: |-
+    import java.io.File;
+    import java.io.FileNotFoundException;
+    import java.util.Scanner;
+
+    public class Beolvasas {
+
+        public static int beolvas(String file, int mennyiseg) {
+            int osszeg = 0;
+            Scanner sc = new Scanner(new File(file));
+            for (int i = 0; i < mennyiseg; i++) {
+                osszeg += sc.nextInt();
+            }
+
+            return osszeg;
+        }
+
+    }
+  learner_created: false
+- name: eger.txt
+  visible: true
+  text: |
+    5 7 3
+  learner_created: false
+status: Unchecked
+record: -1
+solution_hidden: true

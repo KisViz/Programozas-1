@@ -1,0 +1,90 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.*;
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            int[] array1 = {1, 4};
+            assertTrue("Hibas eredmeny", Munka.villamos(array1));
+        }
+
+        @Test
+        public void teszt_02() {
+            int[] array2 = {7, 3, 5, 2, 6, 0};
+            assertTrue("Hibas eredmeny", Munka.villamos(array2));
+        }
+
+        @Test
+        public void teszt_03() {
+            int[] array3 = {5, 7, -3, -2, -3};
+            assertTrue("Hibas eredmeny", Munka.villamos(array3));
+        }
+
+        @Test
+        public void teszt_04() {
+            int[] array4 = {3, 5, -8, 3, -3, 5, -5};
+            assertTrue("Hibas eredmeny", Munka.villamos(array4));
+        }
+
+        @Test
+        public void teszt_05() {
+            int[] array5 = {3, -4, 2, 5, 7};
+            assertFalse("Hibas eredmeny", Munka.villamos(array5));
+        }
+
+        @Test
+        public void teszt_06() {
+            int[] array6 = {5, 5, -3, -3, -3, -2, 1};
+            assertFalse("Hibas eredmeny", Munka.villamos(array6));
+        }
+
+        @Test
+        public void teszt_07() {
+            int[] array7 = {6, 3, 5, -30};
+            assertFalse("Hibas eredmeny", Munka.villamos(array7));
+        }
+    }
+  learner_created: false
+- name: src/Munka.java
+  visible: true
+  placeholders:
+  - offset: 106
+    length: 185
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 84
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      int aktualis = 0;
+              for (int i = 0; i < felszallok.length; i++) {
+                  aktualis += felszallok[i];
+
+                  if (aktualis < 0) {
+                      return false;
+                  }
+              }
+
+              return true;
+  text: |-
+    public class Munka {
+        public static boolean villamos(int[] felszallok) {
+            // megoldas
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 16:52:27 UTC"
+record: -1
+solution_hidden: true

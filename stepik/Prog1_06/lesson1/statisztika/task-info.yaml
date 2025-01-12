@@ -1,0 +1,60 @@
+type: edu
+custom_name: statisztika
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+        @Test
+        public void teszt() {
+            Statisztika s = new Statisztika();
+            assertEquals("Gondolkozza'! Mit tudunk a halmazrol?", 0, s.tobbszorElofordulok());
+
+            s.hozzaad("aaa");
+            s.hozzaad("bbb");
+            s.hozzaad("ccc");
+            s.hozzaad("ccc");
+            assertEquals("Gondolkozza'! Mit tudunk a halmazrol?", 0, s.tobbszorElofordulok());
+        }
+    }
+  learner_created: false
+- name: src/Statisztika.java
+  visible: true
+  placeholders:
+  - offset: 253
+    length: 9
+    placeholder_text: return -1;
+    initial_state:
+      length: 10
+      offset: 253
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: return 0;
+  text: |-
+    import java.util.HashSet;
+    import java.util.Set;
+
+    public class Statisztika {
+        public Set<String> szovegek = new HashSet<>();
+
+        public void hozzaad(String szoveg) {
+            szovegek.add(szoveg);
+        }
+
+        public int tobbszorElofordulok() {
+            return -1;
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 23 Apr 2024 15:56:40 UTC"
+record: -1
+solution_hidden: true

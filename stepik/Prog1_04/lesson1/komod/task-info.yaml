@@ -1,0 +1,105 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Field;
+
+    import static org.junit.Assert.assertEquals;
+    import static org.junit.Assert.assertFalse;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void ososztaly() {
+            int fieldCount = Butor.class.getDeclaredFields().length;
+            int methodCount = Butor.class.getDeclaredMethods().length;
+            int constructorCount = Butor.class.getConstructors().length;
+
+            assertEquals("az ososztaly modositva lett", 3, fieldCount);
+            assertEquals("az ososztaly modositva lett", 3, methodCount);
+            assertEquals("az ososztaly modositva lett", 1, constructorCount);
+        }
+
+        @Test
+        public void teszt_01() {
+            Komod k1 = new Komod(5, 4, 3, 2);
+            assertEquals("magassag hibas", 5, k1.getMagassag());
+            assertEquals("szelesseg hibas", 4, k1.getSzelesseg());
+            assertEquals("melyseg hibas", 3, k1.getMelyseg());
+            assertEquals("fiokokSzama hibas", 2, k1.getFiokokSzama());
+        }
+
+        @Test
+        public void teszt_02() {
+            Komod k2 = new Komod(7, 2, 4, 3);
+            assertEquals("magassag hibas", 7, k2.getMagassag());
+            assertEquals("szelesseg hibas", 2, k2.getSzelesseg());
+            assertEquals("melyseg hibas", 4, k2.getMelyseg());
+            assertEquals("fiokokSzama hibas", 3, k2.getFiokokSzama());
+        }
+    }
+  learner_created: false
+- name: src/Butor.java
+  visible: true
+  text: |-
+    public class Butor {
+        private int magassag;
+        private int szelesseg;
+        private int melyseg;
+
+        public Butor(int magassag, int szelesseg, int melyseg) {
+            this.magassag = magassag;
+            this.szelesseg = szelesseg;
+            this.melyseg = melyseg;
+        }
+
+        public int getMagassag() {
+            return magassag;
+        }
+
+        public int getSzelesseg() {
+            return szelesseg;
+        }
+
+        public int getMelyseg() {
+            return melyseg;
+        }
+    }
+  learner_created: false
+- name: src/Komod.java
+  visible: true
+  placeholders:
+  - offset: 151
+    length: 34
+    placeholder_text: // os konstruktoranak meghivasa
+    initial_state:
+      length: 31
+      offset: 151
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: "super(magassag, szelesseg, melyseg);"
+  text: |
+    public class Komod extends Butor {
+        private int fiokokSzama;
+
+        public Komod(int magassag, int szelesseg, int melyseg, int fiokokSzama) {
+            // os konstruktoranak meghivasa
+            this.fiokokSzama = fiokokSzama;
+        }
+
+        public int getFiokokSzama() {
+            return fiokokSzama;
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 12 Mar 2024 13:59:17 UTC"
+record: -1
+solution_hidden: true

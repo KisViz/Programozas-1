@@ -1,0 +1,180 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        {
+            keepSoutSerr = false;
+        }
+
+        @Test
+        public void teszt_01() {
+            setFieldValue(Beka.class, "num", null, 0);
+            setFieldValue(Macska.class, "num", null, 0);
+
+            String res = doArgumentTest(Main.class, "Macska", "cirmi", "3");
+            assertEquals("Hibas kiiratas", "MACSKA:cirmi3", res);
+            assertEquals("Hibas kiiratas", "", serr.toString());
+
+            assertEquals("Hibas letrehozas", 0, fieldValue(Beka.class, "num", null));
+            assertEquals("Hibas letrehozas", 1, fieldValue(Macska.class, "num", null));
+        }
+
+        @Test
+        public void teszt_02() {
+            setFieldValue(Beka.class, "num", null, 0);
+            setFieldValue(Macska.class, "num", null, 0);
+
+            String res = doArgumentTest(Main.class, "Beka", "zold");
+            assertEquals("Hibas kiiratas", "BEKA:zold", res);
+            assertEquals("Hibas kiiratas", "", serr.toString());
+
+            assertEquals("Hibas letrehozas", 1, fieldValue(Beka.class, "num", null));
+            assertEquals("Hibas letrehozas", 0, fieldValue(Macska.class, "num", null));
+        }
+
+        @Test
+        public void teszt_03() {
+            setFieldValue(Beka.class, "num", null, 0);
+            setFieldValue(Macska.class, "num", null, 0);
+
+            String res = doArgumentTest(Main.class, "Macska", "cirmi", "3", "Beka", "zold", "Beka", "kek", "Macska", "cirmi2", "5");
+            assertEquals("Hibas kiiratas", "MACSKA:cirmi3" + System.lineSeparator() + "BEKA:zold" + System.lineSeparator() + "BEKA:kek" + System.lineSeparator() + "MACSKA:cirmi25", res);
+            assertEquals("Hibas kiiratas", "", serr.toString());
+
+            assertEquals("Hibas letrehozas", 2, fieldValue(Beka.class, "num", null));
+            assertEquals("Hibas letrehozas", 2, fieldValue(Macska.class, "num", null));
+        }
+
+        @Test
+        public void teszt_04() {
+            setFieldValue(Beka.class, "num", null, 0);
+            setFieldValue(Macska.class, "num", null, 0);
+
+            String res = doArgumentTest(Main.class, "Kecske", "piros", "3");
+            assertEquals("Hibas kiiratas", "", res);
+            assertEquals("Hibas kiiratas", "HIBA" + System.lineSeparator() + "HIBA" + System.lineSeparator() + "HIBA" + System.lineSeparator(), serr.toString());
+
+            assertEquals("Hibas letrehozas", 0, fieldValue(Beka.class, "num", null));
+            assertEquals("Hibas letrehozas", 0, fieldValue(Macska.class, "num", null));
+        }
+
+        @Test
+        public void teszt_05() {
+            setFieldValue(Beka.class, "num", null, 0);
+            setFieldValue(Macska.class, "num", null, 0);
+
+            String res = doArgumentTest(Main.class, "Beka", "piros", "Kecske", "Macska", "cirmi", "5", "5", "5", "Beka", "kek", "1");
+            assertEquals("Hibas kiiratas", "BEKA:piros" + System.lineSeparator() + "MACSKA:cirmi5" + System.lineSeparator() + "BEKA:kek", res);
+            assertEquals("Hibas kiiratas", "HIBA" + System.lineSeparator() + "HIBA" + System.lineSeparator() + "HIBA" + System.lineSeparator() + "HIBA" + System.lineSeparator(), serr.toString());
+
+            assertEquals("Hibas letrehozas", 2, fieldValue(Beka.class, "num", null));
+            assertEquals("Hibas letrehozas", 1, fieldValue(Macska.class, "num", null));
+        }
+    }
+  learner_created: false
+- name: src/Main.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 512
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public class Main {
+          public static void main(String[] args) {
+              for (int i = 0; i < args.length;) {
+                  if (args[i].equals("Macska")) {
+                      System.out.println(new Macska(args[i+1], Integer.parseInt(args[i+2])));
+                      i += 3;
+                  } else if (args[i].equals("Beka")) {
+                      System.out.println(new Beka(args[i+1]));
+                      i += 2;
+                  } else {
+                      i++;
+                      System.err.println("HIBA");
+                  }
+              }
+          }
+      }
+  text: // megoldas
+  learner_created: false
+- name: src/Macska.java
+  visible: true
+  text: |
+    public class Macska {
+        private String nev;
+        private int eletkor;
+        private static int num;
+
+        public Macska(String nev, int eletkor) {
+            num++;
+            this.nev = nev;
+            this.eletkor = eletkor;
+        }
+
+        public String getNev() {
+            return nev;
+        }
+
+        public void setNev(String nev) {
+            this.nev = nev;
+        }
+
+        public int getEletkor() {
+            return eletkor;
+        }
+
+        public void setEletkor(int eletkor) {
+            this.eletkor = eletkor;
+        }
+
+        @Override
+        public String toString() {
+            return "MACSKA:" + nev + eletkor;
+        }
+    }
+  learner_created: false
+- name: src/Beka.java
+  visible: true
+  text: |
+    public class Beka {
+        private String szin;
+        private static int num;
+
+        public Beka(String szin) {
+            this.szin = szin;
+            num++;
+        }
+
+        public String getSzin() {
+            return szin;
+        }
+
+        public void setSzin(String szin) {
+            this.szin = szin;
+        }
+
+        @Override
+        public String toString() {
+            return "BEKA:" + szin;
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Sun, 17 Mar 2024 20:36:25 UTC"
+record: -1
+solution_hidden: true

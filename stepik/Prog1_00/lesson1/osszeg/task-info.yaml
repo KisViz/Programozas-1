@@ -1,0 +1,72 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests extends BaseTest {
+        {
+            keepSoutSerr = false;
+        }
+
+        @Test
+        public void teszt1() {
+            setInput("3 5");
+            Osszeg.main(new String[] {});
+            assertEquals("Hibas eredmeny", sout.toString().trim(), "8");
+        }
+
+        @Test
+        public void teszt2() {
+            setInput("443 562");
+            Osszeg.main(new String[] {});
+            assertEquals("Hibas eredmeny", sout.toString().trim(), "1005");
+        }
+
+        @Test
+        public void teszt3() {
+            setInput("-4 -5");
+            Osszeg.main(new String[] {});
+            assertEquals("Hibas eredmeny", sout.toString().trim(), "-9");
+        }
+    }
+  learner_created: false
+- name: src/Osszeg.java
+  visible: true
+  placeholders:
+  - offset: 198
+    length: 13
+    placeholder_text: 0
+    initial_state:
+      length: 1
+      offset: 206
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: scanner.nextInt()
+  text: |-
+    import java.util.Scanner;
+
+    public class Osszeg {
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            int elso = scanner.nextInt();
+            int masodik = 0;
+
+            System.out.println(elso + masodik);
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 15:54:26 UTC"
+record: -1
+solution_hidden: true

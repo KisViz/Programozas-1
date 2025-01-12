@@ -1,0 +1,63 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Field;
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.*;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void rendszam() {
+            assertTrue("rendszam hibas", testField(Kamion.class, "rendszam", String.class, 0));
+        }
+
+        @Test
+        public void maxTelefonok() {
+            assertTrue("max telefonok hibas", testField(Kamion.class, "maxTelefonok", int.class, 0));
+        }
+
+        @Test
+        public void hossz() {
+            assertTrue("hossz hibas", testField(Kamion.class, "hossz", double.class, 0));
+        }
+
+        @Test
+        public void szelesseg() {
+            assertTrue("szelesseg hibas", testField(Kamion.class, "szelesseg", double.class, 0));
+        }
+    }
+  learner_created: false
+- name: src/Kamion.java
+  visible: true
+  placeholders:
+  - offset: 47
+    length: 57
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 47
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      int maxTelefonok;
+          double hossz;
+          double szelesseg;
+  text: |-
+    public class Kamion {
+        String rendszam;
+        // megoldas
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Thu, 29 Feb 2024 19:11:32 UTC"
+record: -1
+solution_hidden: true

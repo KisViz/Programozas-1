@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Tests" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-04-02T18:49:56" hostname="DESKTOP-VL7E782" time="0.014">
+  <properties/>
+  <testcase name="csermely" classname="Tests" time="0.007"/>
+  <testcase name="alloviz" classname="Tests" time="0.002"/>
+  <testcase name="to" classname="Tests" time="0.001"/>
+  <testcase name="viz" classname="Tests" time="0.0"/>
+  <testcase name="folyo" classname="Tests" time="0.001"/>
+  <testcase name="pocsolya" classname="Tests" time="0.001"/>
+  <testcase name="folyoviz" classname="Tests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

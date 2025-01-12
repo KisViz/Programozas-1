@@ -1,0 +1,67 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void testSolution() {
+            assertTrue("fajta hibas", testField(Madar.class, "fajta", String.class, Modifier.PROTECTED));
+            assertTrue("repul hibas", testField(Madar.class, "repul", boolean.class, Modifier.PROTECTED));
+            assertTrue("meret hibas", testField(Madar.class, "meret", int.class, Modifier.PROTECTED));
+        }
+    }
+  learner_created: false
+- name: src/Madar.java
+  visible: true
+  placeholders:
+  - offset: 25
+    length: 10
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 25
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: 'protected '
+  - offset: 53
+    length: 10
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 43
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: 'protected '
+  - offset: 82
+    length: 10
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 62
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: 'protected '
+  text: |-
+    public class Madar {
+        String fajta;
+        boolean repul;
+        int meret;
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 12 Mar 2024 13:56:37 UTC"
+record: -1
+solution_hidden: true

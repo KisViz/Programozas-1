@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Prog1_00.iml" filepath="$PROJECT_DIR$/.idea/modules/Prog1_00.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/bevezetes/Prog1_00.lesson1-bevezetes.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/bevezetes/Prog1_00.lesson1-bevezetes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/bevezetes/Prog1_00.lesson1-bevezetes.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/bevezetes/Prog1_00.lesson1-bevezetes.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/bevezetes/Prog1_00.lesson1-bevezetes.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/bevezetes/Prog1_00.lesson1-bevezetes.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/hianyos/Prog1_00.lesson1-hianyos.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/hianyos/Prog1_00.lesson1-hianyos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/hianyos/Prog1_00.lesson1-hianyos.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/hianyos/Prog1_00.lesson1-hianyos.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/hianyos/Prog1_00.lesson1-hianyos.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/hianyos/Prog1_00.lesson1-hianyos.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/macska/Prog1_00.lesson1-macska.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/macska/Prog1_00.lesson1-macska.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/macska/Prog1_00.lesson1-macska.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/macska/Prog1_00.lesson1-macska.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/macska/Prog1_00.lesson1-macska.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/macska/Prog1_00.lesson1-macska.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/modositas/Prog1_00.lesson1-modositas.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/modositas/Prog1_00.lesson1-modositas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/modositas/Prog1_00.lesson1-modositas.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/modositas/Prog1_00.lesson1-modositas.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/modositas/Prog1_00.lesson1-modositas.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/modositas/Prog1_00.lesson1-modositas.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/osszeg/Prog1_00.lesson1-osszeg.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/osszeg/Prog1_00.lesson1-osszeg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/osszeg/Prog1_00.lesson1-osszeg.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/osszeg/Prog1_00.lesson1-osszeg.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/osszeg/Prog1_00.lesson1-osszeg.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/osszeg/Prog1_00.lesson1-osszeg.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/szorzas/Prog1_00.lesson1-szorzas.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/szorzas/Prog1_00.lesson1-szorzas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/szorzas/Prog1_00.lesson1-szorzas.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/szorzas/Prog1_00.lesson1-szorzas.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/szorzas/Prog1_00.lesson1-szorzas.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/szorzas/Prog1_00.lesson1-szorzas.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Prog1_00.util.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Prog1_00.util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Prog1_00.util.main.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Prog1_00.util.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Prog1_00.util.test.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Prog1_00.util.test.iml" />
+    </modules>
+  </component>
+</project>

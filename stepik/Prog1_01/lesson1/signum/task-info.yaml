@@ -1,0 +1,82 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+        @Test
+        public void teszt_01() {
+            assertEquals("Hibas eredmeny", -1, Matematika.signum(-4));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("Hibas eredmeny", -1, Matematika.signum(-85.43));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("Hibas eredmeny", -1, Matematika.signum(-0.01));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("Hibas eredmeny", 1, Matematika.signum(68));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertEquals("Hibas eredmeny", 1, Matematika.signum(0.01));
+        }
+
+        @Test
+        public void teszt_06() {
+            assertEquals("Hibas eredmeny", 1, Matematika.signum(36));
+        }
+
+        @Test
+        public void teszt_07() {
+            assertEquals("Hibas eredmeny", 0, Matematika.signum(0));
+        }
+    }
+  learner_created: false
+- name: src/Matematika.java
+  visible: true
+  placeholders:
+  - offset: 79
+    length: 142
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 79
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      if (ertek < 0) {
+                  return -1;
+              }
+
+              if (ertek > 0) {
+                  return 1;
+              }
+
+              return 0;
+  text: |-
+    public class Matematika {
+        public static int signum(double ertek) {
+            // megoldas
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 23 Feb 2024 16:13:58 UTC"
+record: -1
+solution_hidden: true

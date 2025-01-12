@@ -1,0 +1,107 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void ember_nev() {
+            assertTrue("nev hibas", testField(Ember.class, "nev", String.class, 0));
+        }
+
+        @Test
+        public void ember_cipo() {
+            assertTrue("a cipo hibas", testField(Ember.class, "cipo", Cipo.class, 0));
+        }
+
+        @Test
+        public void ember_nadrag() {
+            assertTrue("a nadrag hibas", testField(Ember.class, "nadrag", Nadrag.class, 0));
+        }
+
+        @Test
+        public void ember_polo() {
+            assertTrue("a polo hibas", testField(Ember.class, "polo", Polo.class, 0));
+        }
+
+        @Test
+        public void cipo_szin() {
+            assertTrue("a Cipo osztaly modositva lett", testField(Cipo.class, "szin", String.class, 0));
+        }
+
+        @Test
+        public void nadrag_szin() {
+            assertTrue("a Nadrag osztaly modositva lett", testField(Nadrag.class, "szin", String.class, 0));
+        }
+
+        @Test
+        public void nadrag_tipus() {
+            assertTrue("a Nadrag osztaly modositva lett", testField(Nadrag.class, "tipus", String.class, 0));
+        }
+
+        @Test
+        public void polo_mintas() {
+            assertTrue("a Polo osztaly modositva lett", testField(Polo.class, "mintas", boolean.class, 0));
+        }
+
+        @Test
+        public void Polo_meret() {
+            assertTrue("a Polo osztaly modositva lett", testField(Polo.class, "meret", int.class, 0));
+        }
+    }
+  learner_created: false
+- name: src/Cipo.java
+  visible: true
+  text: |
+    public class Cipo {
+        String szin;
+    }
+  learner_created: false
+- name: src/Nadrag.java
+  visible: true
+  text: |
+    public class Nadrag {
+        String szin;
+        String tipus;
+    }
+  learner_created: false
+- name: src/Polo.java
+  visible: true
+  text: |
+    public class Polo {
+        boolean mintas;
+        int meret;
+    }
+  learner_created: false
+- name: src/Ember.java
+  visible: true
+  placeholders:
+  - offset: 21
+    length: 64
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 21
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |2-
+          String nev;
+          Cipo cipo;
+          Nadrag nadrag;
+          Polo polo;
+  text: |-
+    public class Ember {
+    // megoldas
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Thu, 29 Feb 2024 19:16:28 UTC"
+record: -1
+solution_hidden: true

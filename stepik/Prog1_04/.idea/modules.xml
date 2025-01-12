@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Prog1_04.iml" filepath="$PROJECT_DIR$/.idea/modules/Prog1_04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/bunuldozes/Prog1_04.lesson1-bunuldozes.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/bunuldozes/Prog1_04.lesson1-bunuldozes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/bunuldozes/Prog1_04.lesson1-bunuldozes.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/bunuldozes/Prog1_04.lesson1-bunuldozes.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/bunuldozes/Prog1_04.lesson1-bunuldozes.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/bunuldozes/Prog1_04.lesson1-bunuldozes.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/butorgyar/Prog1_04.lesson1-butorgyar.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/butorgyar/Prog1_04.lesson1-butorgyar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/butorgyar/Prog1_04.lesson1-butorgyar.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/butorgyar/Prog1_04.lesson1-butorgyar.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/butorgyar/Prog1_04.lesson1-butorgyar.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/butorgyar/Prog1_04.lesson1-butorgyar.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/dezso/Prog1_04.lesson1-dezso.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/dezso/Prog1_04.lesson1-dezso.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/dezso/Prog1_04.lesson1-dezso.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/dezso/Prog1_04.lesson1-dezso.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/dezso/Prog1_04.lesson1-dezso.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/dezso/Prog1_04.lesson1-dezso.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/eger/Prog1_04.lesson1-eger.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/eger/Prog1_04.lesson1-eger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/eger/Prog1_04.lesson1-eger.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/eger/Prog1_04.lesson1-eger.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/eger/Prog1_04.lesson1-eger.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/eger/Prog1_04.lesson1-eger.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/gomba/Prog1_04.lesson1-gomba.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/gomba/Prog1_04.lesson1-gomba.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/gomba/Prog1_04.lesson1-gomba.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/gomba/Prog1_04.lesson1-gomba.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/gomba/Prog1_04.lesson1-gomba.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/gomba/Prog1_04.lesson1-gomba.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/halak/Prog1_04.lesson1-halak.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/halak/Prog1_04.lesson1-halak.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/halak/Prog1_04.lesson1-halak.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/halak/Prog1_04.lesson1-halak.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/halak/Prog1_04.lesson1-halak.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/halak/Prog1_04.lesson1-halak.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/hangverseny/Prog1_04.lesson1-hangverseny.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/hangverseny/Prog1_04.lesson1-hangverseny.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/hangverseny/Prog1_04.lesson1-hangverseny.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/hangverseny/Prog1_04.lesson1-hangverseny.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/hangverseny/Prog1_04.lesson1-hangverseny.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/hangverseny/Prog1_04.lesson1-hangverseny.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/karakter/Prog1_04.lesson1-karakter.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/karakter/Prog1_04.lesson1-karakter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/karakter/Prog1_04.lesson1-karakter.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/karakter/Prog1_04.lesson1-karakter.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/karakter/Prog1_04.lesson1-karakter.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/karakter/Prog1_04.lesson1-karakter.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/kard/Prog1_04.lesson1-kard.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/kard/Prog1_04.lesson1-kard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/kard/Prog1_04.lesson1-kard.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/kard/Prog1_04.lesson1-kard.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/kard/Prog1_04.lesson1-kard.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/kard/Prog1_04.lesson1-kard.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/kecske/Prog1_04.lesson1-kecske.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/kecske/Prog1_04.lesson1-kecske.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/kecske/Prog1_04.lesson1-kecske.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/kecske/Prog1_04.lesson1-kecske.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/kecske/Prog1_04.lesson1-kecske.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/kecske/Prog1_04.lesson1-kecske.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/kodolas/Prog1_04.lesson1-kodolas.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/kodolas/Prog1_04.lesson1-kodolas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/kodolas/Prog1_04.lesson1-kodolas.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/kodolas/Prog1_04.lesson1-kodolas.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/kodolas/Prog1_04.lesson1-kodolas.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/kodolas/Prog1_04.lesson1-kodolas.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/komod/Prog1_04.lesson1-komod.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/komod/Prog1_04.lesson1-komod.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/komod/Prog1_04.lesson1-komod.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/komod/Prog1_04.lesson1-komod.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/komod/Prog1_04.lesson1-komod.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/komod/Prog1_04.lesson1-komod.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/koordinata/Prog1_04.lesson1-koordinata.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/koordinata/Prog1_04.lesson1-koordinata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/koordinata/Prog1_04.lesson1-koordinata.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/koordinata/Prog1_04.lesson1-koordinata.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/koordinata/Prog1_04.lesson1-koordinata.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/koordinata/Prog1_04.lesson1-koordinata.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/lovak/Prog1_04.lesson1-lovak.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/lovak/Prog1_04.lesson1-lovak.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/lovak/Prog1_04.lesson1-lovak.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/lovak/Prog1_04.lesson1-lovak.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/lovak/Prog1_04.lesson1-lovak.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/lovak/Prog1_04.lesson1-lovak.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/lovasszeker/Prog1_04.lesson1-lovasszeker.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/lovasszeker/Prog1_04.lesson1-lovasszeker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/lovasszeker/Prog1_04.lesson1-lovasszeker.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/lovasszeker/Prog1_04.lesson1-lovasszeker.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/lovasszeker/Prog1_04.lesson1-lovasszeker.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/lovasszeker/Prog1_04.lesson1-lovasszeker.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/macska/Prog1_04.lesson1-macska.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/macska/Prog1_04.lesson1-macska.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/macska/Prog1_04.lesson1-macska.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/macska/Prog1_04.lesson1-macska.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/macska/Prog1_04.lesson1-macska.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/macska/Prog1_04.lesson1-macska.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/macskabeka/Prog1_04.lesson1-macskabeka.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/macskabeka/Prog1_04.lesson1-macskabeka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/macskabeka/Prog1_04.lesson1-macskabeka.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/macskabeka/Prog1_04.lesson1-macskabeka.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/macskabeka/Prog1_04.lesson1-macskabeka.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/macskabeka/Prog1_04.lesson1-macskabeka.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/madar/Prog1_04.lesson1-madar.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/madar/Prog1_04.lesson1-madar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/madar/Prog1_04.lesson1-madar.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/madar/Prog1_04.lesson1-madar.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/madar/Prog1_04.lesson1-madar.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/madar/Prog1_04.lesson1-madar.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/neptun/Prog1_04.lesson1-neptun.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/neptun/Prog1_04.lesson1-neptun.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/neptun/Prog1_04.lesson1-neptun.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/neptun/Prog1_04.lesson1-neptun.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/neptun/Prog1_04.lesson1-neptun.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/neptun/Prog1_04.lesson1-neptun.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/pokemon/Prog1_04.lesson1-pokemon.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/pokemon/Prog1_04.lesson1-pokemon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/pokemon/Prog1_04.lesson1-pokemon.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/pokemon/Prog1_04.lesson1-pokemon.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/pokemon/Prog1_04.lesson1-pokemon.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/pokemon/Prog1_04.lesson1-pokemon.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/reakciok/Prog1_04.lesson1-reakciok.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/reakciok/Prog1_04.lesson1-reakciok.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/reakciok/Prog1_04.lesson1-reakciok.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/reakciok/Prog1_04.lesson1-reakciok.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/reakciok/Prog1_04.lesson1-reakciok.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/reakciok/Prog1_04.lesson1-reakciok.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/sarkanyok/Prog1_04.lesson1-sarkanyok.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/sarkanyok/Prog1_04.lesson1-sarkanyok.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/sarkanyok/Prog1_04.lesson1-sarkanyok.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/sarkanyok/Prog1_04.lesson1-sarkanyok.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/sarkanyok/Prog1_04.lesson1-sarkanyok.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/sarkanyok/Prog1_04.lesson1-sarkanyok.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/szamitogep/Prog1_04.lesson1-szamitogep.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/szamitogep/Prog1_04.lesson1-szamitogep.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/szamitogep/Prog1_04.lesson1-szamitogep.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/szamitogep/Prog1_04.lesson1-szamitogep.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/szamitogep/Prog1_04.lesson1-szamitogep.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/szamitogep/Prog1_04.lesson1-szamitogep.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/zombi/Prog1_04.lesson1-zombi.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/zombi/Prog1_04.lesson1-zombi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/zombi/Prog1_04.lesson1-zombi.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/zombi/Prog1_04.lesson1-zombi.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/zombi/Prog1_04.lesson1-zombi.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/zombi/Prog1_04.lesson1-zombi.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Prog1_04.util.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Prog1_04.util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Prog1_04.util.main.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Prog1_04.util.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Prog1_04.util.test.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Prog1_04.util.test.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,70 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void teszt() {
+            assertTrue("Zenesz osztaly nem megfelelo", testClass(Zenesz.class, Modifier.PUBLIC | Modifier.ABSTRACT, Object.class));
+            assertTrue("zenel metodus hibas", testMethod(Zenesz.class, "zenel", void.class, Modifier.PUBLIC | Modifier.ABSTRACT, int.class));
+        }
+    }
+  learner_created: false
+- name: src/Zenesz.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 28
+    placeholder_text: public class Zenesz
+    initial_state:
+      length: 19
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: public abstract class Zenesz
+  - offset: 197
+    length: 39
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 188
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: public abstract void zenel(int meddig);
+  text: |-
+    public class Zenesz {
+        private String nev;
+        private int kepesseg;
+
+        public Zenesz(String nev, int kepesseg) {
+            this.nev = nev;
+            this.kepesseg = kepesseg;
+        }
+
+        // megoldas
+
+        public String getNev() {
+            return nev;
+        }
+
+        public int getKepesseg() {
+            return kepesseg;
+        }
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 02 Apr 2024 18:05:35 UTC"
+record: -1
+solution_hidden: true

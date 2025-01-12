@@ -1,0 +1,53 @@
+<html lang="hu">
+    <h1>[⭐⭐⭐] 30. láncok (6 pont)</h1>
+    Egy lánc, mint mindenki tudja, láncszemekből áll. Általában minden láncszem ugyanolyan méretű és formájú. Bob kovácsnak tanul, aki most készíti élete első irídium láncát. <br>
+    A lánckészítés hagyományos utasításait követi, ami így szól:
+    <ul>
+        <li>Ha még nincs lánc, akkor készíts egy láncszemet és az lesz a láncodnak egy része</li>
+        <li>Ha már van lánc, akkor készíts egy láncszemet és kösd össze egy másik láncszemmel a láncodból</li>
+    </ul>
+
+    Bob elkészítette a legelső láncszemét. Ezután, minden alkalommal, amikor további láncszemeket készített, összekötötte egy
+    másik láncszemmel, ahogy az utasítások szólnak. <br>
+
+    Amikor befejezte a láncot, észrevette, hogy a lánc, amit készített, nem igazán mondható átlagos láncnak.
+    Azon célból, hogy kiegyenesítse a láncot, folyamatosan megfogta a lánc két végpontjának látszó elemet, és olyan messze próbálta
+    őket húzni egymástól, amennyire csak lehetett. De néhány láncszem csak lógott lefelé a "lánc" különböző pontjain. <br>
+
+    Ekkor már egyértelmű volt Bob számára, hogy még nem készült el. Az objektumot, amit gyártott, elnevezte befejezetlen láncnak.
+    Egy kis töprengés után rájött, hogy szét kell szednie a láncot néhány helyen, és össze kell kötni a befejezetlen lánc többi
+    részével, ezúttal elővigyázatosabb módon, hogy egy egyenes láncot készíthessen el. Egy egyenes láncban minden láncszem
+    legfeljebb két másik láncszemmel van összekötve, és egy egyenes lánc nem szeparálható több részre a lánc megszakítása nélkül. <br>
+
+    Bob már jóval óvatosabb, így egyszerű lépéseket fog tenni. Egy lépésben kiválaszt egy láncszemet (nevezzük ezt "A"-nak), ami
+    össze van kötve B-vel. Ezután szétszedi a befejezetlen láncot A-nál, ezzel lecsatlakoztatva B-ről, majd visszacsatlakoztatja
+    a lánc egy másik pontjára (nevezzük "C"-nek). Ha A-hoz nem csatlakozik B-n kívül más láncszem, akkor Bob meg fogja őket hagyni
+    összecsatlakoztatva a teljes lépés során. <br>
+
+    Mi a legkevesebb számú lépés, amit Bobnak el kell végeznie, hogy egy egyenes láncot kapjon? <br>
+
+    A <i>lanc</i> függvény 2 paramétert vár:
+    <ul>
+        <li><i>kapcsolatok</i>: egy kapcsolatok tartalmazó tömb (darabszam - 1 elemű tömb)</li>
+        <li><i>darabszam</i>: ennyi láncszemet tartalmaz a befejezetlen lánc</li>
+    </ul>
+
+    A láncszemek sorszámozva vannak 1-től a darabszámig. A Kapcsolat struktúra egy kapcsolatot ír le (melyik két láncszem van
+    összekapcsolva egymással). A kapcsolatok a tömbben tetszőleges sorrendben lehetnek. <br>
+
+    A függvény adja vissza, hogy Bobnak hány lépésre van szüksége ahhoz, hogy egy egyenes láncot állíthasson elő.<br>
+    <br>
+    Példa inputok:
+    <ul>
+        <li>darabszam: 5; kapcsolatok: (4 3), (1 2), (4 5), (3 2) ==&gt; eredmény: 0</li>
+        <li>darabszam: 6; kapcsolatok: (1 3), (3 2), (3 4), (4 5), (4 6) ==&gt; eredmény: 2</li>
+        <li>darabszam: 7; kapcsolatok: (1 2), (2 3), (3 4), (4 5), (3 6), (6 7) ==&gt; eredmény: 1</li>
+    </ul>
+
+    Az alábbi kép szemlélteti grafikusan a fenti három példát:<br>
+    <img src="abra.PNG"><br>
+
+    <div class="hint">
+        forrás: https://contest.felk.cvut.cz/19cerc/solved/bob.pdf
+    </div>
+</html>

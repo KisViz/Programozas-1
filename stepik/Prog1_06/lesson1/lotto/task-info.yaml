@@ -1,0 +1,67 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Test;
+
+    import java.util.Arrays;
+    import java.util.Collections;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void teszt() {
+            Lotto lotto = new Lotto();
+            assertTrue("a lista hibas", listEquals(lotto.szamok, Collections.emptyList(), true));
+
+            lotto.hozzaad(5);
+            assertTrue("a lista hibas", listEquals(lotto.szamok, Collections.singletonList(5), true));
+
+            lotto.hozzaad(7);
+            assertTrue("a lista hibas", listEquals(lotto.szamok, Arrays.asList(5, 7), true));
+
+            lotto.hozzaad(40);
+            assertTrue("a lista hibas", listEquals(lotto.szamok, Arrays.asList(5, 7, 40), true));
+
+            lotto.hozzaad(90);
+            assertTrue("a lista hibas", listEquals(lotto.szamok, Arrays.asList(5, 7, 40, 90), true));
+
+            lotto.hozzaad(7);
+            assertTrue("a lista hibas", listEquals(lotto.szamok, Arrays.asList(5, 7, 40, 90, 7), true));
+        }
+    }
+  learner_created: false
+- name: src/Lotto.java
+  visible: true
+  placeholders:
+  - offset: 172
+    length: 18
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 172
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: szamok.add(ertek);
+  text: |-
+    import java.util.ArrayList;
+    import java.util.List;
+
+    public class Lotto {
+        public List<Integer> szamok = new ArrayList<>();
+
+        public void hozzaad(int ertek) {
+            // megoldas
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 22 Apr 2024 11:22:28 UTC"
+record: -1
+solution_hidden: true

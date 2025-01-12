@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Tests" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-04-24T09:00:16" hostname="DESKTOP-VL7E782" time="0.008">
+  <properties/>
+  <testcase name="adattagok" classname="Tests" time="0.003"/>
+  <testcase name="osztaly" classname="Tests" time="0.0"/>
+  <testcase name="rendezettAlkalmazasok_01" classname="Tests" time="0.002"/>
+  <testcase name="rendezettAlkalmazasok_02" classname="Tests" time="0.0"/>
+  <testcase name="rendezettAlkalmazasok_03" classname="Tests" time="0.0"/>
+  <testcase name="rendezettAlkalmazasok_04" classname="Tests" time="0.001"/>
+  <testcase name="konstruktor" classname="Tests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

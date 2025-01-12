@@ -1,0 +1,115 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+
+        public Szek createSzek(int a, int b) {
+            Szek s = new Szek();
+            s.ar = a;
+            s.futoeroLabankent = b;
+            return s;
+        }
+
+        @Test
+        public void teszt_01() {
+            assertEquals("Hibas eredmeny", 100, Konyha.fozes(createSzek(10, 1), createSzek(20, 2), 40));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertEquals("Hibas eredmeny", 292, Konyha.fozes(createSzek(11, 2),  createSzek(15, 3), 230));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertEquals("Hibas eredmeny", 110, Konyha.fozes(createSzek(100, 40),createSzek(10, 3), 161));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertEquals("Hibas eredmeny", 120, Konyha.fozes(createSzek(100, 40),createSzek(10, 3), 173));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertEquals("Hibas eredmeny", 1824, Konyha.fozes(createSzek(10, 4),  createSzek(12, 5), 3037));
+        }
+
+        @Test
+        public void teszt_06() {
+            assertEquals("Hibas eredmeny", 1822, Konyha.fozes(createSzek(10, 4),  createSzek(12, 5), 3033));
+        }
+
+        @Test
+        public void teszt_07() {
+            assertEquals("Hibas eredmeny", 424120, Konyha.fozes(createSzek(12, 1),  createSzek(1000, 85), 144200));
+        }
+
+        @Test
+        public void teszt_08() {
+            assertEquals("Hibas eredmeny", 833333334, Konyha.fozes(createSzek(7, 2),   createSzek(10, 3), 1000000000));
+        }
+
+        @Test
+        public void teszt_09() {
+            assertEquals("Hibas eredmeny", 995280, Konyha.fozes(createSzek(202, 5), createSzek(1131, 28), 98560));
+        }
+    }
+  learner_created: false
+- name: src/Konyha.java
+  visible: true
+  placeholders:
+  - offset: 100
+    length: 680
+    placeholder_text: return 0;
+    initial_state:
+      length: 9
+      offset: 99
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |2-
+
+              int osszAr = 0;
+              int meglevoFutoero = 0;
+              while (meglevoFutoero < szuksegesFutoero) {
+                  int normalSum = (int) Math.ceil((szuksegesFutoero - meglevoFutoero) / (4.0 * normal.futoeroLabankent)) * normal.ar;
+                  int epikusSum = (int) Math.ceil((szuksegesFutoero - meglevoFutoero) / (4.0 * epikus.futoeroLabankent)) * epikus.ar;
+
+                  if (normalSum < epikusSum) {
+                      osszAr += normal.ar;
+                      meglevoFutoero += normal.futoeroLabankent * 4;
+                  } else {
+                      osszAr += epikus.ar;
+                      meglevoFutoero += epikus.futoeroLabankent * 4;
+                  }
+              }
+
+              return osszAr;
+  text: |-
+    public class Konyha {
+        public static int fozes(Szek normal, Szek epikus, int szuksegesFutoero) {return 0;
+        }
+    }
+  learner_created: false
+- name: src/Szek.java
+  visible: true
+  text: |
+    public class Szek {
+        int ar; // ennyibe kerul
+        int futoeroLabankent; // ennyi futoerot ad egy szeklab
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 26 Feb 2024 17:32:11 UTC"
+record: -1
+solution_hidden: true

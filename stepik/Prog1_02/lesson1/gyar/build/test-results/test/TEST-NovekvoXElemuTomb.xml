@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="NovekvoXElemuTomb" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-02-29T17:37:21" hostname="DESKTOP-VL7E782" time="0.006">
+  <properties/>
+  <testcase name="teszt_01" classname="NovekvoXElemuTomb" time="0.0"/>
+  <testcase name="teszt_02" classname="NovekvoXElemuTomb" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

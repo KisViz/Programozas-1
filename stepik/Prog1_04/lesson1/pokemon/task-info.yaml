@@ -1,0 +1,418 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import jdk.vm.ci.meta.Local;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+    import java.time.LocalDateTime;
+
+    import static org.junit.Assert.*;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void bokor() {
+            assertTrue("Bokor: meret", testField(Bokor.class, "meret", int.class, Modifier.PROTECTED));
+            assertTrue("Bokor: ultetesiIdopont", testField(Bokor.class, "ultetesiIdopont", LocalDateTime.class, Modifier.PROTECTED));
+            assertTrue("Bokor: kipusztul", testField(Bokor.class, "kipusztult", boolean.class, Modifier.PROTECTED));
+
+            assertTrue("Bokor: konstruktor", testConstructor(Bokor.class, Modifier.PUBLIC, int.class));
+            Bokor b = new Bokor(55);
+            assertEquals("Bokor: konstruktor", 55, b.meret);
+            assertNull("Bokor: konstruktor", b.ultetesiIdopont);
+            assertFalse("Bokor: konstruktor", b.kipusztult);
+
+            Bokor b2 = new Bokor(30);
+            assertEquals("Bokor: konstruktor", 30, b2.meret);
+
+            LocalDateTime currentTime = LocalDateTime.now();
+            b.ultetesiIdopont = currentTime;
+            b.kipusztult = true;
+
+            assertEquals("Bokor: meret - get", 55, b.getMeret());
+            assertEquals("Bokor: ultetesiIdopont - get", currentTime, b.getUltetesiIdopont());
+            assertTrue("Bokor: kipusztult - get", b.isKipusztult());
+
+            b.kipusztult = false;
+            assertFalse("Bokor: kipusztult - get", b.isKipusztult());
+
+            assertFalse("Bokor: setterek nincsenek", testMethod(Bokor.class, "setMeret", int.class, Modifier.PUBLIC));
+            assertFalse("Bokor: setterek nincsenek", testMethod(Bokor.class, "setMeret", int.class, Modifier.PROTECTED));
+            assertFalse("Bokor: setterek nincsenek", testMethod(Bokor.class, "setMeret", int.class, 0));
+
+            assertFalse("Bokor: setterek nincsenek", testMethod(Bokor.class, "setUltetesiIdopont", int.class, Modifier.PUBLIC));
+            assertFalse("Bokor: setterek nincsenek", testMethod(Bokor.class, "setUltetesiIdopont", int.class, Modifier.PROTECTED));
+            assertFalse("Bokor: setterek nincsenek", testMethod(Bokor.class, "setUltetesiIdopont", int.class, 0));
+
+            assertFalse("Bokor: setterek nincsenek", testMethod(Bokor.class, "setKipusztult", int.class, Modifier.PUBLIC));
+            assertFalse("Bokor: setterek nincsenek", testMethod(Bokor.class, "setKipusztult", int.class, Modifier.PROTECTED));
+            assertFalse("Bokor: setterek nincsenek", testMethod(Bokor.class, "setKipusztult", int.class, 0));
+
+            b.kipusztul();
+            assertTrue("Bokor: kipusztul", b.kipusztult);
+
+            b.kipusztul();
+            assertTrue("Bokor: kipusztul", b.kipusztult);
+
+            b.elultet();
+            assertEquals("Bokor: elultet", currentTime, b.ultetesiIdopont);
+
+            Bokor b3 = new Bokor(10);
+            LocalDateTime start = LocalDateTime.now();
+            b3.elultet();
+            LocalDateTime end = LocalDateTime.now();
+
+            assertTrue("Bokor: elultet", b3.ultetesiIdopont.isAfter(start) || b3.ultetesiIdopont.isEqual(start));
+            assertTrue("Bokor: elultet", b3.ultetesiIdopont.isBefore(end) || b3.ultetesiIdopont.isEqual(end));
+        }
+
+        @Test
+        public void mogyoroBokor() {
+            assertTrue(testClass(MogyoroBokor.class, Modifier.PUBLIC, Bokor.class));
+
+            assertTrue("Mogyorobokor: termesSzam", testField(MogyoroBokor.class, "termesSzam", int.class, Modifier.PROTECTED));
+
+            MogyoroBokor b = new MogyoroBokor(40, 22);
+
+            assertTrue("Mogyorobokor: konstruktor", testConstructor(MogyoroBokor.class, Modifier.PUBLIC, int.class, int.class));
+            assertEquals("Mogyorobokor: konstruktor", 40, b.meret);
+            assertNull("Mogyorobokor: konstruktor", b.ultetesiIdopont);
+            assertFalse("Mogyorobokor: konstruktor", b.kipusztult);
+            assertEquals("Mogyorobokor: konstruktor", 22, b.termesSzam);
+
+            MogyoroBokor b2 = new MogyoroBokor(20, 21);
+            assertEquals("Mogyorobokor: konstruktor", 20, b2.meret);
+            assertEquals("Mogyorobokor: konstruktor", 21, b2.termesSzam);
+
+            assertEquals("Mogyorobokor: termesSzam - get", 22, b.getTermesSzam());
+            assertEquals("Mogyorobokor: termesSzam - get", 21, b2.getTermesSzam());
+        }
+
+        @Test
+        public void pokemon() {
+            assertTrue("Pokemon: nev", testField(Pokemon.class, "nev", String.class, Modifier.PROTECTED));
+            assertTrue("Pokemon: kor", testField(Pokemon.class, "kor", int.class, Modifier.PROTECTED));
+
+            assertTrue("Pokemon: konstruktor", testConstructor(Pokemon.class, Modifier.PUBLIC, String.class, int.class));
+            Pokemon p = new Pokemon("asd", 44);
+            assertEquals("Pokemon: konstruktor", "asd", p.nev);
+            assertEquals("Pokemon: konstruktor", 44, p.kor);
+
+            Pokemon p2 = new Pokemon("qqq", 1);
+            assertEquals("Pokemon: konstruktor", "qqq", p2.nev);
+            assertEquals("Pokemon: konstruktor", 1, p2.kor);
+
+            assertEquals("Pokemon: nev - get", "asd", p.getNev());
+            assertEquals("Pokemon: kor - get", 44, p.getKor());
+
+            assertEquals("Pokemon: nev - get", "qqq", p2.getNev());
+            assertEquals("Pokemon: kor - get", 1, p2.getKor());
+        }
+
+        private void elultet(LocalDateTime start, LocalDateTime end, MogyoroBokor bokor, String msg) {
+            assertTrue(msg, bokor.ultetesiIdopont.isAfter(start) || bokor.ultetesiIdopont.isEqual(start));
+            assertTrue(msg, bokor.ultetesiIdopont.isBefore(end) || bokor.ultetesiIdopont.isEqual(end));
+        }
+
+        @Test
+        public void pikachu() {
+            assertTrue(testClass(Pikachu.class, Modifier.PUBLIC | Modifier.FINAL, Pokemon.class));
+
+            assertTrue("Pikachu: bokrok", testField(Pikachu.class, "bokrok", MogyoroBokor[].class, Modifier.PRIVATE));
+
+            assertTrue("Pikachu: konstruktor", testConstructor(Pikachu.class, Modifier.PUBLIC, int.class, int.class));
+            Pikachu p = new Pikachu(7, 2);
+            MogyoroBokor[] bokors = (MogyoroBokor[]) fieldValue(Pikachu.class, "bokrok", p);
+
+            assertEquals("Pikachu: konstruktor", "Pikachu", p.nev);
+            assertEquals("Pikachu: konstruktor", 7, p.kor);
+            assertNotNull("Pikachu: konstruktor", bokors);
+            assertEquals("Pikachu: konstruktor", 2, bokors.length);
+
+            Pikachu pp = new Pikachu(5, 4);
+            MogyoroBokor[] bokors2 = (MogyoroBokor[]) fieldValue(Pikachu.class, "bokrok", pp);
+
+            assertEquals("Pikachu: konstruktor", "Pikachu", pp.nev);
+            assertEquals("Pikachu: konstruktor", 5, pp.kor);
+            assertNotNull("Pikachu: konstruktor", bokors2);
+            assertEquals("Pikachu: konstruktor", 4, bokors2.length);
+
+
+            MogyoroBokor m1 = new MogyoroBokor(10, 5);
+            MogyoroBokor m2 = new MogyoroBokor(11, 3);
+            MogyoroBokor m3 = new MogyoroBokor(5, 1);
+            MogyoroBokor m4 = new MogyoroBokor(8, 5);
+            MogyoroBokor m5 = new MogyoroBokor(2, 3);
+            MogyoroBokor m6 = new MogyoroBokor(14, 10);
+            MogyoroBokor m7 = new MogyoroBokor(7, 7);
+            MogyoroBokor m8 = new MogyoroBokor(3, 2);
+
+            LocalDateTime start, end;
+            boolean res;
+
+            start = LocalDateTime.now();
+            res = p.ultetes(m1);
+            end = LocalDateTime.now();
+            elultet(start, end, m1, "Pikachu: ultetes");
+            assertSame("Pikachu: ultetes", m1, bokors[0]);
+            assertNull("Pikachu: ultetes", bokors[1]);
+            assertTrue("Pikachu: ultetes", res);
+
+
+            m4.kipusztult = true;
+            start = LocalDateTime.now();
+            res = p.ultetes(m4);
+            end = LocalDateTime.now();
+            assertNull("Pikachu: ultetes", m4.ultetesiIdopont);
+            assertSame("Pikachu: ultetes", m1, bokors[0]);
+            assertNull("Pikachu: ultetes", bokors[1]);
+            assertFalse("Pikachu: ultetes", res);
+
+
+            m4.kipusztult = false;
+            start = LocalDateTime.now();
+            res = p.ultetes(m4);
+            end = LocalDateTime.now();
+            elultet(start, end, m4, "Pikachu: ultetes");
+            assertSame("Pikachu: ultetes", m1, bokors[0]);
+            assertSame("Pikachu: ultetes", m4, bokors[1]);
+            assertTrue("Pikachu: ultetes", res);
+
+
+            res = p.ultetes(m3);
+            assertNull("Pikachu: ultetes", m3.ultetesiIdopont);
+            assertSame("Pikachu: ultetes", m1, bokors[0]);
+            assertSame("Pikachu: ultetes", m4, bokors[1]);
+            assertFalse("Pikachu: ultetes", res);
+
+
+            assertEquals("Pikachu: ossztermes", 0, pp.ossztermes());
+            pp.ultetes(m1);
+            assertEquals("Pikachu: ossztermes", 5, pp.ossztermes());
+            pp.ultetes(m2);
+            assertEquals("Pikachu: ossztermes", 8, pp.ossztermes());
+            pp.ultetes(m6);
+            assertEquals("Pikachu: ossztermes", 18, pp.ossztermes());
+            m1.kipusztult = true;
+            assertEquals("Pikachu: ossztermes", 13, pp.ossztermes());
+            m6.kipusztult = true;
+            assertEquals("Pikachu: ossztermes", 3, pp.ossztermes());
+            pp.ultetes(m7);
+            assertEquals("Pikachu: ossztermes", 10, pp.ossztermes());
+            m2.kipusztult = true;
+            assertEquals("Pikachu: ossztermes", 7, pp.ossztermes());
+            m7.kipusztult = true;
+            assertEquals("Pikachu: ossztermes", 0, pp.ossztermes());
+
+            m6.kipusztult = false;
+            m7.kipusztult = false;
+            pp.kigyomlal();
+
+            assertSame("Pikachu: kigyomlal", null, bokors2[0]);
+            assertSame("Pikachu: kigyomlal", null, bokors2[1]);
+            assertSame("Pikachu: kigyomlal", m6, bokors2[2]);
+            assertSame("Pikachu: kigyomlal", m7, bokors2[3]);
+
+            pp.ultetes(m8);
+            assertSame("Pikachu: ultetes", m8, bokors2[0]);
+            assertSame("Pikachu: ultetes", null, bokors2[1]);
+            assertSame("Pikachu: ultetes", m6, bokors2[2]);
+            assertSame("Pikachu: ultetes", m7, bokors2[3]);
+
+            m7.kipusztult = true;
+            pp.kigyomlal();
+            assertSame("Pikachu: kigyomlal", m8, bokors2[0]);
+            assertSame("Pikachu: kigyomlal", null, bokors2[1]);
+            assertSame("Pikachu: kigyomlal", m6, bokors2[2]);
+            assertSame("Pikachu: kigyomlal", null, bokors2[3]);
+
+            m8.kipusztult = true;
+            m6.kipusztult = true;
+            pp.kigyomlal();
+            pp.kigyomlal();
+
+            assertSame("Pikachu: kigyomlal", null, bokors2[0]);
+            assertSame("Pikachu: kigyomlal", null, bokors2[1]);
+            assertSame("Pikachu: kigyomlal", null, bokors2[2]);
+            assertSame("Pikachu: kigyomlal", null, bokors2[3]);
+        }
+    }
+  learner_created: false
+- name: src/Pokemon.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 279
+    placeholder_text: "public class Pokemon {}"
+    initial_state:
+      length: 303
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public class Pokemon {
+          protected String nev;
+          protected int kor;
+
+          public Pokemon(String nev, int kor) {
+              this.nev = nev;
+              this.kor = kor;
+          }
+
+          public String getNev() {
+              return nev;
+          }
+
+          public int getKor() {
+              return kor;
+          }
+      }
+  text: "public class Pokemon {}"
+  learner_created: false
+- name: src/Pikachu.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 2100
+    placeholder_text: "public class Pikachu {}"
+    initial_state:
+      length: 1052
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public final class Pikachu extends Pokemon {
+          private MogyoroBokor[] bokrok;
+
+          public Pikachu(int kor, int maxBokrok) {
+              super("Pikachu", kor);
+              bokrok = new MogyoroBokor[maxBokrok];
+          }
+
+          public boolean ultetes(MogyoroBokor bokor) {
+              if (bokor.isKipusztult()) {
+                  return false;
+              }
+
+              for (int i = 0; i < bokrok.length; i++) {
+                  if (bokrok[i] == null) {
+                      bokor.elultet();
+                      bokrok[i] = bokor;
+                      return true;
+                  }
+              }
+
+              return false;
+          }
+
+          public int ossztermes() {
+              int osszeg = 0;
+
+              for (MogyoroBokor mogyoroBokor : bokrok) {
+                  if (mogyoroBokor != null && !mogyoroBokor.isKipusztult()) {
+                      osszeg += mogyoroBokor.termesSzam;
+                  }
+              }
+
+              return osszeg;
+          }
+
+          public void kigyomlal() {
+              for (int i = 0; i < bokrok.length; i++) {
+                  if (bokrok[i] != null && bokrok[i].isKipusztult()) {
+                      bokrok[i] = null;
+                  }
+              }
+          }
+
+      }
+  text: "public class Pikachu {}"
+  learner_created: false
+- name: src/Bokor.java
+  visible: true
+  placeholders:
+  - offset: 31
+    length: 692
+    placeholder_text: "public class Bokor {}"
+    initial_state:
+      length: 692
+      offset: 31
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      import java.time.LocalDateTime;
+
+      public class Bokor {
+          protected int meret;
+          protected LocalDateTime ultetesiIdopont;
+          protected boolean kipusztult;
+
+          public Bokor(int meret) {
+              this.meret = meret;
+              this.ultetesiIdopont = null;
+              this.kipusztult = false;
+          }
+
+          public int getMeret() {
+              return meret;
+          }
+
+          public LocalDateTime getUltetesiIdopont() {
+              return ultetesiIdopont;
+          }
+
+          public boolean isKipusztult() {
+              return kipusztult;
+          }
+
+          public void kipusztul() {
+              kipusztult = true;
+          }
+
+          public void elultet() {
+              if (ultetesiIdopont == null) {
+                  ultetesiIdopont = LocalDateTime.now();
+              }
+          }
+
+      }
+  text: "public class Bokor {}"
+  learner_created: false
+- name: src/MogyoroBokor.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 260
+    placeholder_text: "public class MogyoroBokor {}"
+    initial_state:
+      length: 192
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |
+      public class MogyoroBokor extends Bokor {
+          protected int termesSzam;
+
+          public MogyoroBokor(int meret, int termesSzam) {
+              super(meret);
+              this.termesSzam = termesSzam;
+          }
+
+          public int getTermesSzam() {
+              return termesSzam;
+          }
+      }
+  text: "public class MogyoroBokor {}"
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 26 Mar 2024 15:08:46 UTC"
+record: -1
+solution_hidden: true

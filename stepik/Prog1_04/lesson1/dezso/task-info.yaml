@@ -1,0 +1,108 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Tests {
+        @Test
+        public void ososztaly() {
+            int fieldCount = Medve.class.getDeclaredFields().length;
+            int methodCount = Medve.class.getDeclaredMethods().length;
+            int constructorCount = Medve.class.getConstructors().length;
+
+            assertEquals("az ososztaly modositva lett", 1, fieldCount);
+            assertEquals("az ososztaly modositva lett", 1, methodCount);
+            assertEquals("az ososztaly modositva lett", 1, constructorCount);
+        }
+
+        @Test
+        public void jegesmedve() {
+            Jegesmedve k1 = new Jegesmedve();
+            assertEquals("jegesmedve hibas", "feher", k1.getSzin());
+        }
+
+        @Test
+        public void barnamedve() {
+            Barnamedve k2 = new Barnamedve();
+            assertEquals("barnamedve hibas", "barna", k2.getSzin());
+        }
+
+        @Test
+        public void medve() {
+            Medve k3 = new Medve("sarga");
+            assertEquals("medve hibas", "sarga", k3.getSzin());
+        }
+    }
+  learner_created: false
+- name: src/Medve.java
+  visible: true
+  text: |-
+    public class Medve {
+        private String szin;
+
+        public Medve(String szin) {
+            this.szin = szin;
+        }
+
+        public String getSzin() {
+            return szin;
+        }
+    }
+  learner_created: false
+- name: src/Jegesmedve.java
+  visible: true
+  placeholders:
+  - offset: 45
+    length: 52
+    placeholder_text: // konstruktor
+    initial_state:
+      length: 14
+      offset: 45
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public Jegesmedve() {
+              super("feher");
+          }
+  text: |-
+    public class Jegesmedve extends Medve {
+
+        // konstruktor
+
+    }
+  learner_created: false
+- name: src/Barnamedve.java
+  visible: true
+  placeholders:
+  - offset: 41
+    length: 0
+    placeholder_text: // default konstruktor
+    initial_state:
+      length: 22
+      offset: 45
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public Barnamedve() {
+              super("barna");
+          }
+  text: |-
+    public class Barnamedve extends Medve {
+
+        // default konstruktor
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 12 Mar 2024 14:02:42 UTC"
+record: -1
+solution_hidden: true

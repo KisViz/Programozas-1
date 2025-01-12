@@ -1,0 +1,88 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void ijasz() {
+            assertTrue("Ijasz osztaly hibas", testClass(Ijasz.class, Modifier.PUBLIC | Modifier.ABSTRACT, Object.class, Katona.class));
+            assertTrue("Ijasz: kozelharciTamadas hibas", testMethod(Ijasz.class, "kozelharciTamadas", int.class, Modifier.PUBLIC | Modifier.FINAL, Katona.class));
+            assertTrue("Ijasz: tavolsagiTamadas hibas", testMethodInherited(Ijasz.class, "tavolsagiTamadas", int.class, Modifier.PUBLIC | Modifier.ABSTRACT, Katona.class));
+
+        }
+
+        @Test
+        public void pajzsosHarcos() {
+            assertTrue("PajzsosHarcos osztaly hibas", testClass(PajzsosHarcos.class, Modifier.PUBLIC | Modifier.ABSTRACT, Object.class, Katona.class));
+            assertTrue("PajzsosHarcos: kozelharciTamadas hibas", testMethodInherited(PajzsosHarcos.class, "kozelharciTamadas", int.class, Modifier.PUBLIC | Modifier.ABSTRACT, Katona.class));
+            assertTrue("PajzsosHarcos: tavolsagiTamadas hibas", testMethod(PajzsosHarcos.class, "tavolsagiTamadas", int.class, Modifier.PUBLIC | Modifier.FINAL, Katona.class));
+        }
+    }
+  learner_created: false
+- name: src/Katona.java
+  visible: true
+  text: |-
+    public interface Katona {
+        int kozelharciTamadas(Katona k);
+        int tavolsagiTamadas(Katona k);
+    }
+  learner_created: false
+- name: src/Ijasz.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 137
+    placeholder_text: "public class Ijasz {}"
+    initial_state:
+      length: 21
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public abstract class Ijasz implements Katona {
+
+          @Override
+          public final int kozelharciTamadas(Katona k) {
+              return 0;
+          }
+
+      }
+  text: "public class Ijasz {}"
+  learner_created: false
+- name: src/PajzsosHarcos.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 144
+    placeholder_text: "public class PajzsosHarcos {}"
+    initial_state:
+      length: 29
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public abstract class PajzsosHarcos implements Katona {
+
+          @Override
+          public final int tavolsagiTamadas(Katona k) {
+              return 0;
+          }
+
+      }
+  text: "public class PajzsosHarcos {}"
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 02 Apr 2024 18:14:26 UTC"
+record: -1
+solution_hidden: true

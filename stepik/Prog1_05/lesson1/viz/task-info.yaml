@@ -1,0 +1,315 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.*;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void viz() {
+            assertTrue("Viz osztaly hibas", testClass(Viz.class, Modifier.PUBLIC | Modifier.ABSTRACT, Object.class));
+            assertTrue("Viz: tiszta hibas", testField(Viz.class, "tiszta", boolean.class, Modifier.PROTECTED));
+            assertTrue("Viz: meret hibas", testField(Viz.class, "meret", int.class, Modifier.PROTECTED));
+            assertTrue("Viz: konstruktor hibas", testConstructor(Viz.class, Modifier.PUBLIC, boolean.class, int.class));
+            assertTrue("Viz: sodrasiErosseg hibas", testMethod(Viz.class, "sodrasiErosseg", int.class, Modifier.PUBLIC | Modifier.ABSTRACT));
+        }
+
+        @Test
+        public void alloviz() {
+            assertTrue("Alloviz: osztaly hibas", testClass(Alloviz.class, Modifier.PUBLIC | Modifier.ABSTRACT, Viz.class));
+            assertTrue("Alloviz: konstruktor hibas", testConstructor(Alloviz.class, Modifier.PUBLIC, boolean.class, int.class));
+            assertTrue("Alloviz: sodrasiErosseg hibas", testMethod(Alloviz.class, "sodrasiErosseg", int.class, Modifier.PUBLIC));
+        }
+
+        @Test
+        public void to() {
+            assertTrue("To: osztaly hibas", testClass(To.class, Modifier.PUBLIC, Alloviz.class));
+            assertTrue("To: konstruktor hibas", testConstructor(To.class, Modifier.PUBLIC, boolean.class, int.class));
+
+            To to = new To(true, 5);
+            assertEquals("To: meret adattag nincs jol beallitva", 5, to.meret);
+            assertTrue("To: tiszta adattag nincs jol beallitva", to.tiszta);
+        }
+
+        @Test
+        public void pocsolya() {
+            assertTrue("Pocsolya: osztaly hibas", testClass(Pocsolya.class, Modifier.PUBLIC, Alloviz.class));
+            assertTrue("Pocsolya: konstruktor hibas", testConstructor(Pocsolya.class, Modifier.PUBLIC, int.class));
+
+            Pocsolya p = new Pocsolya(7);
+            assertEquals("Pocsolya: meret adattag nincs jol beallitva", 7, p.meret);
+            assertFalse("Pocsolya: tiszta adattag nincs jol beallitva", p.tiszta);
+        }
+
+        @Test
+        public void folyoviz() {
+            assertTrue("Folyoviz: osztaly hibas", testClass(Folyoviz.class, Modifier.PUBLIC | Modifier.ABSTRACT, Viz.class));
+            assertTrue("Folyoviz: folyasiSebesseg hibas", testField(Folyoviz.class, "folyasiSebesseg", int.class, Modifier.PROTECTED));
+            assertTrue("Folyoviz: konstruktor hibas", testConstructor(Folyoviz.class, Modifier.PUBLIC, boolean.class, int.class, int.class));
+            assertTrue("Folyoviz: sodrasiErosseg hibas", testMethod(Folyoviz.class, "sodrasiErosseg", int.class, Modifier.PUBLIC));
+        }
+
+        @Test
+        public void folyo() {
+            assertTrue("Folyo: osztaly hibas", testClass(Folyo.class, Modifier.PUBLIC, Folyoviz.class));
+            assertTrue("Folyo: konstruktor hibas", testConstructor(Folyo.class, Modifier.PUBLIC, boolean.class, int.class, int.class));
+
+            assertEquals("Folyoviz: sodrasiErosseg hibas", 21, new Folyo(true, 7, 3).sodrasiErosseg());
+            assertEquals("Folyoviz: sodrasiErosseg hibas", 20, new Folyo(true, 10, 2).sodrasiErosseg());
+
+            Folyo folyo = new Folyo(false, 5, 2);
+            assertFalse("Folyo: tiszta hibas", folyo.tiszta);
+            assertEquals("Folyo: meret hibas", 5, folyo.meret);
+            assertEquals("Folyo: folyasiSebesseg hibas", 2, folyo.folyasiSebesseg);
+        }
+
+        @Test
+        public void csermely() {
+            assertTrue("Csermely: osztaly hibas", testClass(Csermely.class, Modifier.PUBLIC, Folyoviz.class));
+            assertTrue("Csermely: konstruktor hibas", testConstructor(Csermely.class, Modifier.PUBLIC, boolean.class, int.class, int.class));
+            assertTrue("Csermely: sodrasiErosseg hibas", testMethod(Csermely.class, "sodrasiErosseg", int.class, Modifier.PUBLIC));
+
+            Csermely cs = new Csermely(false, 4281, 1000);
+            assertFalse("Csermely: tiszta hibas", cs.tiszta);
+            assertEquals("Csermely: meret hibas", 4281, cs.meret);
+            assertEquals("Csermely: folyasiSebesseg hibas", 1000, cs.folyasiSebesseg);
+            assertEquals("Csermely: sodrasiErosseg hibas", 1, cs.sodrasiErosseg());
+        }
+
+    }
+  learner_created: false
+- name: src/Viz.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 236
+    placeholder_text: "public class Viz {}"
+    initial_state:
+      length: 19
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public abstract class Viz {
+          protected boolean tiszta;
+          protected int meret;
+
+          public Viz(boolean tiszta, int meret) {
+              this.tiszta = tiszta;
+              this.meret = meret;
+          }
+
+          public abstract int sodrasiErosseg();
+
+      }
+  text: "public class Viz {}"
+  learner_created: false
+- name: src/Alloviz.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 41
+    placeholder_text: public class Alloviz
+    initial_state:
+      length: 20
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: public abstract class Alloviz extends Viz
+  - offset: 206
+    length: 13
+    placeholder_text: // megoldasok
+    initial_state:
+      length: 13
+      offset: 28
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public Alloviz(boolean tiszta, int meret) {
+              super(tiszta, meret);
+          }
+
+          public int sodrasiErosseg() {
+              return 0;
+          }
+  text: |
+    public class Alloviz {
+
+        // megoldasok
+
+    }
+  learner_created: false
+- name: src/Folyoviz.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 42
+    placeholder_text: public class Folyoviz
+    initial_state:
+      length: 21
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: public abstract class Folyoviz extends Viz
+  - offset: 49
+    length: 277
+    placeholder_text: // megoldasok
+    initial_state:
+      length: 13
+      offset: 28
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      protected int folyasiSebesseg;
+
+          public Folyoviz(boolean tiszta, int meret, int folyasiSebesseg) {
+              super(tiszta, meret);
+              this.folyasiSebesseg = folyasiSebesseg;
+          }
+
+          @Override
+          public int sodrasiErosseg() {
+              return meret * folyasiSebesseg;
+          }
+  text: |
+    public class Folyoviz {
+        // megoldasok
+    }
+  learner_created: false
+- name: src/Folyo.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 35
+    placeholder_text: public class Folyo
+    initial_state:
+      length: 18
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: public class Folyo extends Folyoviz
+  - offset: 42
+    length: 116
+    placeholder_text: // konstruktor
+    initial_state:
+      length: 14
+      offset: 25
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public Folyo(boolean tiszta, int meret, int folyasiSebesseg) {
+              super(tiszta, meret, folyasiSebesseg);
+          }
+  text: |
+    public class Folyo {
+        // konstruktor
+    }
+  learner_created: false
+- name: src/To.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 15
+    placeholder_text: public class To
+    initial_state:
+      length: 15
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: public class To extends Alloviz
+  - offset: 116
+    length: 14
+    placeholder_text: // konstruktor
+    initial_state:
+      length: 14
+      offset: 22
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public To(boolean tiszta, int meret) {
+              super(tiszta, meret);
+          }
+  text: |
+    public class To {
+        // konstruktor
+    }
+  learner_created: false
+- name: src/Pocsolya.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 37
+    placeholder_text: public class Pocsolya
+    initial_state:
+      length: 21
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: public class Pocsolya extends Alloviz
+  - offset: 112
+    length: 14
+    placeholder_text: // konstruktor
+    initial_state:
+      length: 14
+      offset: 29
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |
+      public Pocsolya(int meret) {
+              super(false, meret);
+          }
+  text: |
+    public class Pocsolya {
+
+        // konstruktor
+    }
+  learner_created: false
+- name: src/Csermely.java
+  visible: true
+  placeholders:
+  - offset: 169
+    length: 68
+    placeholder_text: // megoldasok
+    initial_state:
+      length: 13
+      offset: 45
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public Csermely(boolean tiszta, int meret, int folyasiSebesseg) {
+              super(tiszta, meret, folyasiSebesseg);
+          }
+
+          @Override
+          public int sodrasiErosseg() {
+              return 1;
+          }
+  text: |
+    public class Csermely extends Folyoviz {
+        // megoldasok
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 02 Apr 2024 18:49:56 UTC"
+record: -1
+solution_hidden: true

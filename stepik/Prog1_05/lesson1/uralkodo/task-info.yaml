@@ -1,0 +1,48 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.assertEquals;
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void teszt() {
+            assertTrue("Az adattag hibas", testField(Uralkodo.class, "orszag", String.class, Modifier.PUBLIC));
+
+            Uralkodo u = new Uralkodo();
+            u.orszag = "Macskaorszag";
+            assertEquals("Az orszag nem megfelelo", "Macskaorszag", u.orszag);
+        }
+    }
+  learner_created: false
+- name: src/Uralkodo.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 51
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public class Uralkodo {
+          public String orszag;
+      }
+  text: // megoldas
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 02 Apr 2024 17:59:12 UTC"
+record: -1
+solution_hidden: true

@@ -1,0 +1,126 @@
+type: edu
+custom_name: telefon
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.*;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void fejlecek() {
+            assertTrue("AlacsonyAkkumulatorszint osztaly fejlece hibas", testClass(AlacsonyAkkumulatorszint.class, Modifier.PUBLIC, Exception.class));
+            assertTrue("AlacsonyAkkumulatorszint default konstruktor hibas", testConstructor(AlacsonyAkkumulatorszint.class, Modifier.PUBLIC));
+            assertTrue("AlacsonyAkkumulatorszint default konstruktor hibas", testConstructor(AlacsonyAkkumulatorszint.class, Modifier.PUBLIC, String.class));
+        }
+
+        @Test
+        public void merul() {
+            Telefon t = new Telefon(2);
+
+            try {
+                t.merul();
+                assertEquals("toltottseg erteke hibas", 1, t.getToltottseg());
+            } catch (AlacsonyAkkumulatorszint alacsonyAkkumulatorszint) {
+                fail("Nem kellett volna kivetelt dobni!");
+            }
+
+            try {
+                t.merul();
+                assertEquals("toltottseg erteke hibas", 0, t.getToltottseg());
+            } catch (AlacsonyAkkumulatorszint alacsonyAkkumulatorszint) {
+                fail("Nem kellett volna kivetelt dobni!");
+            }
+
+            try {
+                t.merul();
+                fail("kivetelt kellett volna dobni");
+            } catch (AlacsonyAkkumulatorszint alacsonyAkkumulatorszint) {
+                assertEquals("toltottseg erteke hibas", 0, t.getToltottseg());
+            }
+
+        }
+    }
+  learner_created: false
+- name: src/Telefon.java
+  visible: true
+  placeholders:
+  - offset: 205
+    length: 126
+    placeholder_text: |-
+      public void merul() {
+              if (toltottseg == 0) {
+                  // kivetelt kell dobni
+              }
+
+              toltottseg--;
+          }
+    initial_state:
+      length: 126
+      offset: 205
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public void merul() throws AlacsonyAkkumulatorszint {
+              if (toltottseg == 0) {
+                  throw new AlacsonyAkkumulatorszint();
+              }
+
+              toltottseg--;
+          }
+  text: |-
+    public class Telefon {
+        private int toltottseg;
+
+        public Telefon(int toltottseg) {
+            this.toltottseg = toltottseg;
+        }
+
+        public int getToltottseg() {
+            return toltottseg;
+        }
+
+        public void merul() {
+            if (toltottseg == 0) {
+                // kivetelt kell dobni
+            }
+
+            toltottseg--;
+        }
+
+    }
+  learner_created: false
+- name: src/AlacsonyAkkumulatorszint.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 11
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public class AlacsonyAkkumulatorszint extends Exception {
+
+          public AlacsonyAkkumulatorszint() {
+              super("mindjart lemerul");
+          }
+
+          public AlacsonyAkkumulatorszint(String message) {
+              super(message);
+          }
+      }
+  text: // megoldas
+  learner_created: false
+status: Unchecked
+record: -1
+solution_hidden: true

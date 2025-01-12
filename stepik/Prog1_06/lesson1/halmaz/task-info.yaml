@@ -1,0 +1,181 @@
+type: edu
+custom_name: halmaz
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.util.Arrays;
+    import java.util.Collections;
+    import java.util.Set;
+
+    import static org.junit.Assert.assertEquals;
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests {
+        Set<Integer> h1 = Halmaz.feltolt(5, 4, 2, 1, 1, 1, 7);
+        Set<Integer> h2 = Halmaz.feltolt(10, 20, 4, -4, -5, -2);
+        Set<Integer> h3 = Halmaz.feltolt(2, 2, 2, 2, 2);
+
+        @Test
+        public void feltolt() {
+            assertEquals("feltolt hibas", 5, h1.size());
+            assertTrue("feltolt hibas", h1.containsAll(Arrays.asList(1, 2, 4, 5, 7)));
+
+            assertEquals("feltolt hibas", 6, h2.size());
+            assertTrue("feltolt hibas", h2.containsAll(Arrays.asList(10, 20, 4, -4, -5, -2)));
+
+            assertEquals("feltolt hibas", 1, h3.size());
+            assertTrue("feltolt hibas", h3.contains(2));
+        }
+
+        @Test
+        public void unio() {
+            Set<Integer> u1 = Halmaz.unio(h1, h2);
+            assertEquals("unio hibas", 5, h1.size());
+            assertEquals("unio hibas", 6, h2.size());
+            assertEquals("unio hibas", 10, u1.size());
+            assertTrue("unio hibas", u1.containsAll(Arrays.asList(5, 4, 2, 1, 7, 10, 20, -4, -5, -2)));
+
+            Set<Integer> u2 = Halmaz.unio(h2, h3);
+            assertEquals("unio hibas", 1, h3.size());
+            assertEquals("unio hibas", 6, h2.size());
+            assertEquals("unio hibas", 7, u2.size());
+            assertTrue("unio hibas", u2.containsAll(Arrays.asList(10, 20, 4, -4, -5, -2, 2)));
+        }
+
+        @Test
+        public void metszet() {
+            Set<Integer> m1 = Halmaz.metszet(h1, h2);
+            Set<Integer> m2 = Halmaz.metszet(h3, h2);
+            assertEquals("metszet hibas", 5, h1.size());
+            assertEquals("metszet hibas", 6, h2.size());
+            assertEquals("metszet hibas", 1, h3.size());
+            assertEquals("metszet hibas", 1, m1.size());
+            assertEquals("metszet hibas", 0, m2.size());
+            assertTrue("metszet hibas", m1.contains(4));
+        }
+
+        @Test
+        public void kulonbseg() {
+            Set<Integer> u1 = Halmaz.feltolt(5, 4, 2, 1, 1, 1, 7, 10, 20, 4, -4, -5, -2);
+            Set<Integer> u2 = Halmaz.feltolt(10, 20, 4, -4, -5, -2, 2, 2, 2, 2, 2);
+
+            Set<Integer> k1 = Halmaz.kulonbseg(h1, h2);
+            Set<Integer> k2 = Halmaz.kulonbseg(h3, h1);
+            Set<Integer> k3 = Halmaz.kulonbseg(u2, u2);
+            assertEquals("kulonbseg hibas", 5, h1.size());
+            assertEquals("kulonbseg hibas", 6, h2.size());
+            assertEquals("kulonbseg hibas", 1, h3.size());
+            assertEquals("kulonbseg hibas", 10, u1.size());
+            assertEquals("kulonbseg hibas", 7, u2.size());
+            assertEquals("kulonbseg hibas", 4, k1.size());
+            assertEquals("kulonbseg hibas", 0, k2.size());
+            assertEquals("kulonbseg hibas", 0, k3.size());
+            assertTrue("kulonbseg hibas", k1.containsAll(Arrays.asList(5, 2, 1, 7)));
+        }
+    }
+  learner_created: false
+- name: src/Halmaz.java
+  visible: true
+  placeholders:
+  - offset: 136
+    length: 123
+    placeholder_text: return null;
+    initial_state:
+      length: 12
+      offset: 136
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      Set<Integer> halmaz = new HashSet<>();
+
+              for (int szam : szamok) {
+                  halmaz.add(szam);
+              }
+
+              return halmaz;
+  - offset: 345
+    length: 186
+    placeholder_text: return null;
+    initial_state:
+      length: 12
+      offset: 234
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      Set<Integer> result = new HashSet<>(a);
+              result.addAll(b);
+              return result;
+  - offset: 619
+    length: 175
+    placeholder_text: return null;
+    initial_state:
+      length: 12
+      offset: 335
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      Set<Integer> result = new HashSet<>();
+
+              for (Integer i: a) {
+                  if (b.contains(i)) {
+                      result.add(i);
+                  }
+              }
+
+              return result;
+  - offset: 885
+    length: 173
+    placeholder_text: return null;
+    initial_state:
+      length: 12
+      offset: 438
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      Set<Integer> result = new HashSet<>();
+
+              for (Integer i: a) {
+                  if (!b.contains(i)) {
+                      result.add(i);
+                  }
+              }
+
+              return result;
+  text: |-
+    import java.util.HashSet;
+    import java.util.Set;
+
+    public class Halmaz {
+
+        public static Set<Integer> feltolt(int... szamok) {
+            return null;
+        }
+
+        public static Set<Integer> unio(Set<Integer> a, Set<Integer> b) {
+            return null;
+        }
+
+        public static Set<Integer> metszet(Set<Integer> a, Set<Integer> b) {
+            return null;
+        }
+
+        public static Set<Integer> kulonbseg(Set<Integer> a, Set<Integer> b) {
+            return null;
+        }
+
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 24 Apr 2024 08:39:19 UTC"
+record: -1
+solution_hidden: true

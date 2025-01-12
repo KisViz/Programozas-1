@@ -1,0 +1,75 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void alfaj() {
+            assertTrue("alfaj hibas", testField(Kameleon.class, "alfaj", String.class, Modifier.PRIVATE));
+        }
+
+        @Test
+        public void meret() {
+            assertTrue("meret hibas", testField(Kameleon.class, "meret", int.class, Modifier.PRIVATE));
+        }
+
+        @Test
+        public void szin() {
+            assertTrue("szin hibas", testField(Kameleon.class, "szin", String.class, Modifier.PRIVATE));
+        }
+    }
+  learner_created: false
+- name: src/Kameleon.java
+  visible: true
+  placeholders:
+  - offset: 73
+    length: 0
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 28
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: 'private '
+  - offset: 73
+    length: 0
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 46
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 'private '
+  - offset: 77
+    length: 8
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 61
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: 'private '
+  text: |
+    public class Kameleon {
+        String alfaj;
+        int meret;
+        String szin;
+    }
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Thu, 29 Feb 2024 19:24:48 UTC"
+record: -1
+solution_hidden: true

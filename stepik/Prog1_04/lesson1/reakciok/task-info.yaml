@@ -1,0 +1,128 @@
+type: edu
+files:
+- name: src/Reakcio.java
+  visible: true
+  placeholders:
+  - offset: 82
+    length: 13
+    placeholder_text: return false;
+    initial_state:
+      length: 13
+      offset: 82
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      for (int i = 0; i < szoveg.length() - 1; i++) {
+                  for (int j = i + 1; j < szoveg.length(); j++) {
+                      if (szoveg.charAt(i) == szoveg.charAt(j)) {
+                          return false;
+                      }
+                  }
+              }
+
+              return true;
+  - offset: 156
+    length: 10
+    placeholder_text: return "";
+    initial_state:
+      length: 10
+      offset: 156
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      StringBuilder atalakitott = new StringBuilder();
+              for (int i = 0; i < eredeti.length(); i++) {
+                  if (eredeti.charAt(i) == ' ') {
+                      atalakitott.append("   ");
+                  } else {
+                      atalakitott.append(":regional_indicator_");
+                      atalakitott.append(eredeti.charAt(i));
+                      atalakitott.append(": ");
+                  }
+              }
+
+              return atalakitott.toString();
+  text: |-
+    public class Reakcio {
+        static boolean megvalosithato(String szoveg) {
+            return false;
+        }
+
+        static String atalakit(String eredeti) {
+            return "";
+        }
+    }
+  learner_created: false
+- name: test/Atalakit.java
+  visible: false
+  text: |
+    import org.junit.Test;
+
+    import static org.junit.Assert.assertEquals;
+
+    public class Atalakit {
+        @Test
+        public void teszt_01() {
+            String atalakitott = Reakcio.atalakit("macska");
+            assertEquals(":regional_indicator_m: :regional_indicator_a: :regional_indicator_c: :regional_indicator_s: :regional_indicator_k: :regional_indicator_a: ", atalakitott);
+        }
+
+        @Test
+        public void teszt_02() {
+            String atalakitott = Reakcio.atalakit("itt van egy macska az udvarunkban");
+            assertEquals(":regional_indicator_i: :regional_indicator_t: :regional_indicator_t:    :regional_indicator_v: :regional_indicator_a: :regional_indicator_n:    :regional_indicator_e: :regional_indicator_g: :regional_indicator_y:    :regional_indicator_m: :regional_indicator_a: :regional_indicator_c: :regional_indicator_s: :regional_indicator_k: :regional_indicator_a:    :regional_indicator_a: :regional_indicator_z:    :regional_indicator_u: :regional_indicator_d: :regional_indicator_v: :regional_indicator_a: :regional_indicator_r: :regional_indicator_u: :regional_indicator_n: :regional_indicator_k: :regional_indicator_b: :regional_indicator_a: :regional_indicator_n: ", atalakitott);
+        }
+
+        @Test
+        public void teszt_03() {
+            String atalakitott = Reakcio.atalakit("en is szeretem a pizzat");
+            assertEquals(":regional_indicator_e: :regional_indicator_n:    :regional_indicator_i: :regional_indicator_s:    :regional_indicator_s: :regional_indicator_z: :regional_indicator_e: :regional_indicator_r: :regional_indicator_e: :regional_indicator_t: :regional_indicator_e: :regional_indicator_m:    :regional_indicator_a:    :regional_indicator_p: :regional_indicator_i: :regional_indicator_z: :regional_indicator_z: :regional_indicator_a: :regional_indicator_t: ", atalakitott);
+        }
+
+        @Test
+        public void teszt_04() {
+            String atalakitott = Reakcio.atalakit("nyilvanvaloan otosre vizsgaztam mindenbol pontosan ugyanugy mint mindenki mas");
+            assertEquals(":regional_indicator_n: :regional_indicator_y: :regional_indicator_i: :regional_indicator_l: :regional_indicator_v: :regional_indicator_a: :regional_indicator_n: :regional_indicator_v: :regional_indicator_a: :regional_indicator_l: :regional_indicator_o: :regional_indicator_a: :regional_indicator_n:    :regional_indicator_o: :regional_indicator_t: :regional_indicator_o: :regional_indicator_s: :regional_indicator_r: :regional_indicator_e:    :regional_indicator_v: :regional_indicator_i: :regional_indicator_z: :regional_indicator_s: :regional_indicator_g: :regional_indicator_a: :regional_indicator_z: :regional_indicator_t: :regional_indicator_a: :regional_indicator_m:    :regional_indicator_m: :regional_indicator_i: :regional_indicator_n: :regional_indicator_d: :regional_indicator_e: :regional_indicator_n: :regional_indicator_b: :regional_indicator_o: :regional_indicator_l:    :regional_indicator_p: :regional_indicator_o: :regional_indicator_n: :regional_indicator_t: :regional_indicator_o: :regional_indicator_s: :regional_indicator_a: :regional_indicator_n:    :regional_indicator_u: :regional_indicator_g: :regional_indicator_y: :regional_indicator_a: :regional_indicator_n: :regional_indicator_u: :regional_indicator_g: :regional_indicator_y:    :regional_indicator_m: :regional_indicator_i: :regional_indicator_n: :regional_indicator_t:    :regional_indicator_m: :regional_indicator_i: :regional_indicator_n: :regional_indicator_d: :regional_indicator_e: :regional_indicator_n: :regional_indicator_k: :regional_indicator_i:    :regional_indicator_m: :regional_indicator_a: :regional_indicator_s: ", atalakitott);
+        }
+    }
+  learner_created: false
+- name: test/Megvalosithato.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import static org.junit.Assert.*;
+
+    public class Megvalosithato {
+        @Test
+        public void teszt_01() {
+            assertFalse("Hibas megoldas", Reakcio.megvalosithato("macska"));
+        }
+
+        @Test
+        public void teszt_02() {
+            assertTrue("Hibas megoldas", Reakcio.megvalosithato("szia"));
+        }
+
+        @Test
+        public void teszt_03() {
+            assertFalse("Hibas megoldas", Reakcio.megvalosithato("egyetertek"));
+        }
+
+        @Test
+        public void teszt_04() {
+            assertFalse("Hibas megoldas", Reakcio.megvalosithato("vajonmegismer"));
+        }
+
+        @Test
+        public void teszt_05() {
+            assertTrue("Hibas megoldas", Reakcio.megvalosithato("abcxyzdefg"));
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1
+solution_hidden: true

@@ -1,0 +1,55 @@
+type: edu
+files:
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Field;
+
+    import static org.junit.Assert.assertTrue;
+
+    public class Tests extends BaseTest {
+        @Test
+        public void nev() {
+            assertTrue("papagaj: nev hibas", testField(Papagaj.class, "nev", String.class, 0));
+        }
+
+        @Test
+        public void szin() {
+            assertTrue("papagaj: szin hibas", testField(Papagaj.class, "szin", String.class, 0));
+        }
+
+        @Test
+        public void szavak() {
+            assertTrue("papagaj: szavak hibas", testField(Papagaj.class, "szavak", String[].class, 0));
+        }
+    }
+  learner_created: false
+- name: src/Papagaj.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 78
+    placeholder_text: // megoldas
+    initial_state:
+      length: 11
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public class Papagaj {
+          String nev;
+          String szin;
+          String[] szavak;
+      }
+  text: // megoldas
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Thu, 29 Feb 2024 19:15:25 UTC"
+record: -1
+solution_hidden: true

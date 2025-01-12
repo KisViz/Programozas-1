@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Tests" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-02-23T19:15:38" hostname="DESKTOP-VL7E782" time="0.005">
+  <properties/>
+  <testcase name="lassu_elkeszites" classname="Tests" time="0.003"/>
+  <testcase name="tavoli_helyek" classname="Tests" time="0.0"/>
+  <testcase name="osszetett_1" classname="Tests" time="0.0"/>
+  <testcase name="osszetett_2" classname="Tests" time="0.0"/>
+  <testcase name="egyszeru" classname="Tests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
